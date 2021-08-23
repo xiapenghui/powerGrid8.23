@@ -303,7 +303,7 @@
       </div>
     </el-dialog>
 
-    <!-- 日志弹出框 -->
+    <!-- 导入文件 -->
     <ImprotFile
       :dialog-visible="dialogVisible"
       :improt-loading="improtLoading"
@@ -453,7 +453,7 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { npList, npDellte, npEdit, allLogs } from '@/api/business'
+import { zkgzList, zkgzDellte, zkgzEdit, allLogs } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 // import logDialog from '@/components/logDialog' // 日志封装
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
@@ -702,7 +702,7 @@ export default {
               const newFeatid = item.id
               idList.push(newFeatid)
             })
-            npDellte(idList).then(res => {
+            zkgzDellte(idList).then(res => {
               if (res.code === 200) {
                 this.$message({
                   type: 'success',
@@ -723,7 +723,7 @@ export default {
     // 获取列表
     getList() {
       this.listLoading = true
-      npList(this.pagination, this.listQuery).then(res => {
+      zkgzList(this.pagination, this.listQuery).then(res => {
         this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
@@ -760,7 +760,7 @@ export default {
       this.editLoading = true
       this.$refs[formName].validate(valid => {
         if (valid) {
-          npEdit(this.ruleForm).then(res => {
+          zkgzEdit(this.ruleForm).then(res => {
             if (res.code === 200) {
               this.$message({
                 type: 'success',

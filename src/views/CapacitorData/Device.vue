@@ -447,7 +447,7 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { npList, npDellte, npEdit, allLogs } from '@/api/business'
+import { fdqList, fdqDellte, fdqEdit, allLogs } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 // import logDialog from '@/components/logDialog' // 日志封装
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
@@ -698,7 +698,7 @@ export default {
               const newFeatid = item.id
               idList.push(newFeatid)
             })
-            npDellte(idList).then(res => {
+            fdqDellte(idList).then(res => {
               if (res.code === 200) {
                 this.$message({
                   type: 'success',
@@ -719,7 +719,7 @@ export default {
     // 获取列表
     getList() {
       this.listLoading = true
-      npList(this.pagination, this.listQuery).then(res => {
+      fdqList(this.pagination, this.listQuery).then(res => {
         // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
@@ -756,7 +756,7 @@ export default {
       this.editLoading = true
       this.$refs[formName].validate(valid => {
         if (valid) {
-          npEdit(this.ruleForm).then(res => {
+          fdqEdit(this.ruleForm).then(res => {
             if (res.code === 200) {
               this.$message({
                 type: 'success',

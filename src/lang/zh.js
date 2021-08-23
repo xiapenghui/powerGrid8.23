@@ -410,7 +410,7 @@ export default {
     prjName: '工程项目名称',
     matCodeOther: '物资编码',
     fixedTechId: '采购技术固化ID',
-    pkgNo: '合同包号',
+    pkgNo: '合同编号',
     bidBatCode: '招标批次号',
     extDes: '固化ID描述',
     matMaxCode: '物资大类编码',
@@ -586,6 +586,26 @@ export default {
     isQualified: '是否合格',
     itemDataSource: '数据来源',
     matVoltageLevel: '原材料电压等级',
+
+    // 2020-08-23
+
+    voltageLevel: '电压等级',
+
+    confirmDvlDate: '确定交货期',
+
+    speModels: '规格型号描述',
+
+    matSupplierName: '原材料的供应商名称',
+
+    storeCity: '存放地点所在市',
+    putStorageTime: '入库时间',
+
+    inventoryCode: '库存批次号',
+    ioType: '出入库类型',
+
+    belongProject: '所属项目',
+
+    poNoCy: '采购订单号',
 
     // 截止
     roles: '你的权限',

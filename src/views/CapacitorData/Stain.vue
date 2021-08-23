@@ -10,7 +10,7 @@
           </el-col>
           <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
         </el-col>
-        <!--
+
         <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
@@ -30,7 +30,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col> -->
+        </el-col>
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -350,7 +350,7 @@
       </div>
     </el-dialog>
 
-    <!-- 日志弹出框 -->
+    <!-- 导入文件 -->
     <ImprotFile
       :dialog-visible="dialogVisible"
       :improt-loading="improtLoading"
@@ -500,7 +500,7 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { npList, npDellte, npEdit, allLogs } from '@/api/business'
+import { jzjList, jzjDellte, jzjEdit, allLogs } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 // import logDialog from '@/components/logDialog' // 日志封装
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
@@ -510,7 +510,7 @@ export default {
   components: { Pagination, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/np/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/linx/dianrongqi_2/import/file',
       myHeaders: { Authorization: this.$store.getters.token }, // 获取token
       // 日志分页
       paginationLog: {
@@ -519,9 +519,7 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [{
-        createTime: '2018-08-23'
-      }],
+      tableData: [],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -766,7 +764,7 @@ export default {
               const newFeatid = item.id
               idList.push(newFeatid)
             })
-            npDellte(idList).then(res => {
+            jzjDellte(idList).then(res => {
               if (res.code === 200) {
                 this.$message({
                   type: 'success',
@@ -787,7 +785,7 @@ export default {
     // 获取列表
     getList() {
       this.listLoading = true
-      npList(this.pagination, this.listQuery).then(res => {
+      jzjList(this.pagination, this.listQuery).then(res => {
         // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
@@ -824,7 +822,7 @@ export default {
       this.editLoading = true
       this.$refs[formName].validate(valid => {
         if (valid) {
-          npEdit(this.ruleForm).then(res => {
+          jzjEdit(this.ruleForm).then(res => {
             if (res.code === 200) {
               this.$message({
                 type: 'success',

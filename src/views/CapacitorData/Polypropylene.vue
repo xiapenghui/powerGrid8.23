@@ -392,7 +392,7 @@
       </div>
     </el-dialog>
 
-    <!-- 日志弹出框 -->
+    <!-- 导入文件 -->
     <ImprotFile
       :dialog-visible="dialogVisible"
       :improt-loading="improtLoading"
@@ -572,7 +572,7 @@ export default {
   },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/np/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/linx/dianrongqi_1/import/file',
       myHeaders: {
         Authorization: this.$store.getters.token
       }, // 获取token
