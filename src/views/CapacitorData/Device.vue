@@ -210,6 +210,13 @@
         </template>
       </el-table-column>
 
+      <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+        <template slot-scope="scope">
+          <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
+          <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
+        </template>
+      </el-table-column>
+
     </el-table>
 
     <!-- 编辑弹窗 -->
@@ -459,7 +466,9 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [],
+      tableData: [{
+        createTime: '2018-08-23'
+      }],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -711,7 +720,7 @@ export default {
     getList() {
       this.listLoading = true
       npList(this.pagination, this.listQuery).then(res => {
-        this.tableData = res.data.records
+        // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })

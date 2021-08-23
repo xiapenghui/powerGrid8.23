@@ -246,21 +246,28 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂名称" prop="saleOrg">
+              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
               <el-form-item label="国网侧供应商编码" prop="supplierCode">
                 <el-input v-model="ruleForm.supplierCode" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"> <el-input v-model="ruleForm.categoryType" /> </el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" />
+            </el-form-item>
             <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" />
             </el-form-item>
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="序列号" prop="serialNo"><el-input v-model="ruleForm.serialNo" />
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" />
+            </el-form-item>
+            <el-form-item label="序列号" prop="serialNo">
+              <el-input v-model="ruleForm.serialNo" />
             </el-form-item>
             <el-form-item label="原材料批次号" prop="rmbNumber">
               <el-input v-model="ruleForm.rmbNumber" />
@@ -287,11 +294,30 @@
               <el-input v-model="ruleForm.filmThickness" :disabled="true" />
             </el-form-item>
 
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+            <el-tooltip class="item" effect="dark" content="电弱点个数(个/m2)" placement="top-start">
               <el-form-item label="电弱点个数(个/m2)" prop="electricalWeakness">
                 <el-input v-model="ruleForm.electricalWeakness" :disabled="true" />
               </el-form-item>
             </el-tooltip>
+
+            <el-form-item label="检查结果附件">
+              <el-upload
+                :class="{ disUoloadSty: noneBtnImg }"
+                :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
+                :data="this.oneDataImg"
+                :headers="this.myHeaders"
+                :limit="this.limitCountImg"
+                list-type="picture-card"
+                :file-list="editFileList"
+                :on-remove="onRemoveImg"
+                :on-success="onsucessImg"
+                :on-change="imgChange"
+                :on-preview="handlePictureCardPreview"
+              >
+                <i slot="default" class="el-icon-plus" />
+              </el-upload>
+              <el-dialog :visible.sync="dialogVisibleImg"><img width="100%" :src="dialogImageUrl" alt=""></el-dialog>
+            </el-form-item>
 
           </div>
           <div class="boxRight">
@@ -332,6 +358,9 @@
                 :disabled="true"
               />
             </el-form-item>
+            <el-form-item label="来料检测报告" prop="incomReport">
+              <el-input v-model="ruleForm.incomReport" :disabled="true" />
+            </el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
               <el-date-picker
                 v-model="ruleForm.checkTime"
@@ -341,32 +370,17 @@
                 :disabled="true"
               />
             </el-form-item>
-            <el-form-item label="电弱点个数额定值" prop="electricalWeaknessUn">
-              <el-input v-model="ruleForm.electricalWeaknessUn" />
-            </el-form-item>
+            <el-tooltip class="item" content="电弱点个数额定值" placement="top-start">
+              <el-form-item label="电弱点个数额定值" prop="electricalWeaknessUn">
+                <el-input v-model="ruleForm.electricalWeaknessUn" />
+              </el-form-item>
+            </el-tooltip>
             <el-tooltip class="item" content="(聚丙烯薄膜)检验结果是否合格" placement="top-start">
               <el-form-item label="(聚丙烯薄膜)检验结果是否合格" prop="isQualify">
                 <el-input v-model="ruleForm.isQualify" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="检查结果附件">
-              <el-upload
-                :class="{ disUoloadSty: noneBtnImg }"
-                :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
-                :data="this.oneDataImg"
-                :headers="this.myHeaders"
-                :limit="this.limitCountImg"
-                list-type="picture-card"
-                :file-list="editFileList"
-                :on-remove="onRemoveImg"
-                :on-success="onsucessImg"
-                :on-change="imgChange"
-                :on-preview="handlePictureCardPreview"
-              >
-                <i slot="default" class="el-icon-plus" />
-              </el-upload>
-              <el-dialog :visible.sync="dialogVisibleImg"><img width="100%" :src="dialogImageUrl" alt=""></el-dialog>
-            </el-form-item>
+
           </div>
         </div>
         <!-- <div class="bigDownBox"></div> -->

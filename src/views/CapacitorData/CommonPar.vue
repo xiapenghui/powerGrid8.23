@@ -121,6 +121,7 @@
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
         </template>
       </el-table-column>
+
     </el-table>
 
     <!-- 编辑弹窗 -->
