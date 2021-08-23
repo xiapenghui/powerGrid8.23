@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierWorkNo') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
+          </el-col>
         </el-col>
         <!--
         <el-col :span="8">
@@ -248,9 +250,57 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" />
+              </el-form-item>
+            </el-tooltip>
+            <el-form-item label="物资品类类型" prop="categoryType"> <el-input v-model="ruleForm.categoryType" /> </el-form-item>
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+              <el-input v-model="ruleForm.alarmItem" />
+            </el-form-item>
+            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
+            <el-form-item label="序列号" prop="serialNo"><el-input v-model="ruleForm.serialNo" />
+            </el-form-item>
+            <el-form-item label="原材料批次号" prop="rmbNumber">
+              <el-input v-model="ruleForm.rmbNumber" />
+            </el-form-item>
+            <el-form-item label="原材料制造商" prop="RawmManufacturer">
+              <el-input v-model="ruleForm.RawmManufacturer" />
+            </el-form-item>
+            <el-form-item label="原材料规格型号" prop="mrmSpecification">
+              <el-input v-model="ruleForm.mrmSpecification" />
+            </el-form-item>
+            <el-form-item label="来料检验日期" prop="incomDate">
+              <el-date-picker
+                v-model="ruleForm.incomDate"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
+            <el-form-item label="来料检测报告" prop="incomReport">
+              <el-input v-model="ruleForm.incomReport" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="薄膜厚度(µm)" prop="filmThickness">
+              <el-input v-model="ruleForm.filmThickness" :disabled="true" />
+            </el-form-item>
 
+            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+              <el-form-item label="电弱点个数(个/m2)" prop="electricalWeakness">
+                <el-input v-model="ruleForm.electricalWeakness" :disabled="true" />
+              </el-form-item>
+            </el-tooltip>
+
+          </div>
+          <div class="boxRight">
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" />
+            </el-form-item>
+            <el-form-item label="规格型号编码默认" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" />
+            </el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
@@ -258,40 +308,48 @@
                 </el-select>
               </el-form-item>
             </el-tooltip>
-
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
+            <el-form-item label="感知过程" prop="processType">
+              <el-input v-model="ruleForm.processType" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" />
+            </el-form-item>
+            <el-form-item label="原材料检验批次号" prop="rmibNumber">
+              <el-input v-model="ruleForm.rmibNumber" />
+            </el-form-item>
+            <el-form-item label="原材料品牌" prop="borMaterials">
+              <el-input v-model="ruleForm.borMaterials" />
+            </el-form-item>
+            <el-form-item label="原材料产地" prop="oorMaterials">
+              <el-input v-model="ruleForm.oorMaterials" />
+            </el-form-item>
+            <el-form-item label="原材料出厂日期" prop="manufactureDate">
+              <el-date-picker
+                v-model="ruleForm.manufactureDate"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
             </el-form-item>
-            <el-form-item label="国网PO" prop="rawMaterialSN"><el-input v-model="ruleForm.rawMaterialSN" :disabled="true" /></el-form-item>
-            <el-form-item label="镀银层厚度(μm)" prop="silveringThickness"><el-input v-model="ruleForm.silveringThickness" /></el-form-item>
-            <el-form-item label="额定电流"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
-            <el-form-item label="母排宽"><el-input v-model="ruleForm.wideBusbar" /></el-form-item>
-            <el-form-item label="叠放类型"><el-input v-model="ruleForm.stackingType" /></el-form-item>
-            <el-form-item label="电导率(%IACS)" prop="electricalConductivity"><el-input v-model="ruleForm.electricalConductivity" /></el-form-item>
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            <el-form-item label="电弱点个数额定值" prop="electricalWeaknessUn">
+              <el-input v-model="ruleForm.electricalWeaknessUn" />
+            </el-form-item>
+            <el-tooltip class="item" content="(聚丙烯薄膜)检验结果是否合格" placement="top-start">
+              <el-form-item label="(聚丙烯薄膜)检验结果是否合格" prop="isQualify">
+                <el-input v-model="ruleForm.isQualify" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
-
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
-            </el-form-item>
-
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
-            <el-form-item label="材质"><el-input v-model="ruleForm.texture" /></el-form-item>
-            <el-form-item label="倒角"><el-input v-model="ruleForm.chamfering" /></el-form-item>
-            <el-form-item label="母排长"><el-input v-model="ruleForm.longBusbar" /></el-form-item>
-            <el-form-item label="母排片数"><el-input v-model="ruleForm.sliceBusbar" /></el-form-item>
-            <el-form-item label="截面积"><el-input v-model="ruleForm.sectionalArea" /></el-form-item>
-            <el-form-item label="母排附件">
-              <!-- action="http://39.101.166.244/api/image/upload" -->
+            <el-form-item label="检查结果附件">
               <el-upload
                 :class="{ disUoloadSty: noneBtnImg }"
                 :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
@@ -459,10 +517,22 @@
         <el-table-column property="modelName" label="模块名称" align="center" width="150px" />
         <el-table-column label="消息日志" align="center" prop="message" />
       </el-table>
-      <pagination v-show="logTotal > 0" :total="logTotal" :current.sync="paginationLog.current" :size.sync="paginationLog.size" @pagination="getLogList" />
+      <pagination
+        v-show="logTotal > 0"
+        :total="logTotal"
+        :current.sync="paginationLog.current"
+        :size.sync="paginationLog.size"
+        @pagination="getLogList"
+      />
     </el-dialog>
 
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -470,18 +540,28 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { npList, npDellte, npEdit, allLogs } from '@/api/business'
+import {
+  npList,
+  npDellte,
+  npEdit,
+  allLogs
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 // import logDialog from '@/components/logDialog' // 日志封装
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
 const fixHeight = 270
 export default {
   name: 'BusInformation',
-  components: { Pagination, ImprotFile },
+  components: {
+    Pagination,
+    ImprotFile
+  },
   data() {
     return {
       productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/np/import/file',
-      myHeaders: { Authorization: this.$store.getters.token }, // 获取token
+      myHeaders: {
+        Authorization: this.$store.getters.token
+      }, // 获取token
       // 日志分页
       paginationLog: {
         current: 1,
@@ -489,7 +569,9 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [],
+      tableData: [{
+        createTime: '2018-08-23'
+      }],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -517,78 +599,205 @@ export default {
       disabled: false,
       imgList: [], // 批量上传图片数组
       fileList: [],
-      newDataImg: { id: '', imagePath: '', modelName: '母排' }, // 多个图片上传
-      oneDataImg: { id: '', imagePath: '', modelName: '母排' }, // 单个图片上传或替换之前的图片
+      newDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '母排'
+      }, // 多个图片上传
+      oneDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '母排'
+      }, // 单个图片上传或替换之前的图片
       editRow: {},
       editFileList: [],
       noneBtnImg: false, // 隐藏上传按钮
       limitCountImg: 1, // 上传图片的最大数量
       isAlarmItem: false,
       content1: this.$t('permission.supplierWorkNo'),
-      isAlarmDataList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
       pickerOptions: {
-        shortcuts: [
-          {
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近六个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
-              picker.$emit('pick', [start, end])
-            }
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
           }
+        },
+        {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近六个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
+            picker.$emit('pick', [start, end])
+          }
+        }
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        rawMaterialSN: [{ required: true, message: '请输入国网PO', trigger: 'blur' }],
-        silveringThickness: [{ required: true, message: '请输入镀银层厚度(μm)', trigger: 'blur' }],
-        electricalConductivity: [{ required: true, message: '请输入电导率(%IACS)', trigger: 'blur' }]
+        saleOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        standardVersion: [{
+          required: true,
+          message: '请输入采集规范版本号',
+          trigger: 'blur'
+        }],
+
+        supplierCode: [{
+          required: true,
+          message: '请输入国网侧供应商编码',
+          trigger: 'blur'
+        }],
+        modelCode: [{
+          required: true,
+          message: '请输入规格型号编码',
+          trigger: 'blur'
+        }],
+        categoryType: [{
+          required: true,
+          message: '请输入物资品类类型',
+          trigger: 'blur'
+        }],
+        isAlarmData: [{
+          required: true,
+          message: '请输入是否是告警问题数据',
+          trigger: 'blur'
+        }],
+        alarmItem: [{
+          required: true,
+          message: '请输入告警项',
+          trigger: 'blur'
+        }],
+
+        processType: [{
+          required: true,
+          message: '请输入感知过程',
+          trigger: 'blur'
+        }],
+        pdCode: [{
+          required: true,
+          message: '请输入工序',
+          trigger: 'blur'
+        }],
+
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号',
+          trigger: 'blur'
+        }],
+        serialNo: [{
+          required: true,
+          message: '请输入序列号',
+          trigger: 'blur'
+        }],
+        rmibNumber: [{
+          required: true,
+          message: '请输入原材料检验批次号',
+          trigger: 'blur'
+        }],
+        rmbNumber: [{
+          required: true,
+          message: '请输入原材料批次号',
+          trigger: 'blur'
+        }],
+        borMaterials: [{
+          required: true,
+          message: '原材料品牌',
+          trigger: 'blur'
+        }],
+        RawmManufacturer: [{
+          required: true,
+          message: '请输入原材料制造商',
+          trigger: 'blur'
+        }],
+        oorMaterials: [{
+          required: true,
+          message: '请输入原材料产地',
+          trigger: 'blur'
+        }],
+        mrmSpecification: [{
+          required: true,
+          message: '请输入原材料规格型号',
+          trigger: 'blur'
+        }],
+        manufactureDate: [{
+          required: true,
+          message: '请输入原材料出厂日期',
+          trigger: 'blur'
+        }],
+        incomDate: [{
+          required: true,
+          message: '请输入来料检验日期',
+          trigger: 'blur'
+        }],
+        incomReport: [{
+          required: true,
+          message: '请输入来料检测报告',
+          trigger: 'blur'
+        }],
+        manuReport: [{
+          required: true,
+          message: '请输入生产商检测报告',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        filmThickness: [{
+          required: true,
+          message: '请输入薄膜厚度(µm)',
+          trigger: 'blur'
+        }],
+        electricalWeaknessUn: [{
+          required: true,
+          message: '请输入电弱点个数额定值',
+          trigger: 'blur'
+        }],
+        electricalWeakness: [{
+          required: true,
+          message: '请输入电弱点个数(个/m2)',
+          trigger: 'blur'
+        }],
+        isQualify: [{
+          required: true,
+          message: '请输入(聚丙烯薄膜)检验结果是否合格',
+          trigger: 'blur'
+        }]
+
       }
     }
   },
@@ -684,7 +893,9 @@ export default {
     // 点击日志
     clickLogs(row) {
       this.logId = row
-      allLogs(this.paginationLog, { dataId: row.id }).then(res => {
+      allLogs(this.paginationLog, {
+        dataId: row.id
+      }).then(res => {
         if (res.data.records.length > 0) {
           this.dialogTableVisible = true
           res.data.records.map(item => {
@@ -708,7 +919,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -741,7 +953,7 @@ export default {
     getList() {
       this.listLoading = true
       npList(this.pagination, this.listQuery).then(res => {
-        this.tableData = res.data.records
+        // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })
@@ -920,12 +1132,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.disUoloadSty ::v-deep .el-upload--picture-card {
-  display: none !important;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .disUoloadSty ::v-deep .el-upload--picture-card {
+    display: none !important;
+  }
 </style>
