@@ -194,9 +194,27 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            </el-tooltip>
+            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
+            <el-form-item label="供应商产品编号" prop="supplierSupportId"><el-input v-model="ruleForm.supplierSupportId" /></el-form-item>
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+              <el-input v-model="ruleForm.alarmItem" />
+            </el-form-item>
+            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" /></el-form-item>
+            <el-form-item label="生产设备名称" prop="equipmentName"><el-input v-model="ruleForm.equipmentName" /></el-form-item>
+            <el-form-item label="采集时间" prop="checkTime">
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            </el-form-item>
+            <el-form-item label="额定温度下限值" prop="temperatureMin"><el-input v-model="ruleForm.temperatureMin" /></el-form-item>
 
+          </div>
+          <div class="boxRight">
+            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-form-item label="厂区编号" prop="factoryCode"><el-input v-model="ruleForm.factoryCode" /></el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
@@ -204,38 +222,15 @@
                 </el-select>
               </el-form-item>
             </el-tooltip>
-
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
-            </el-form-item>
-            <el-form-item label="国网PO" prop="rawMaterialSN"><el-input v-model="ruleForm.rawMaterialSN" :disabled="true" /></el-form-item>
-            <el-form-item label="镀银层厚度(μm)" prop="silveringThickness"><el-input v-model="ruleForm.silveringThickness" /></el-form-item>
-            <el-form-item label="额定电流"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
-            <el-form-item label="母排宽"><el-input v-model="ruleForm.wideBusbar" /></el-form-item>
-            <el-form-item label="叠放类型"><el-input v-model="ruleForm.stackingType" /></el-form-item>
-            <el-form-item label="电导率(%IACS)" prop="electricalConductivity"><el-input v-model="ruleForm.electricalConductivity" /></el-form-item>
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
-            </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
-
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
-            </el-form-item>
-
             <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
-            <el-form-item label="材质"><el-input v-model="ruleForm.texture" /></el-form-item>
-            <el-form-item label="倒角"><el-input v-model="ruleForm.chamfering" /></el-form-item>
-            <el-form-item label="母排长"><el-input v-model="ruleForm.longBusbar" /></el-form-item>
-            <el-form-item label="母排片数"><el-input v-model="ruleForm.sliceBusbar" /></el-form-item>
-            <el-form-item label="截面积"><el-input v-model="ruleForm.sectionalArea" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="供应商数据唯一标识" placement="top-start">
+              <el-form-item label="供应商数据唯一标识" prop="productModel"><el-input v-model="ruleForm.productModel" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="生产设备唯一识别号" placement="top-start">
+              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode"><el-input v-model="ruleForm.equipmentUniqueCode" /></el-form-item>
+            </el-tooltip>
+            <el-form-item label="额定温度上限值" prop="temperatureMax"><el-input v-model="ruleForm.temperatureMax" /></el-form-item>
+
             <el-form-item label="母排附件">
               <!-- action="http://39.101.166.244/api/image/upload" -->
               <el-upload
@@ -435,7 +430,9 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [],
+      tableData: [{
+        createTime: '2018-08-23'
+      }],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -687,7 +684,7 @@ export default {
     getList() {
       this.listLoading = true
       npList(this.pagination, this.listQuery).then(res => {
-        this.tableData = res.data.records
+        // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })

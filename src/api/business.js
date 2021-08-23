@@ -990,3 +990,409 @@ export function zgjbfdsyEdit(data) {
     data
   })
 }
+
+// 聚丙烯薄膜列表
+// 聚丙烯薄膜列表接口
+export function jbxList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_1/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 聚丙烯薄膜删除接口
+export function jbxDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_1/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 聚丙烯薄膜编辑保存接口
+export function jbxEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_1/update',
+    method: 'post',
+    data
+  })
+}
+
+// 浸渍剂列表
+// 浸渍剂列表接口
+export function jzjList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_2/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 浸渍剂删除接口
+export function jzjDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_2/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 浸渍剂编辑保存接口
+export function jzjEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_2/update',
+    method: 'post',
+    data
+  })
+}
+
+// 原材料组部件检验列表
+// 原材料组部件检验列表接口
+export function yclList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_3/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 原材料组部件检验删除接口
+export function yclDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_3/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 原材料组部件检验编辑保存接口
+export function yclEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_3/update',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的温度列表
+// 净化车间的温度列表接口
+export function wdList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_4/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 净化车间的温度删除接口
+export function wdDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_4/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的温度编辑保存接口
+export function wdEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_4/update',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的湿度列表
+// 净化车间的湿度列表接口
+export function sdList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_5/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 净化车间的湿度删除接口
+export function sdDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_5/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的湿度编辑保存接口
+export function sdEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_5/update',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的洁净度列表
+// 净化车间的洁净度列表接口
+export function jjdList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_6/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 净化车间的洁净度删除接口
+export function jjdDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_6/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 净化车间的洁净度编辑保存接口
+export function jjdEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_6/update',
+    method: 'post',
+    data
+  })
+}
+
+// 真空干燥浸渍系统列表
+// 真空干燥浸渍系统列表接口
+export function zkgzList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_7/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 真空干燥浸渍系统删除接口
+export function zkgzDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_7/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 真空干燥浸渍系统编辑保存接口
+export function zkgzEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_7/update',
+    method: 'post',
+    data
+  })
+}
+
+// 极间交流耐压试验列表
+// 极间交流耐压试验列表接口
+export function jjjlList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_8/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 极间交流耐压试验删除接口
+export function jjjlDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_8/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 极间交流耐压试验编辑保存接口
+export function jjjlEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_8/update',
+    method: 'post',
+    data
+  })
+}
+
+// 极对壳交流耐压试验列表
+// 极对壳交流耐压试验列表接口
+export function jdkList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_9/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 极对壳交流耐压试验删除接口
+export function jdkDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_9/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 极对壳交流耐压试验编辑保存接口
+export function jdkEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_9/update',
+    method: 'post',
+    data
+  })
+}
+
+// 局部放电测量(极间)列表
+// 局部放电测量(极间)表接口
+export function jbfdList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_10/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 局部放电测量(极间)删除接口
+export function jbfdDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_10/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 局部放电测量(极间)编辑保存接口
+export function jbfdEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_10/update',
+    method: 'post',
+    data
+  })
+}
+
+// 电容测量列表
+// 电容测量表接口
+export function drclList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_11/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 电容测量删除接口
+export function drclDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_11/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 电容测量编辑保存接口
+export function drclEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_11/update',
+    method: 'post',
+    data
+  })
+}
+
+// 电容器损耗角正切(tanδ)测量列表
+// 电容器损耗角正切(tanδ)测量表接口
+export function drqshList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_12/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 电容器损耗角正切(tanδ)测量删除接口
+export function drqshDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_12/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 电容器损耗角正切(tanδ)测量编辑保存接口
+export function drqshEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_12/update',
+    method: 'post',
+    data
+  })
+}
+
+// 内熔丝放电试验测量列表
+// 内熔丝放电试验测量表接口
+export function nrsList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_13/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 内熔丝放电试验测量删除接口
+export function nrsDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_13/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 内熔丝放电试验测量编辑保存接口
+export function nrsEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_13/update',
+    method: 'post',
+    data
+  })
+}
+
+// 放电器件检查列表
+// 放电器件检查表接口
+export function fdqList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_14/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 放电器件检查删除接口
+export function fdqDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_14/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 放电器件检查编辑保存接口
+export function fdqEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_14/update',
+    method: 'post',
+    data
+  })
+}

@@ -254,9 +254,41 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            </el-tooltip>
+            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+              <el-input v-model="ruleForm.alarmItem" />
+            </el-form-item>
+            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
+            <el-form-item label="序列号" prop="serialNo"><el-input v-model="ruleForm.serialNo" /></el-form-item>
 
+            <el-form-item label="原材料批次号" prop="rmbNumber"><el-input v-model="ruleForm.rmbNumber" /></el-form-item>
+
+            <el-form-item label="原材料制造商" prop="RawmManufacturer"><el-input v-model="ruleForm.RawmManufacturer" /></el-form-item>
+            <el-form-item label="原材料规格型号" prop="mrmSpecification"><el-input v-model="ruleForm.mrmSpecification" /></el-form-item>
+            <el-form-item label="来料检验日期" prop="incomDate">
+              <el-date-picker v-model="ruleForm.incomDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="生产商检测报告" prop="manuReport"><el-input v-model="ruleForm.manuReport" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="额定击穿电压值，单位 kV/mm" placement="top-start">
+              <el-form-item label="额定击穿电压值，单位 kV/mm" prop="breakdownVoltageUn"><el-input v-model="ruleForm.breakdownVoltageUn" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="微量水分额定值，单位ppm" placement="top-start">
+              <el-form-item label="微量水分额定值，单位ppm" prop="microWaterUn"><el-input v-model="ruleForm.microWaterUn" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="介质损耗额定值，tanδ（90℃）" placement="top-start">
+              <el-form-item label="介质损耗额定值，tanδ（90℃）" prop="dielectricLossUn"><el-input v-model="ruleForm.dielectricLossUn" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="(浸渍剂)检验结果是否合格" placement="top-start">
+              <el-form-item label="(浸渍剂)检验结果是否合格" prop="isQualify"><el-input v-model="ruleForm.isQualify" /></el-form-item>
+            </el-tooltip>
+
+          </div>
+          <div class="boxRight">
+            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
@@ -264,39 +296,31 @@
                 </el-select>
               </el-form-item>
             </el-tooltip>
-
             <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="原材料检验批次号" placement="top-start">
+              <el-form-item label="原材料检验批次号" prop="rmibNumber"><el-input v-model="ruleForm.rmibNumber" /></el-form-item>
+            </el-tooltip>
+            <el-form-item label="原材料品牌" prop="borMaterials"><el-input v-model="ruleForm.borMaterials" /></el-form-item>
+            <el-form-item label="原材料产地" prop="oorMaterials"><el-input v-model="ruleForm.oorMaterials" /></el-form-item>
+            <el-form-item label="原材料出厂日期" prop="manufactureDate">
+              <el-date-picker v-model="ruleForm.manufactureDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="来料检测报告" prop="incomReport"><el-input v-model="ruleForm.incomReport" /></el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
               <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
-            <el-form-item label="国网PO" prop="rawMaterialSN"><el-input v-model="ruleForm.rawMaterialSN" :disabled="true" /></el-form-item>
-            <el-form-item label="镀银层厚度(μm)" prop="silveringThickness"><el-input v-model="ruleForm.silveringThickness" /></el-form-item>
-            <el-form-item label="额定电流"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
-            <el-form-item label="母排宽"><el-input v-model="ruleForm.wideBusbar" /></el-form-item>
-            <el-form-item label="叠放类型"><el-input v-model="ruleForm.stackingType" /></el-form-item>
-            <el-form-item label="电导率(%IACS)" prop="electricalConductivity"><el-input v-model="ruleForm.electricalConductivity" /></el-form-item>
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="击穿电压值，单位 kV/mm" placement="top-start">
+              <el-form-item label="击穿电压值，单位 kV/mm" prop="breakdownVoltage"><el-input v-model="ruleForm.breakdownVoltage" /></el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="微量水分值，单位ppm" placement="top-start">
+              <el-form-item label="微量水分值，单位ppm" prop="microWater"><el-input v-model="ruleForm.microWater" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="介质损耗值，tanδ（90℃）" placement="top-start">
+              <el-form-item label="介质损耗值，tanδ（90℃）" prop="dielectricLoss"><el-input v-model="ruleForm.dielectricLoss" /></el-form-item>
+            </el-tooltip>
 
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
-            </el-form-item>
-
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
-            <el-form-item label="材质"><el-input v-model="ruleForm.texture" /></el-form-item>
-            <el-form-item label="倒角"><el-input v-model="ruleForm.chamfering" /></el-form-item>
-            <el-form-item label="母排长"><el-input v-model="ruleForm.longBusbar" /></el-form-item>
-            <el-form-item label="母排片数"><el-input v-model="ruleForm.sliceBusbar" /></el-form-item>
-            <el-form-item label="截面积"><el-input v-model="ruleForm.sectionalArea" /></el-form-item>
-            <el-form-item label="母排附件">
+            <el-form-item label="(浸渍剂)检查结果附件">
               <!-- action="http://39.101.166.244/api/image/upload" -->
               <el-upload
                 :class="{ disUoloadSty: noneBtnImg }"
@@ -495,7 +519,9 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [],
+      tableData: [{
+        createTime: '2018-08-23'
+      }],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -591,10 +617,25 @@ export default {
         processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
         pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
         checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        rawMaterialSN: [{ required: true, message: '请输入国网PO', trigger: 'blur' }],
-        silveringThickness: [{ required: true, message: '请输入镀银层厚度(μm)', trigger: 'blur' }],
-        electricalConductivity: [{ required: true, message: '请输入电导率(%IACS)', trigger: 'blur' }]
+        manufactureDate: [{ required: true, message: '请输入原材料出厂日期', trigger: 'blur' }],
+        incomDate: [{ required: true, message: '请输入来料检验日期', trigger: 'blur' }],
+        rmibNumber: [{ required: true, message: '请输入原材料检验批次号', trigger: 'blur' }],
+        rmbNumber: [{ required: true, message: '请输入原材料批次号', trigger: 'blur' }],
+        borMaterials: [{ required: true, message: '请输入原材料品牌)', trigger: 'blur' }],
+        isAlarmData: [{ required: true, message: '请输入是否是警告项)', trigger: 'blur' }],
+        alarmItem: [{ required: true, message: '请输入警告项)', trigger: 'blur' }],
+        RawmManufacturer: [{ required: true, message: '请输入原材料制造商)', trigger: 'blur' }],
+        oorMaterials: [{ required: true, message: '请输入原材料产地)', trigger: 'blur' }],
+        mrmSpecification: [{ required: true, message: '请输入原材料规格型号)', trigger: 'blur' }],
+        incomReport: [{ required: true, message: '请输入来料检测报告)', trigger: 'blur' }],
+        manuReport: [{ required: true, message: '请输入生产商检测报告)', trigger: 'blur' }],
+        breakdownVoltageUn: [{ required: true, message: '请输入额定击穿电压值，单位 kV/mm)', trigger: 'blur' }],
+        breakdownVoltage: [{ required: true, message: '请输入击穿电压值，单位 kV/mm)', trigger: 'blur' }],
+        microWaterUn: [{ required: true, message: '请输入微量水分额定值，单位ppm)', trigger: 'blur' }],
+        microWater: [{ required: true, message: '请输入微量水分值，单位ppm)', trigger: 'blur' }],
+        dielectricLossUn: [{ required: true, message: '请输入介质损耗额定值，tanδ（90℃）)', trigger: 'blur' }],
+        dielectricLoss: [{ required: true, message: '请输入介质损耗值，tanδ（90℃）)', trigger: 'blur' }],
+        isQualify: [{ required: true, message: '请输入(浸渍剂)检验结果是否合格)', trigger: 'blur' }]
       }
     }
   },
@@ -747,7 +788,7 @@ export default {
     getList() {
       this.listLoading = true
       npList(this.pagination, this.listQuery).then(res => {
-        this.tableData = res.data.records
+        // this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })
