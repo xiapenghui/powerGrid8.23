@@ -12,7 +12,7 @@
             <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
           </el-col>
         </el-col>
-        <!--
+
         <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
@@ -32,7 +32,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col> -->
+        </el-col>
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -555,9 +555,9 @@ import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
 import {
-  npList,
-  npDellte,
-  npEdit,
+  jbxList,
+  jbxDellte,
+  jbxEdit,
   allLogs
 } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
@@ -583,9 +583,7 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [{
-        createTime: '2018-08-23'
-      }],
+      tableData: [],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -945,7 +943,7 @@ export default {
               const newFeatid = item.id
               idList.push(newFeatid)
             })
-            npDellte(idList).then(res => {
+            jbxDellte(idList).then(res => {
               if (res.code === 200) {
                 this.$message({
                   type: 'success',
@@ -966,8 +964,8 @@ export default {
     // 获取列表
     getList() {
       this.listLoading = true
-      npList(this.pagination, this.listQuery).then(res => {
-        // this.tableData = res.data.records
+      jbxList(this.pagination, this.listQuery).then(res => {
+        this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })
@@ -1003,7 +1001,7 @@ export default {
       this.editLoading = true
       this.$refs[formName].validate(valid => {
         if (valid) {
-          npEdit(this.ruleForm).then(res => {
+          jbxEdit(this.ruleForm).then(res => {
             if (res.code === 200) {
               this.$message({
                 type: 'success',
