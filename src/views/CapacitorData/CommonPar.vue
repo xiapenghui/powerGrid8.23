@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierCode') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierCode" :placeholder="$t('permission.supplierCode')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierCode" :placeholder="$t('permission.supplierCode')" clearable />
+          </el-col>
         </el-col>
 
         <!-- <el-col :span="8">
@@ -126,16 +128,44 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog :close-on-click-modal="false" :visible.sync="dialogFormVisible" :title="dialogType === 'edit' ? $t('permission.editSupplier') : $t('permission.addSupplier')">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="200px" label-position="left">
-        <el-form-item label="采集规范版本号默认:1" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-        <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
-        <el-form-item label="规格型号编码" prop="supplierCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
-        <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
-        <el-form-item label="厂区编号" prop="factoryCode"><el-input v-model="ruleForm.factoryCode" /></el-form-item>
-        <el-form-item label="是否是告警问题数据" prop="isAlarmData"><el-input v-model="ruleForm.isAlarmData" /></el-form-item>
-        <el-form-item label="告警项" prop="alarmItem"><el-input v-model="ruleForm.alarmItem" /></el-form-item>
-        <el-form-item label="感知过程默认1" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
-        <el-form-item label="工序默认:GX000006" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
+      <el-form
+        ref="ruleForm"
+        v-loading="editLoading"
+        :model="ruleForm"
+        :rules="rules"
+        label-width="200px"
+        label-position="left"
+      >
+        <el-form-item label="采集规范版本号默认:1" prop="standardVersion">
+          <el-input v-model="ruleForm.standardVersion" />
+        </el-form-item>
+        <el-form-item label="国网侧供应商编码" prop="supplierCode">
+          <el-input v-model="ruleForm.supplierCode" />
+        </el-form-item>
+        <el-form-item label="规格型号编码" prop="supplierCode">
+          <el-input v-model="ruleForm.modelCode" />
+        </el-form-item>
+        <el-form-item label="物资品类类型" prop="categoryType">
+          <el-input v-model="ruleForm.categoryType" />
+        </el-form-item>
+        <el-form-item label="厂区编号" prop="factoryCode">
+          <el-input v-model="ruleForm.factoryCode" />
+        </el-form-item>
+        <el-form-item label="是否是告警问题数据" prop="isAlarmData">
+          <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
+            <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+          <el-input v-model="ruleForm.alarmItem" />
+        </el-form-item>
+        <el-form-item label="感知过程默认1" prop="processType">
+          <el-input v-model="ruleForm.processType" />
+        </el-form-item>
+        <el-form-item label="工序默认:GX000006" prop="pdCode">
+          <el-input v-model="ruleForm.pdCode" />
+        </el-form-item>
       </el-form>
 
       <div slot="footer" class="dialog-footer">
@@ -143,7 +173,13 @@
         <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
       </div>
     </el-dialog>
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -151,11 +187,18 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { supplierList, supplierDellte, supplierEdit, supplierAdd } from '@/api/business'
+import {
+  supplierList,
+  supplierDellte,
+  supplierEdit,
+  supplierAdd
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 const fixHeight = 280
 export default {
-  components: { Pagination },
+  components: {
+    Pagination
+  },
   data() {
     return {
       // 日志分页
@@ -184,21 +227,80 @@ export default {
       dialogFormVisible: false, // 编辑弹出框
       content1: this.$t('permission.supplierCode'),
       dialogType: 'new',
+      isAlarmItem: false,
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
+      ],
+
       rules: {
-        standardVersion: [{ required: true, message: '请输入采集规范版本号默认', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        factoryCode: [{ required: true, message: '厂区编号', trigger: 'blur' }],
-        isAlarmData: [{ required: true, message: '请输入是否是告警问题数据', trigger: 'blur' }],
-        alarmItem: [{ required: true, message: '请输入告警项', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }]
+        standardVersion: [{
+          required: true,
+          message: '请输入采集规范版本号默认',
+          trigger: 'blur'
+        }],
+        supplierCode: [{
+          required: true,
+          message: '请输入国网侧供应商编码',
+          trigger: 'blur'
+        }],
+        modelCode: [{
+          required: true,
+          message: '请输入规格型号编码',
+          trigger: 'blur'
+        }],
+        categoryType: [{
+          required: true,
+          message: '请输入物资品类类型',
+          trigger: 'blur'
+        }],
+        factoryCode: [{
+          required: true,
+          message: '厂区编号',
+          trigger: 'blur'
+        }],
+        isAlarmData: [{
+          required: true,
+          message: '请输入是否是告警问题数据',
+          trigger: 'blur'
+        }],
+        alarmItem: [{
+          required: true,
+          message: '请输入告警项',
+          trigger: 'blur'
+        }],
+        processType: [{
+          required: true,
+          message: '请输入感知过程',
+          trigger: 'blur'
+        }],
+        pdCode: [{
+          required: true,
+          message: '请输入工序',
+          trigger: 'blur'
+        }]
       }
     }
   },
   computed: {},
   watch: {
+
+    // 监听警告0或1
+    'ruleForm.isAlarmData': {
+      handler(val) {
+        this.ruleForm.isAlarmData = val
+        if (val === 0) {
+          this.isAlarmItem = false
+        } else {
+          this.isAlarmItem = true
+        }
+      }
+    },
     // 监听表格高度
     tableHeight(val) {
       if (!this.timer) {
@@ -279,7 +381,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -384,9 +487,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>

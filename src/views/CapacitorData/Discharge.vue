@@ -245,52 +245,147 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-form-item label="工厂名称" prop="saleOrg">
+              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            </el-form-item>
+            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" :disabled="true" />
+              </el-form-item>
+            </el-tooltip>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierSupportId">
+              <el-input v-model="ruleForm.supplierSupportId" />
+            </el-form-item>
 
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+              <el-input v-model="ruleForm.alarmItem" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" :disabled="true" />
+            </el-form-item>
+
+            <el-tooltip class="item" effect="dark" content="供应商数据唯一标识(成套序列号)" placement="top-start">
+              <el-form-item label="供应商数据唯一标识(成套序列号)" prop="productModel">
+                <el-input v-model="ruleForm.productModel" />
+              </el-form-item>
+            </el-tooltip>
+
+            <el-tooltip class="item" effect="dark" content="供应商数据唯一标识(电容器序列号)" placement="top-start">
+              <el-form-item label="供应商数据唯一标识(电容器序列号)" prop="cabSN">
+                <el-input v-model="ruleForm.cabSN" />
+              </el-form-item>
+            </el-tooltip>
+
+            <el-form-item label="试验结束时间" prop="stopTime">
+              <el-date-picker
+                v-model="ruleForm.stopTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
+
+            <el-form-item label="生产设备名称" prop="equipmentName">
+              <el-input v-model="ruleForm.equipmentName" />
+            </el-form-item>
+
+            <el-form-item label="采集时间">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+
+            <el-tooltip class="item" effect="dark" content="电压值单位是kV，保留三位小数" placement="top-start">
+              <el-form-item label="电压值单位是kV，保留三位小数" prop="voltage">
+                <el-input v-model="ruleForm.voltage" />
+              </el-form-item>
+            </el-tooltip>
+
+            <el-form-item label="时长单位是s" prop="capacitance">
+              <el-input v-model="ruleForm.duration" />
+            </el-form-item>
+
+            <el-form-item label="局放电量单位是pC" prop="parDischange">
+              <el-input v-model="ruleForm.parDischange" />
+            </el-form-item>
+
+          </div>
+          <div class="boxRight">
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="厂区编号" prop="factoryCode">
+              <el-input v-model="ruleForm.factoryCode" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
-                <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
+                <el-select v-model="ruleForm.isAlarmData" placeholder="请选择" :disabled="true">
                   <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
-
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+            <el-form-item label="感知过程默认1" prop="processType">
+              <el-input v-model="ruleForm.processType" :disabled="true" />
             </el-form-item>
-            <el-form-item label="国网PO" prop="rawMaterialSN"><el-input v-model="ruleForm.rawMaterialSN" :disabled="true" /></el-form-item>
-            <el-form-item label="镀银层厚度(μm)" prop="silveringThickness"><el-input v-model="ruleForm.silveringThickness" /></el-form-item>
-            <el-form-item label="额定电流"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
-            <el-form-item label="母排宽"><el-input v-model="ruleForm.wideBusbar" /></el-form-item>
-            <el-form-item label="叠放类型"><el-input v-model="ruleForm.stackingType" /></el-form-item>
-            <el-form-item label="电导率(%IACS)" prop="electricalConductivity"><el-input v-model="ruleForm.electricalConductivity" /></el-form-item>
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+
+            <el-tooltip class="item" effect="dark" content="供应商工单编号（成套工单）" placement="top-start">
+              <el-form-item label="供应商工单编号（成套工单）" prop="supplierWorkNo">
+                <el-input v-model="ruleForm.supplierWorkNo" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
 
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
+            <el-tooltip class="item" effect="dark" content="供应商工单编号（电容器工单)" placement="top-start">
+              <el-form-item label="供应商工单编号（电容器工单)">
+                <el-input v-model="ruleForm.cabWorkNo" />
+              </el-form-item>
+            </el-tooltip>
+
+            <el-form-item label="试验开始时间" prop="startTime">
+              <el-date-picker
+                v-model="ruleForm.startTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
             </el-form-item>
 
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="试验结果" prop="inspectionResults">
+              <el-input v-model="ruleForm.inspectionResults" />
             </el-form-item>
-            <el-form-item label="材质"><el-input v-model="ruleForm.texture" /></el-form-item>
-            <el-form-item label="倒角"><el-input v-model="ruleForm.chamfering" /></el-form-item>
-            <el-form-item label="母排长"><el-input v-model="ruleForm.longBusbar" /></el-form-item>
-            <el-form-item label="母排片数"><el-input v-model="ruleForm.sliceBusbar" /></el-form-item>
-            <el-form-item label="截面积"><el-input v-model="ruleForm.sectionalArea" /></el-form-item>
+
+            <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode">
+              <el-input v-model="ruleForm.equipmentUniqueCode" />
+            </el-form-item>
+
+            <el-tooltip class="item" effect="dark" content="额定电压值单位是kV，保留三位小数" placement="top-start">
+              <el-form-item label="额定电压值单位是kV，保留三位小数" prop="voltageUn">
+                <el-input v-model="ruleForm.voltageUn" />
+              </el-form-item>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="额定时长单位是s" placement="top-start">
+              <el-form-item label="额定时长单位是s" prop="durationUn">
+                <el-input v-model="ruleForm.durationUn" />
+              </el-form-item>
+            </el-tooltip>
+
+            <el-form-item label="额定局放电量" prop="parDischangeUn">
+              <el-input v-model="ruleForm.parDischangeUn" />
+            </el-form-item>
+
             <el-form-item label="母排附件">
               <!-- action="http://39.101.166.244/api/image/upload" -->
               <el-upload
@@ -577,19 +672,87 @@ export default {
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        rawMaterialSN: [{ required: true, message: '请输入国网PO', trigger: 'blur' }],
-        silveringThickness: [{ required: true, message: '请输入镀银层厚度(μm)', trigger: 'blur' }],
-        electricalConductivity: [{ required: true, message: '请输入电导率(%IACS)', trigger: 'blur' }]
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号（成套工单）',
+          trigger: 'blur'
+        }],
+
+        productModel: [{
+          required: true,
+          message: '请输入供应商数据唯一标识(成套序列号)',
+          trigger: 'blur'
+        }],
+        cabWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号（电容器工单）',
+          trigger: 'blur'
+        }],
+        cabSN: [{
+          required: true,
+          message: '请输入供应商数据唯一标识(电容器序列号)',
+          trigger: 'blur'
+        }],
+        startTime: [{
+          required: true,
+          message: '请输入试验开始时间',
+          trigger: 'blur'
+        }],
+        stopTime: [{
+          required: true,
+          message: '请输入试验结束时间',
+          trigger: 'blur'
+        }],
+        inspectionResults: [{
+          required: true,
+          message: '请输入试验结果',
+          trigger: 'blur'
+        }],
+        equipmentName: [{
+          required: true,
+          message: '请输入生产设备名称',
+          trigger: 'blur'
+        }],
+        equipmentUniqueCode: [{
+          required: true,
+          message: '请输入生产设备唯一识别号',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        voltageUn: [{
+          required: true,
+          message: '请输入额定电压值单位是kV，保留三位小数',
+          trigger: 'blur'
+        }],
+        voltage: [{
+          required: true,
+          message: '请输入电压值单位是kV，保留三位小数',
+          trigger: 'blur'
+        }],
+        durationUn: [{
+          required: true,
+          message: '请输入额定时长单位是s',
+          trigger: 'blur'
+        }],
+        duration: [{
+          required: true,
+          message: '请输入时长单位是s',
+          trigger: 'blur'
+        }],
+        parDischangeUn: [{
+          required: true,
+          message: '请输入额定局放电量',
+          trigger: 'blur'
+        }],
+        parDischange: [{
+          required: true,
+          message: '请输入局放电量单位是pC',
+          trigger: 'blur'
+        }]
       }
     }
   },
