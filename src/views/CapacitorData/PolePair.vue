@@ -474,9 +474,7 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [{
-        createTime: '2018-08-23'
-      }],
+      tableData: [],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -731,7 +729,7 @@ export default {
     getList() {
       this.listLoading = true
       jdkList(this.pagination, this.listQuery).then(res => {
-        // this.tableData = res.data.records
+        this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })

@@ -10,7 +10,7 @@
           </el-col>
           <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
         </el-col>
-        <!--
+
         <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
@@ -30,7 +30,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col> -->
+        </el-col>
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -382,9 +382,7 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [{
-        createTime: '2018-08-23'
-      }],
+      tableData: [],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -629,7 +627,7 @@ export default {
     getList() {
       this.listLoading = true
       yclList(this.pagination, this.listQuery).then(res => {
-        // this.tableData = res.data.records
+        this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
       })
