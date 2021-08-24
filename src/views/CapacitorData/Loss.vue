@@ -471,9 +471,6 @@
               <el-form-item label="采集规范版本号:">
                 <span>{{ props.row.requestBody.standardVersion }}</span>
               </el-form-item>
-              <el-form-item label="供应商工单编号:">
-                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
-              </el-form-item>
               <el-form-item label="国网侧供应商编码:">
                 <span>{{ props.row.requestBody.supplierCode }}</span>
               </el-form-item>
@@ -482,6 +479,12 @@
               </el-form-item>
               <el-form-item label="物资品类类型:">
                 <span>{{ props.row.requestBody.categoryType }}</span>
+              </el-form-item>
+              <el-form-item label="厂区编号:">
+                <span>{{ props.row.requestBody.factoryCode }}</span>
+              </el-form-item>
+              <el-form-item label="供应商产品编号:">
+                <span>{{ props.row.requestBody.supplierSupportId }}</span>
               </el-form-item>
               <el-form-item label="是否是告警问题数据:">
                 <span>{{ props.row.requestBody.isAlarmData }}</span>
@@ -495,44 +498,47 @@
               <el-form-item label="工序:">
                 <span>{{ props.row.requestBody.pdCode }}</span>
               </el-form-item>
+              <el-form-item label="供应商工单编号">
+                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
+              </el-form-item>
+              <el-form-item label="供应商数据唯一标识">
+                <span>{{ props.row.requestBody.productModel }}</span>
+              </el-form-item>
+              <el-form-item label="供应商工单编号">
+                <span>{{ props.row.requestBody.cabWorkNo }}</span>
+              </el-form-item>
+              <el-form-item label="供应商数据唯一标识">
+                <span>{{ props.row.requestBody.cabSN }}</span>
+              </el-form-item>
+              <el-form-item label="试验开始时间">
+                <span>{{ props.row.requestBody.startTime }}</span>
+              </el-form-item>
+              <el-form-item label="试验结束时间">
+                <span>{{ props.row.requestBody.stopTime }}</span>
+              </el-form-item>
+              <el-form-item label="试验结果">
+                <span>{{ props.row.requestBody.inspectionResults }}</span>
+              </el-form-item>
+              <el-form-item label="生产设备名称">
+                <span>{{ props.row.requestBody.equipmentName }}</span>
+              </el-form-item>
+              <el-form-item label="生产设备唯一识别号">
+                <span>{{ props.row.requestBody.equipmentUniqueCode }}</span>
+              </el-form-item>
               <el-form-item label="采集时间:">
                 <span>{{ props.row.requestBody.checkTime }}</span>
               </el-form-item>
-              <el-form-item label="入数采中心时间:">
-                <span>{{ props.row.requestBody.putCenterTime }}</span>
+              <el-form-item label="额定电压值单位是kV:">
+                <span>{{ props.row.requestBody.voltageUn }}</span>
               </el-form-item>
-              <el-form-item label="国网PO:">
-                <span>{{ props.row.requestBody.rawMaterialSN }}</span>
+              <el-form-item label="工频电压单位是kV:">
+                <span>{{ props.row.requestBody.voltage }}</span>
               </el-form-item>
-              <el-form-item label="材质:">
-                <span>{{ props.row.requestBody.texture }}</span>
+              <el-form-item label="额定介损单位是（%）:">
+                <span>{{ props.row.requestBody.capacitanceUn }}</span>
               </el-form-item>
-              <el-form-item label="镀银层厚度(μm):">
-                <span>{{ props.row.requestBody.silveringThickness }}</span>
-              </el-form-item>
-              <el-form-item label="倒角:">
-                <span>{{ props.row.requestBody.chamfering }}</span>
-              </el-form-item>
-              <el-form-item label="额定电流:">
-                <span>{{ props.row.requestBody.ratedCurrent }}</span>
-              </el-form-item>
-              <el-form-item label="母排长:">
-                <span>{{ props.row.requestBody.longBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排宽:">
-                <span>{{ props.row.requestBody.wideBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排片数:">
-                <span>{{ props.row.requestBody.sliceBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="叠放类型:">
-                <span>{{ props.row.requestBody.stackingType }}</span>
-              </el-form-item>
-              <el-form-item label="电导率(%IACS):">
-                <span>{{ props.row.requestBody.electricalConductivity }}</span>
-              </el-form-item>
-              <el-form-item label="母排附件:">
-                <span>{{ props.row.requestBody.inspectionReportFile }}</span>
+              <el-form-item label="介损单位是（%）:">
+                <span>{{ props.row.requestBody.capacitance }}</span>
               </el-form-item>
             </el-form>
           </template>

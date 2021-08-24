@@ -255,13 +255,13 @@
           <div class="boxLeft">
             <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" :disabled="true" /></el-form-item>
             <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
+              <el-input v-model="ruleForm.alarmItem" :disabled="true" />
             </el-form-item>
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
+            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" :disabled="true" /></el-form-item>
             <el-form-item label="序列号" prop="serialNo"><el-input v-model="ruleForm.serialNo" /></el-form-item>
 
             <el-form-item label="原材料批次号" prop="rmbNumber"><el-input v-model="ruleForm.rmbNumber" /></el-form-item>
@@ -269,7 +269,7 @@
             <el-form-item label="原材料制造商" prop="RawmManufacturer"><el-input v-model="ruleForm.RawmManufacturer" /></el-form-item>
             <el-form-item label="原材料规格型号" prop="mrmSpecification"><el-input v-model="ruleForm.mrmSpecification" /></el-form-item>
             <el-form-item label="来料检验日期" prop="incomDate">
-              <el-date-picker v-model="ruleForm.incomDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.incomDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="生产商检测报告" prop="manuReport"><el-input v-model="ruleForm.manuReport" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="额定击穿电压值，单位 kV/mm" placement="top-start">
@@ -287,28 +287,28 @@
 
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" :disabled="true" /></el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" :disabled="true" /></el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
-                <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
+                <el-select v-model="ruleForm.isAlarmData" placeholder="请选择" :disabled="true">
                   <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
+            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="原材料检验批次号" placement="top-start">
               <el-form-item label="原材料检验批次号" prop="rmibNumber"><el-input v-model="ruleForm.rmibNumber" /></el-form-item>
             </el-tooltip>
             <el-form-item label="原材料品牌" prop="borMaterials"><el-input v-model="ruleForm.borMaterials" /></el-form-item>
             <el-form-item label="原材料产地" prop="oorMaterials"><el-input v-model="ruleForm.oorMaterials" /></el-form-item>
             <el-form-item label="原材料出厂日期" prop="manufactureDate">
-              <el-date-picker v-model="ruleForm.manufactureDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.manufactureDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="来料检测报告" prop="incomReport"><el-input v-model="ruleForm.incomReport" /></el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="击穿电压值，单位 kV/mm" placement="top-start">
               <el-form-item label="击穿电压值，单位 kV/mm" prop="breakdownVoltage"><el-input v-model="ruleForm.breakdownVoltage" /></el-form-item>
@@ -519,7 +519,9 @@ export default {
       },
       logTotal: 0,
       logId: {}, // 日志行数据
-      tableData: [],
+      tableData: [{
+        createTime: '2018-08-23'
+      }],
       gridData: [], // 日志信息
       ruleForm: {}, // 编辑弹窗
       pagination: {
@@ -606,22 +608,14 @@ export default {
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
         supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
+        serialNo: [{ required: true, message: '请输入序列号', trigger: 'blur' }],
         checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
         manufactureDate: [{ required: true, message: '请输入原材料出厂日期', trigger: 'blur' }],
         incomDate: [{ required: true, message: '请输入来料检验日期', trigger: 'blur' }],
         rmibNumber: [{ required: true, message: '请输入原材料检验批次号', trigger: 'blur' }],
         rmbNumber: [{ required: true, message: '请输入原材料批次号', trigger: 'blur' }],
         borMaterials: [{ required: true, message: '请输入原材料品牌)', trigger: 'blur' }],
-        isAlarmData: [{ required: true, message: '请输入是否是警告项)', trigger: 'blur' }],
-        alarmItem: [{ required: true, message: '请输入警告项)', trigger: 'blur' }],
         RawmManufacturer: [{ required: true, message: '请输入原材料制造商)', trigger: 'blur' }],
         oorMaterials: [{ required: true, message: '请输入原材料产地)', trigger: 'blur' }],
         mrmSpecification: [{ required: true, message: '请输入原材料规格型号)', trigger: 'blur' }],
