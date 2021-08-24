@@ -469,7 +469,7 @@ export default {
   components: { Pagination, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/np/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/linx/dianrongqi_13/import/file',
       myHeaders: { Authorization: this.$store.getters.token }, // 获取token
       // 日志分页
       paginationLog: {
