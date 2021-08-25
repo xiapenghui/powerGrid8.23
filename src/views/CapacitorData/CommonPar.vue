@@ -40,7 +40,7 @@
     </div>
 
     <div class="rightBtn">
-      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAddUser">添加参数</el-button>
+      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAddUser">{{ $t('permission.parameter') }}</el-button>
       <el-button type="danger" icon="el-icon-delete" @click="deleteAll">{{ $t('permission.deleteAll') }}</el-button>
     </div>
 
@@ -58,15 +58,27 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
-      <el-table-column align="center" :label="$t('permission.standardVersion')">
+      <el-table-column align="center" :label="$t('permission.SalesOrg')">
         <template slot-scope="scope">
-          {{ scope.row.standardVersion }}
+          {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.isAlarmData')">
+      <el-table-column align="center" :label="$t('permission.SalesOrg')">
         <template slot-scope="scope">
-          {{ scope.row.purchaserHqCode }}
+          {{ scope.row.salesOrg }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.SalesOrg')">
+        <template slot-scope="scope">
+          {{ scope.row.salesOrg }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.standardVersion')">
+        <template slot-scope="scope">
+          {{ scope.row.standardVersion }}
         </template>
       </el-table-column>
 
@@ -85,12 +97,6 @@
       <el-table-column align="center" :label="$t('permission.categoryType')">
         <template slot-scope="scope">
           {{ scope.row.categoryType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.factoryCode')">
-        <template slot-scope="scope">
-          {{ scope.row.factoryCode }}
         </template>
       </el-table-column>
 
@@ -136,6 +142,21 @@
         label-width="200px"
         label-position="left"
       >
+
+        <el-form-item label="工厂" prop="supplierId">
+          <el-select v-model="ruleForm.supplierId" placeholder="请选择">
+            <el-option v-for="item in supplierIdList" :key="item.id" :label="item.saleOrg" :value="item.id" />
+          </el-select>
+        </el-form-item>
+
+        <el-form-item label="产品名称1" prop="salesOrg">
+          <el-input v-model="ruleForm.salesOrg" />
+        </el-form-item>
+
+        <el-form-item label="产品名称2" prop="salesOrg">
+          <el-input v-model="ruleForm.salesOrg" />
+        </el-form-item>
+
         <el-form-item label="采集规范版本号默认:1" prop="standardVersion">
           <el-input v-model="ruleForm.standardVersion" />
         </el-form-item>
@@ -191,7 +212,8 @@ import {
   supplierList,
   supplierDellte,
   supplierEdit,
-  supplierAdd
+  supplierAdd,
+  saleOrg
 } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 const fixHeight = 280
@@ -227,6 +249,7 @@ export default {
       dialogFormVisible: false, // 编辑弹出框
       content1: this.$t('permission.supplierCode'),
       dialogType: 'new',
+      supplierIdList: [],
       isAlarmItem: false,
       isAlarmDataList: [{
         value: 0,
@@ -340,6 +363,7 @@ export default {
       })()
     }
     this.getList()
+    this.getSaleOrg() // 获取所有工厂
   },
   methods: {
     // 改变搜索框开始结束时间触发
@@ -480,6 +504,14 @@ export default {
           })
           return false
         }
+      })
+    },
+
+    // 获取所有工厂
+    getSaleOrg() {
+      saleOrg().then(res => {
+        debugger
+        this.supplierIdList = res.data
       })
     }
   }

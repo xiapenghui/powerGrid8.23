@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierWorkNo') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
+          </el-col>
         </el-col>
         <!--
         <el-col :span="8">
@@ -74,7 +76,7 @@
 
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.saleOrg }}
+          {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
@@ -108,7 +110,12 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierSupportIdOther')" width="150" :show-overflow-tooltip="true">
+      <el-table-column
+        align="center"
+        :label="$t('permission.supplierSupportIdOther')"
+        width="150"
+        :show-overflow-tooltip="true"
+      >
         <template slot-scope="scope">
           {{ scope.row.supplierSupportId }}
         </template>
@@ -230,33 +237,61 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂名称" prop="salesOrg">
+              <el-input v-model="ruleForm.salesOrg" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商产品编号" prop="supplierSupportId"><el-input v-model="ruleForm.supplierSupportId" /></el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="供应商产品编号" prop="supplierSupportId">
+              <el-input v-model="ruleForm.supplierSupportId" />
+            </el-form-item>
             <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" :disabled="true" />
             </el-form-item>
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" :disabled="true" /></el-form-item>
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="供应商数据唯一标识(成套序列号)" placement="top-start">
-              <el-form-item label="供应商数据唯一标识(成套序列号)" prop="productModel"><el-input v-model="ruleForm.productModel" /></el-form-item>
+              <el-form-item label="供应商数据唯一标识(成套序列号)" prop="productModel">
+                <el-input v-model="ruleForm.productModel" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="供应商数据唯一标识(电容器序列号)" placement="top-start">
-              <el-form-item label="供应商数据唯一标识(电容器序列号)" prop="cabSN"><el-input v-model="ruleForm.cabSN" /></el-form-item>
+              <el-form-item label="供应商数据唯一标识(电容器序列号)" prop="cabSN">
+                <el-input v-model="ruleForm.cabSN" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="生产设备唯一识别号" placement="top-start">
-              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode"><el-input v-model="ruleForm.equipmentUniqueCode" /></el-form-item>
+              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode">
+                <el-input v-model="ruleForm.equipmentUniqueCode" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="时长 单位是h" prop="duration"><el-input v-model="ruleForm.duration" /></el-form-item>
-            <el-form-item label="真空度" prop="vacuumDegree"><el-input v-model="ruleForm.vacuumDegree" /></el-form-item>
-            <el-form-item label="检验报告" prop="inspectionReport"><el-input v-model="ruleForm.inspectionReport" /></el-form-item>
+            <el-form-item label="时长 单位是h" prop="duration">
+              <el-input v-model="ruleForm.duration" />
+            </el-form-item>
+            <el-form-item label="真空度" prop="vacuumDegree">
+              <el-input v-model="ruleForm.vacuumDegree" />
+            </el-form-item>
+            <el-form-item label="检验报告" prop="inspectionReport">
+              <el-input v-model="ruleForm.inspectionReport" />
+            </el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" :disabled="true" /></el-form-item>
-            <el-form-item label="厂区编号" prop="factoryCode"><el-input v-model="ruleForm.factoryCode" :disabled="true" /></el-form-item>
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="厂区编号" prop="factoryCode">
+              <el-input v-model="ruleForm.factoryCode" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start" :disabled="true">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择" :disabled="true">
@@ -264,15 +299,32 @@
                 </el-select>
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号（成套工单）" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" /></el-form-item>
-            <el-form-item label="供应商工单编号（电容器工单）" prop="cabWorkNo"><el-input v-model="ruleForm.cabWorkNo" /></el-form-item>
-            <el-form-item label="生产设备名称" prop="equipmentName"><el-input v-model="ruleForm.equipmentName" /></el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="感知过程" prop="processType">
+              <el-input v-model="ruleForm.processType" :disabled="true" />
             </el-form-item>
-            <el-form-item label="温度，单位℃" prop="temperature"><el-input v-model="ruleForm.temperature" /></el-form-item>
-            <el-form-item label="检验结果是否合格" prop="isQualify"><el-input v-model="ruleForm.isQualify" /></el-form-item>
+            <el-form-item label="供应商工单编号（成套工单）" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号（电容器工单）" prop="cabWorkNo">
+              <el-input v-model="ruleForm.cabWorkNo" />
+            </el-form-item>
+            <el-form-item label="生产设备名称" prop="equipmentName">
+              <el-input v-model="ruleForm.equipmentName" />
+            </el-form-item>
+            <el-form-item label="采集时间" prop="checkTime">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="温度，单位℃" prop="temperature">
+              <el-input v-model="ruleForm.temperature" />
+            </el-form-item>
+            <el-form-item label="检验结果是否合格" prop="isQualify">
+              <el-input v-model="ruleForm.isQualify" />
+            </el-form-item>
             <el-form-item label="检查结果附件">
               <!-- action="http://39.101.166.244/api/image/upload" -->
               <el-upload
@@ -360,13 +412,10 @@
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="工厂:">
-                <span>{{ props.row.requestBody.saleOrg }}</span>
+                <span>{{ props.row.requestBody.salesOrg }}</span>
               </el-form-item>
               <el-form-item label="采集规范版本号:">
                 <span>{{ props.row.requestBody.standardVersion }}</span>
-              </el-form-item>
-              <el-form-item label="供应商工单编号:">
-                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
               </el-form-item>
               <el-form-item label="国网侧供应商编码:">
                 <span>{{ props.row.requestBody.supplierCode }}</span>
@@ -376,6 +425,12 @@
               </el-form-item>
               <el-form-item label="物资品类类型:">
                 <span>{{ props.row.requestBody.categoryType }}</span>
+              </el-form-item>
+              <el-form-item label="厂区编号:">
+                <span>{{ props.row.requestBody.factoryCode }}</span>
+              </el-form-item>
+              <el-form-item label="供应商产品编号:">
+                <span>{{ props.row.requestBody.supplierSupportId }}</span>
               </el-form-item>
               <el-form-item label="是否是告警问题数据:">
                 <span>{{ props.row.requestBody.isAlarmData }}</span>
@@ -389,44 +444,47 @@
               <el-form-item label="工序:">
                 <span>{{ props.row.requestBody.pdCode }}</span>
               </el-form-item>
+              <el-form-item label="供应商工单编号">
+                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
+              </el-form-item>
+              <el-form-item label="供应商数据唯一标识">
+                <span>{{ props.row.requestBody.productModel }}</span>
+              </el-form-item>
+              <el-form-item label="供应商工单编号">
+                <span>{{ props.row.requestBody.cabWorkNo }}</span>
+              </el-form-item>
+              <el-form-item label="供应商数据唯一标识">
+                <span>{{ props.row.requestBody.cabSN }}</span>
+              </el-form-item>
+              <el-form-item label="生产设备名称">
+                <span>{{ props.row.requestBody.equipmentName }}</span>
+              </el-form-item>
+              <el-form-item label="生产设备唯一识别号">
+                <span>{{ props.row.requestBody.equipmentUniqueCode }}</span>
+              </el-form-item>
               <el-form-item label="采集时间:">
                 <span>{{ props.row.requestBody.checkTime }}</span>
               </el-form-item>
-              <el-form-item label="入数采中心时间:">
-                <span>{{ props.row.requestBody.putCenterTime }}</span>
+              <el-form-item label="时长额定值，单位是h:">
+                <span>{{ props.row.requestBody.durationUn }}</span>
               </el-form-item>
-              <el-form-item label="国网PO:">
-                <span>{{ props.row.requestBody.rawMaterialSN }}</span>
+              <el-form-item label="时长 单位是h:">
+                <span>{{ props.row.requestBody.duration }}</span>
               </el-form-item>
-              <el-form-item label="材质:">
-                <span>{{ props.row.requestBody.texture }}</span>
+              <el-form-item label="温度，单位℃:">
+                <span>{{ props.row.requestBody.temperature }}</span>
               </el-form-item>
-              <el-form-item label="镀银层厚度(μm):">
-                <span>{{ props.row.requestBody.silveringThickness }}</span>
+              <el-form-item label="真空度:">
+                <span>{{ props.row.requestBody.vacuumDegree }}</span>
               </el-form-item>
-              <el-form-item label="倒角:">
-                <span>{{ props.row.requestBody.chamfering }}</span>
+              <el-form-item label="检验结果是否合格:">
+                <span>{{ props.row.requestBody.isQualify }}</span>
               </el-form-item>
-              <el-form-item label="额定电流:">
-                <span>{{ props.row.requestBody.ratedCurrent }}</span>
+              <el-form-item label="检验报告:">
+                <span>{{ props.row.requestBody.inspectionReport }}</span>
               </el-form-item>
-              <el-form-item label="母排长:">
-                <span>{{ props.row.requestBody.longBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排宽:">
-                <span>{{ props.row.requestBody.wideBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排片数:">
-                <span>{{ props.row.requestBody.sliceBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="叠放类型:">
-                <span>{{ props.row.requestBody.stackingType }}</span>
-              </el-form-item>
-              <el-form-item label="电导率(%IACS):">
-                <span>{{ props.row.requestBody.electricalConductivity }}</span>
-              </el-form-item>
-              <el-form-item label="母排附件:">
-                <span>{{ props.row.requestBody.inspectionReportFile }}</span>
+              <el-form-item label="检查结果附件:">
+                <span>{{ props.row.requestBody.checkResult }}</span>
               </el-form-item>
             </el-form>
           </template>
@@ -442,10 +500,22 @@
         <el-table-column property="modelName" label="模块名称" align="center" width="150px" />
         <el-table-column label="消息日志" align="center" prop="message" />
       </el-table>
-      <pagination v-show="logTotal > 0" :total="logTotal" :current.sync="paginationLog.current" :size.sync="paginationLog.size" @pagination="getLogList" />
+      <pagination
+        v-show="logTotal > 0"
+        :total="logTotal"
+        :current.sync="paginationLog.current"
+        :size.sync="paginationLog.size"
+        @pagination="getLogList"
+      />
     </el-dialog>
 
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -453,18 +523,28 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { zkgzList, zkgzDellte, zkgzEdit, allLogs } from '@/api/business'
+import {
+  zkgzList,
+  zkgzDellte,
+  zkgzEdit,
+  allLogs
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 // import logDialog from '@/components/logDialog' // 日志封装
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
 const fixHeight = 270
 export default {
   name: 'BusInformation',
-  components: { Pagination, ImprotFile },
+  components: {
+    Pagination,
+    ImprotFile
+  },
   data() {
     return {
       productionUrl: this.GLOBAL.BASE_URL + '/linx/dianrongqi_7/import/file',
-      myHeaders: { Authorization: this.$store.getters.token }, // 获取token
+      myHeaders: {
+        Authorization: this.$store.getters.token
+      }, // 获取token
       // 日志分页
       paginationLog: {
         current: 1,
@@ -477,13 +557,13 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
-        startTime: '',
-        endTime: ''
+        size: 50
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
-        supplierWorkNo: undefined,
-        importDate: []
+        supplierWorkNo: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -500,78 +580,136 @@ export default {
       disabled: false,
       imgList: [], // 批量上传图片数组
       fileList: [],
-      newDataImg: { id: '', imagePath: '', modelName: '母排' }, // 多个图片上传
-      oneDataImg: { id: '', imagePath: '', modelName: '母排' }, // 单个图片上传或替换之前的图片
+      newDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '母排'
+      }, // 多个图片上传
+      oneDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '母排'
+      }, // 单个图片上传或替换之前的图片
       editRow: {},
       editFileList: [],
       noneBtnImg: false, // 隐藏上传按钮
       limitCountImg: 1, // 上传图片的最大数量
       isAlarmItem: false,
       content1: this.$t('permission.supplierWorkNo'),
-      isAlarmDataList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
       pickerOptions: {
-        shortcuts: [
-          {
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近六个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
-              picker.$emit('pick', [start, end])
-            }
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
           }
+        },
+        {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近六个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
+            picker.$emit('pick', [start, end])
+          }
+        }
         ]
       },
       rules: {
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        rawMaterialSN: [{ required: true, message: '请输入国网PO', trigger: 'blur' }],
-        productModel: [{ required: true, message: '请输入供应商数据唯一标识', trigger: 'blur' }],
-        equipmentName: [{ required: true, message: '请输入生产设备名称', trigger: 'blur' }],
-        equipmentUniqueCode: [{ required: true, message: '请输入生产设备唯一识别号)', trigger: 'blur' }],
-        cabWorkNo: [{ required: true, message: '请输入供应商工单编号（电容器工单）', trigger: 'blur' }],
-        cabSN: [{ required: true, message: '请输入供应商数据唯一标识(电容器序列号)', trigger: 'blur' }],
-        durationUn: [{ required: true, message: '请输入时长额定值，单位是h', trigger: 'blur' }],
-        duration: [{ required: true, message: '请输入时长 单位是h', trigger: 'blur' }],
-        inspectionReport: [{ required: true, message: '请输入检验报告', trigger: 'blur' }],
-        isQualify: [{ required: true, message: '请输入检验结果是否合格', trigger: 'blur' }]
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        putCenterTime: [{
+          required: true,
+          message: '请输入入数采中心时间',
+          trigger: 'blur'
+        }],
+        rawMaterialSN: [{
+          required: true,
+          message: '请输入国网PO',
+          trigger: 'blur'
+        }],
+        productModel: [{
+          required: true,
+          message: '请输入供应商数据唯一标识',
+          trigger: 'blur'
+        }],
+        equipmentName: [{
+          required: true,
+          message: '请输入生产设备名称',
+          trigger: 'blur'
+        }],
+        equipmentUniqueCode: [{
+          required: true,
+          message: '请输入生产设备唯一识别号)',
+          trigger: 'blur'
+        }],
+        cabWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号（电容器工单）',
+          trigger: 'blur'
+        }],
+        cabSN: [{
+          required: true,
+          message: '请输入供应商数据唯一标识(电容器序列号)',
+          trigger: 'blur'
+        }],
+        durationUn: [{
+          required: true,
+          message: '请输入时长额定值，单位是h',
+          trigger: 'blur'
+        }],
+        duration: [{
+          required: true,
+          message: '请输入时长 单位是h',
+          trigger: 'blur'
+        }],
+        inspectionReport: [{
+          required: true,
+          message: '请输入检验报告',
+          trigger: 'blur'
+        }],
+        isQualify: [{
+          required: true,
+          message: '请输入检验结果是否合格',
+          trigger: 'blur'
+        }]
       }
     }
   },
@@ -599,13 +737,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -613,12 +751,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -630,10 +768,10 @@ export default {
   },
   methods: {
     // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -644,15 +782,15 @@ export default {
     },
     // 重置
     handleReset() {
-      this.listQuery = {
-        supplierWorkNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
-      }
+      // this.listQuery = {
+      //   supplierWorkNo: undefined,
+      //   importDate: [
+      //     this.$moment(new Date())
+      //     .subtract(1, 'months')
+      //     .format('YYYY-MM-DD'),
+      //     this.$moment(new Date()).format('YYYY-MM-DD')
+      //   ]
+      // }
       this.pagination = {
         current: 1,
         size: 50
@@ -667,7 +805,9 @@ export default {
     // 点击日志
     clickLogs(row) {
       this.logId = row
-      allLogs(this.paginationLog, { dataId: row.id }).then(res => {
+      allLogs(this.paginationLog, {
+        dataId: row.id
+      }).then(res => {
         if (res.data.records.length > 0) {
           this.dialogTableVisible = true
           res.data.records.map(item => {
@@ -691,7 +831,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -903,12 +1044,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.disUoloadSty ::v-deep .el-upload--picture-card {
-  display: none !important;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .disUoloadSty ::v-deep .el-upload--picture-card {
+    display: none !important;
+  }
 </style>

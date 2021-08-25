@@ -76,7 +76,7 @@
 
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.saleOrg }}
+          {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
@@ -231,8 +231,8 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg">
-              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            <el-form-item label="工厂名称" prop="salesOrg">
+              <el-input v-model="ruleForm.salesOrg" :disabled="true" />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
               <el-form-item label="国网侧供应商编码" prop="supplierCode">
@@ -438,7 +438,7 @@
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="工厂:">
-                <span>{{ props.row.requestBody.saleOrg }}</span>
+                <span>{{ props.row.requestBody.salesOrg }}</span>
               </el-form-item>
               <el-form-item label="采集规范版本号:">
                 <span>{{ props.row.requestBody.standardVersion }}</span>
@@ -577,13 +577,13 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
-        startTime: '',
-        endTime: ''
+        size: 50
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
-        supplierWorkNo: undefined,
-        importDate: []
+        supplierWorkNo: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -748,13 +748,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -762,12 +762,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -779,10 +779,10 @@ export default {
   },
   methods: {
     // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -793,15 +793,15 @@ export default {
     },
     // 重置
     handleReset() {
-      this.listQuery = {
-        supplierWorkNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
-      }
+      // this.listQuery = {
+      //   supplierWorkNo: undefined,
+      //   importDate: [
+      //     this.$moment(new Date())
+      //       .subtract(1, 'months')
+      //       .format('YYYY-MM-DD'),
+      //     this.$moment(new Date()).format('YYYY-MM-DD')
+      //   ]
+      // }
       this.pagination = {
         current: 1,
         size: 50

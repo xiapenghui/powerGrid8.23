@@ -76,7 +76,7 @@
 
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.saleOrg }}
+          {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
@@ -160,7 +160,7 @@
 
       <el-table-column align="center" :label="$t('permission.RawmManufacturer')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.RawmManufacturer }}
+          {{ scope.row.rawmManufacturer }}
         </template>
       </el-table-column>
 
@@ -249,8 +249,8 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg">
-              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            <el-form-item label="工厂名称" prop="salesOrg">
+              <el-input v-model="ruleForm.salesOrg" :disabled="true" />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
               <el-form-item label="国网侧供应商编码" prop="supplierCode">
@@ -273,7 +273,7 @@
               <el-input v-model="ruleForm.rmbNumber" />
             </el-form-item>
             <el-form-item label="原材料制造商" prop="RawmManufacturer">
-              <el-input v-model="ruleForm.RawmManufacturer" />
+              <el-input v-model="ruleForm.rawmManufacturer" />
             </el-form-item>
             <el-form-item label="原材料规格型号" prop="mrmSpecification">
               <el-input v-model="ruleForm.mrmSpecification" />
@@ -449,13 +449,10 @@
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="工厂:">
-                <span>{{ props.row.requestBody.saleOrg }}</span>
+                <span>{{ props.row.requestBody.salesOrg }}</span>
               </el-form-item>
               <el-form-item label="采集规范版本号:">
                 <span>{{ props.row.requestBody.standardVersion }}</span>
-              </el-form-item>
-              <el-form-item label="供应商工单编号:">
-                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
               </el-form-item>
               <el-form-item label="国网侧供应商编码:">
                 <span>{{ props.row.requestBody.supplierCode }}</span>
@@ -465,6 +462,12 @@
               </el-form-item>
               <el-form-item label="物资品类类型:">
                 <span>{{ props.row.requestBody.categoryType }}</span>
+              </el-form-item>
+              <el-form-item label="厂区编号:">
+                <span>{{ props.row.requestBody.factoryCode }}</span>
+              </el-form-item>
+              <el-form-item label="供应商产品编号:">
+                <span>{{ props.row.requestBody.supplierSupportId }}</span>
               </el-form-item>
               <el-form-item label="是否是告警问题数据:">
                 <span>{{ props.row.requestBody.isAlarmData }}</span>
@@ -478,44 +481,62 @@
               <el-form-item label="工序:">
                 <span>{{ props.row.requestBody.pdCode }}</span>
               </el-form-item>
+              <el-form-item label="供应商工单编号">
+                <span>{{ props.row.requestBody.supplierWorkNo }}</span>
+              </el-form-item>
+              <el-form-item label="序列号:">
+                <span>{{ props.row.requestBody.serialNo }}</span>
+              </el-form-item>
+              <el-form-item label="原材料检验批次号:">
+                <span>{{ props.row.requestBody.rmibNumber }}</span>
+              </el-form-item>
+              <el-form-item label="原材料批次号:">
+                <span>{{ props.row.requestBody.rmbNumber }}</span>
+              </el-form-item>
+              <el-form-item label="原材料品牌:">
+                <span>{{ props.row.requestBody.borMaterials }}</span>
+              </el-form-item>
+              <el-form-item label="原材料制造商:">
+                <span>{{ props.row.requestBody.rawmManufacturer }}</span>
+              </el-form-item>
+              <el-form-item label="原材料产地:">
+                <span>{{ props.row.requestBody.oorMaterials }}</span>
+              </el-form-item>
+              <el-form-item label="原材料规格型号:">
+                <span>{{ props.row.requestBody.mrmSpecification }}</span>
+              </el-form-item>
+              <el-form-item label="原材料出厂日期:">
+                <span>{{ props.row.requestBody.manufactureDate }}</span>
+              </el-form-item>
+              <el-form-item label="来料检验日期:">
+                <span>{{ props.row.requestBody.incomDate }}</span>
+              </el-form-item>
+              <el-form-item label="来料检测报告:">
+                <span>{{ props.row.requestBody.incomReport }}</span>
+              </el-form-item>
+              <el-form-item label="生产商检测报告:">
+                <span>{{ props.row.requestBody.manuReport }}</span>
+              </el-form-item>
               <el-form-item label="采集时间:">
                 <span>{{ props.row.requestBody.checkTime }}</span>
               </el-form-item>
               <el-form-item label="入数采中心时间:">
                 <span>{{ props.row.requestBody.putCenterTime }}</span>
               </el-form-item>
-              <el-form-item label="国网PO:">
-                <span>{{ props.row.requestBody.rawMaterialSN }}</span>
+              <el-form-item label="薄膜厚度(µm):">
+                <span>{{ props.row.requestBody.filmThickness }}</span>
               </el-form-item>
-              <el-form-item label="材质:">
-                <span>{{ props.row.requestBody.texture }}</span>
+              <el-form-item label="电弱点个数额定值:">
+                <span>{{ props.row.requestBody.electricalWeaknessUn }}</span>
               </el-form-item>
-              <el-form-item label="镀银层厚度(μm):">
-                <span>{{ props.row.requestBody.silveringThickness }}</span>
+              <el-form-item label="电弱点个数(个/m2):">
+                <span>{{ props.row.requestBody.electricalWeakness }}</span>
               </el-form-item>
-              <el-form-item label="倒角:">
-                <span>{{ props.row.requestBody.chamfering }}</span>
+              <el-form-item label="(聚丙烯薄膜)检验结果是否合格:">
+                <span>{{ props.row.requestBody.isQualify }}</span>
               </el-form-item>
-              <el-form-item label="额定电流:">
-                <span>{{ props.row.requestBody.ratedCurrent }}</span>
-              </el-form-item>
-              <el-form-item label="母排长:">
-                <span>{{ props.row.requestBody.longBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排宽:">
-                <span>{{ props.row.requestBody.wideBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="母排片数:">
-                <span>{{ props.row.requestBody.sliceBusbar }}</span>
-              </el-form-item>
-              <el-form-item label="叠放类型:">
-                <span>{{ props.row.requestBody.stackingType }}</span>
-              </el-form-item>
-              <el-form-item label="电导率(%IACS):">
-                <span>{{ props.row.requestBody.electricalConductivity }}</span>
-              </el-form-item>
-              <el-form-item label="母排附件:">
-                <span>{{ props.row.requestBody.inspectionReportFile }}</span>
+              <el-form-item label="(聚丙烯薄膜)检查结果附件:">
+                <span>{{ props.row.requestBody.checkResult }}</span>
               </el-form-item>
             </el-form>
           </template>
@@ -588,13 +609,13 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
-        startTime: '',
-        endTime: ''
+        size: 50
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
-        supplierWorkNo: undefined,
-        importDate: []
+        supplierWorkNo: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -676,7 +697,7 @@ export default {
         ]
       },
       rules: {
-        saleOrg: [{
+        salesOrg: [{
           required: true,
           message: '请输入工厂',
           trigger: 'blur'
@@ -749,7 +770,7 @@ export default {
           message: '原材料品牌',
           trigger: 'blur'
         }],
-        RawmManufacturer: [{
+        rawmManufacturer: [{
           required: true,
           message: '请输入原材料制造商',
           trigger: 'blur'
@@ -837,13 +858,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -851,12 +872,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -868,10 +889,10 @@ export default {
   },
   methods: {
     // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -883,13 +904,13 @@ export default {
     // 重置
     handleReset() {
       this.listQuery = {
-        supplierWorkNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
+        supplierWorkNo: undefined
+        // importDate: [
+        //   this.$moment(new Date())
+        //   .subtract(1, 'months')
+        //   .format('YYYY-MM-DD'),
+        //   this.$moment(new Date()).format('YYYY-MM-DD')
+        // ]
       }
       this.pagination = {
         current: 1,

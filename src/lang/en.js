@@ -586,6 +586,21 @@ export default {
     itemDataSource: 'data sources',
     matVoltageLevel: 'Raw material voltage level',
 
+    // 2020-08-23
+    voltageLevel: 'Voltage level',
+    confirmDvlDate: 'Determine delivery date',
+    speModels: 'Specification and model description',
+    matSupplierName: 'Name of raw material supplier',
+    storeCity: 'City of storage',
+    putStorageTime: 'Warehousing time',
+    inventoryCode: 'Inventory batch number',
+    ioType: 'Issue / receipt type',
+    belongProject: 'Project',
+    poNoCy: 'Purchase order No',
+    dielectricLossUn: 'Dielectric loss ratin，tanδ（90℃）',
+    checkResultJZJ: '(impregnant) inspection result attachment',
+    parameter: 'Add parameter',
+
     // 截止
     roles: 'Your roles',
     switchRoles: 'Switch roles',

@@ -38,7 +38,7 @@
     </div>
 
     <div class="rightBtn">
-      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAddUser">添加参数</el-button>
+      <el-button type="primary" icon="el-icon-circle-plus-outline" @click="handleAddUser">{{ $t('permission.parameter') }}</el-button>
       <el-button type="danger" icon="el-icon-delete" @click="deleteAll">{{ $t('permission.deleteAll') }}</el-button>
     </div>
 

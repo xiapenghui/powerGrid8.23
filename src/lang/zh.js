@@ -588,24 +588,19 @@ export default {
     matVoltageLevel: '原材料电压等级',
 
     // 2020-08-23
-
     voltageLevel: '电压等级',
-
     confirmDvlDate: '确定交货期',
-
     speModels: '规格型号描述',
-
     matSupplierName: '原材料的供应商名称',
-
     storeCity: '存放地点所在市',
     putStorageTime: '入库时间',
-
     inventoryCode: '库存批次号',
     ioType: '出入库类型',
-
     belongProject: '所属项目',
-
     poNoCy: '采购订单号',
+    dielectricLossUn: '介质损耗额定值，tanδ（90℃）',
+    checkResultJZJ: '(浸渍剂)检查结果附件',
+    parameter: '添加参数',
 
     // 截止
     roles: '你的权限',
