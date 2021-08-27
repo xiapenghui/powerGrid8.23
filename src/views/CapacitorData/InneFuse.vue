@@ -830,15 +830,15 @@ export default {
     },
     // 重置
     handleReset() {
-      // this.listQuery = {
-      //   supplierWorkNo: undefined,
-      //   importDate: [
-      //     this.$moment(new Date())
-      //       .subtract(1, 'months')
-      //       .format('YYYY-MM-DD'),
-      //     this.$moment(new Date()).format('YYYY-MM-DD')
-      //   ]
-      // }
+      this.listQuery = {
+        supplierWorkNo: undefined
+        // importDate: [
+        //   this.$moment(new Date())
+        //     .subtract(1, 'months')
+        //     .format('YYYY-MM-DD'),
+        //   this.$moment(new Date()).format('YYYY-MM-DD')
+        // ]
+      }
       this.pagination = {
         current: 1,
         size: 50
