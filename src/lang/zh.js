@@ -601,6 +601,7 @@ export default {
     dielectricLossUn: '介质损耗额定值，tanδ（90℃）',
     checkResultJZJ: '(浸渍剂)检查结果附件',
     parameter: '添加参数',
+    tableName: '产品名称',
 
     // 截止
     roles: '你的权限',

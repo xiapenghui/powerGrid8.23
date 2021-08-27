@@ -129,7 +129,8 @@
         </el-form-item>
         <el-form-item label="姓名"><el-input v-model="ruleForm.realname" /></el-form-item>
         <el-form-item label="性别">
-          <el-select v-model="ruleForm.sex" placeholder="请选择"><el-option v-for="item in sexList" :key="item.value" :label="item.label" :value="item.value" /></el-select>
+          <el-select v-model="ruleForm.sex" placeholder="请选择">
+            <el-option v-for="item in sexList" :key="item.value" :label="item.label" :value="item.value" /></el-select>
         </el-form-item>
         <el-form-item label="电话"><el-input v-model="ruleForm.phone" /></el-form-item>
         <el-form-item label="邮箱"><el-input v-model="ruleForm.email" /></el-form-item>

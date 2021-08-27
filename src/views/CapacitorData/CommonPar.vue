@@ -58,21 +58,15 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
-      <el-table-column align="center" :label="$t('permission.SalesOrg')">
+      <el-table-column align="center" :label="$t('permission.SaleOrg')">
         <template slot-scope="scope">
           {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.SalesOrg')">
+      <el-table-column align="center" :label="$t('permission.tableName')">
         <template slot-scope="scope">
-          {{ scope.row.salesOrg }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.SalesOrg')">
-        <template slot-scope="scope">
-          {{ scope.row.salesOrg }}
+          {{ scope.row.tableName }}
         </template>
       </el-table-column>
 
@@ -102,7 +96,7 @@
 
       <el-table-column align="center" :label="$t('permission.isAlarmData')">
         <template slot-scope="scope">
-          {{ scope.row.isAlarmData }}
+          {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
         </template>
       </el-table-column>
 
@@ -143,18 +137,14 @@
         label-position="left"
       >
 
-        <el-form-item label="工厂" prop="supplierId">
-          <el-select v-model="ruleForm.supplierId" placeholder="请选择">
-            <el-option v-for="item in supplierIdList" :key="item.id" :label="item.saleOrg" :value="item.id" />
+        <el-form-item label="工厂" prop="salesOrg">
+          <el-select v-model="ruleForm.salesOrg" placeholder="请选择">
+            <el-option v-for="item in salesOrgList" :key="item.id" :label="item.saleOrg" :value="item.id" />
           </el-select>
         </el-form-item>
 
-        <el-form-item label="产品名称1" prop="salesOrg">
-          <el-input v-model="ruleForm.salesOrg" />
-        </el-form-item>
-
-        <el-form-item label="产品名称2" prop="salesOrg">
-          <el-input v-model="ruleForm.salesOrg" />
+        <el-form-item label="产品名称" prop="tableName">
+          <el-input v-model="ruleForm.tableName" />
         </el-form-item>
 
         <el-form-item label="采集规范版本号默认:1" prop="standardVersion">
@@ -184,7 +174,7 @@
         <el-form-item label="感知过程默认1" prop="processType">
           <el-input v-model="ruleForm.processType" />
         </el-form-item>
-        <el-form-item label="工序默认:GX000006" prop="pdCode">
+        <el-form-item label="工序默认" prop="pdCode">
           <el-input v-model="ruleForm.pdCode" />
         </el-form-item>
       </el-form>
@@ -209,10 +199,10 @@ import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
 import {
-  supplierList,
-  supplierDellte,
-  supplierEdit,
-  supplierAdd,
+  drqList,
+  drqDellte,
+  drqEdit,
+  drqAdd,
   saleOrg
 } from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
@@ -233,13 +223,13 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
-        startTime: '',
-        endTime: ''
+        size: 50
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
-        supplierCode: undefined,
-        importDate: []
+        supplierCode: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -249,7 +239,7 @@ export default {
       dialogFormVisible: false, // 编辑弹出框
       content1: this.$t('permission.supplierCode'),
       dialogType: 'new',
-      supplierIdList: [],
+      salesOrgList: [],
       isAlarmItem: false,
       isAlarmDataList: [{
         value: 0,
@@ -262,6 +252,16 @@ export default {
       ],
 
       rules: {
+        salesOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        tableName: [{
+          required: true,
+          message: '请输入产品名称',
+          trigger: 'blur'
+        }],
         standardVersion: [{
           required: true,
           message: '请输入采集规范版本号默认',
@@ -316,7 +316,7 @@ export default {
     // 监听警告0或1
     'ruleForm.isAlarmData': {
       handler(val) {
-        this.ruleForm.isAlarmData = val
+        val = this.ruleForm.isAlarmData
         if (val === 0) {
           this.isAlarmItem = false
         } else {
@@ -335,13 +335,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -349,12 +349,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -366,11 +366,11 @@ export default {
     this.getSaleOrg() // 获取所有工厂
   },
   methods: {
-    // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // // 改变搜索框开始结束时间触发
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -381,15 +381,15 @@ export default {
     },
     // 重置
     handleReset() {
-      this.listQuery = {
-        supplierCode: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
-      }
+      // this.listQuery = {
+      //   supplierCode: undefined,
+      //   importDate: [
+      //     this.$moment(new Date())
+      //       .subtract(1, 'months')
+      //       .format('YYYY-MM-DD'),
+      //     this.$moment(new Date()).format('YYYY-MM-DD')
+      //   ]
+      // }
       this.pagination = {
         current: 1,
         size: 50
@@ -417,7 +417,7 @@ export default {
               const newFeatid = item.id
               idList.push(newFeatid)
             })
-            supplierDellte(idList).then(res => {
+            drqDellte(idList).then(res => {
               if (res.code === 200) {
                 this.$message({
                   type: 'success',
@@ -437,16 +437,18 @@ export default {
     },
     // 增加角色
     handleAddUser() {
-      // debugger;
       this.dialogType = 'new'
       this.dialogFormVisible = true
+      this.$nextTick(() => {
+        this.$refs.ruleForm.clearValidate()
+      })
       this.ruleForm = {}
     },
 
     // 获取列表
     getList() {
       this.listLoading = true
-      supplierList(this.pagination, this.listQuery).then(res => {
+      drqList(this.pagination, this.listQuery).then(res => {
         this.tableData = res.data.records
         this.total = res.data.total
         this.listLoading = false
@@ -467,6 +469,9 @@ export default {
       this.dialogType = 'edit'
       this.dialogFormVisible = true
       this.ruleForm = JSON.parse(JSON.stringify(row))
+      this.$nextTick(() => {
+        this.$refs.ruleForm.clearValidate()
+      })
     },
     // 编辑成功
     tipsFn() {
@@ -484,17 +489,20 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           if (this.dialogType === 'edit') {
-            supplierEdit(this.ruleForm).then(res => {
+            drqEdit(this.ruleForm).then(res => {
               if (res.code === 200) {
                 this.tipsFn()
               }
             })
+            this.editLoading = false
           } else {
-            supplierAdd(this.ruleForm).then(res => {
+            drqAdd(this.ruleForm).then(res => {
+              console.log('1111', this.ruleForm)
               if (res.code === 200) {
                 this.tipsFn()
               }
             })
+            this.editLoading = false
           }
         } else {
           this.editLoading = false
@@ -510,8 +518,7 @@ export default {
     // 获取所有工厂
     getSaleOrg() {
       saleOrg().then(res => {
-        debugger
-        this.supplierIdList = res.data
+        this.salesOrgList = res.data
       })
     }
   }

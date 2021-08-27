@@ -1396,3 +1396,41 @@ export function fdqEdit(data) {
     data
   })
 }
+
+// 电容器公共参数
+// 公共参数列表
+export function drqList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_cs/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 电容器编辑保存接口
+export function drqEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_cs/update',
+    method: 'post',
+    data
+  })
+}
+
+// 电容器删除接口
+export function drqDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_cs/delete',
+    method: 'post',
+    data
+  })
+}
+
+// 电容器增加接口
+export function drqAdd(data) {
+  return request({
+    url: global_.BASE_URL + '/linx/dianrongqi_cs/add',
+    method: 'post',
+    data
+  })
+}
