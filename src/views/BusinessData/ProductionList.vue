@@ -10,7 +10,7 @@
           </el-col>
           <el-col :span="16"><el-input v-model="listQuery.ipoNo" :placeholder="$t('permission.ipoNoInfo')" clearable /></el-col>
         </el-col>
-
+<!--
         <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
@@ -30,7 +30,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col>
+        </el-col> -->
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -96,16 +96,10 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ipoNo')" width="150" :show-overflow-tooltip="true">
+      
+      <el-table-column align="center" :label="$t('permission.soNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.ipoNo }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.poNo')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.poNo }}
+          {{ scope.row.soNo }}
         </template>
       </el-table-column>
 
@@ -115,17 +109,18 @@
         </template>
       </el-table-column> -->
 
-      <el-table-column align="center" :label="$t('permission.soNo')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.soNo }}
-        </template>
-      </el-table-column>
       <el-table-column align="center" :label="$t('permission.soItemNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.soItemNo }}
         </template>
       </el-table-column>
-
+      
+      <el-table-column align="center" :label="$t('permission.ipoNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.ipoNo }}
+        </template>
+      </el-table-column>
+ 
       <el-table-column align="center" :label="$t('permission.materialsCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.materialsCode }}
@@ -221,124 +216,108 @@
           {{ scope.row.subclassCode }}
         </template>
       </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.scheduleCode')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.scheduleCode }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.dataType')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.dataType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.materialsUnit')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.materialsUnit }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.materialsDesc')" width="200" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.materialsDesc }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.productIdGrpNo')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.productIdGrpNo }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.productIdType')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.productIdType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.productModel')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.productModel }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.plantName')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.plantName }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.workshopName')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.workshopName }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ipoStatus')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.ipoStatus }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.center')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.center }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.dataSource')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.dataSource }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.dataSourceCreateTime')" width="150">
-        <template slot-scope="scope">
-          {{ scope.row.dataSourceCreateTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ownerId')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.ownerId }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.openId')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.openId }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.dueDate')" width="200" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.dueDate }}
-        </template>
-      </el-table-column>
-
+      
+      
       <el-table-column align="center" :label="$t('permission.processCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.processCode }}
         </template>
       </el-table-column>
-
+      
       <el-table-column align="center" :label="$t('permission.processName')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.processName }}
         </template>
       </el-table-column>
-
+      
       <el-table-column align="center" :label="$t('permission.buyerProvince')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.buyerProvince }}
         </template>
       </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.planPeriod')" width="150" :show-overflow-tooltip="true">
+      
+      <el-table-column align="center" :label="$t('permission.dataType')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.planPeriod }}
+          {{ scope.row.dataType }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.dataSource')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.dataSource }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.dataSourceCreateTime')" width="150">
+        <template slot-scope="scope">
+          {{ scope.row.dataSourceCreateTime }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.productIdGrpNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productIdGrpNo }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.productIdType')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productIdType }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.productModel')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productModel }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.plantName')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.plantName }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.workshopName')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.workshopName }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.ipoStatus')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.ipoStatus }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.center')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.center }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.ownerId')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.ownerId }}
+        </template>
+      </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.openId')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.openId }}
+        </template>
+      </el-table-column>
+      
+   
+      <el-table-column align="center" :label="$t('permission.wavyStatus')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.wavyStatus }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.voltageLevel')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.voltageLevel }}
         </template>
       </el-table-column>
 
@@ -470,12 +449,12 @@ export default {
       pagination: {
         current: 1,
         size: 50,
-        startTime: '',
-        endTime: ''
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
         ipoNo: undefined,
-        importDate: []
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -570,13 +549,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       // this.content1 = this.$t('permission.supplierName')
@@ -585,12 +564,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -602,10 +581,10 @@ export default {
   },
   methods: {
     // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -618,12 +597,12 @@ export default {
     handleReset() {
       this.listQuery = {
         ipoNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
+        // importDate: [
+        //   this.$moment(new Date())
+        //     .subtract(1, 'months')
+        //     .format('YYYY-MM-DD'),
+        //   this.$moment(new Date()).format('YYYY-MM-DD')
+        // ]
       }
       this.pagination = {
         current: 1,

@@ -67,6 +67,8 @@ export default {
     Loss: 'Measurement capacitor',
     InneFuse: 'Internal  test',
     Device: 'Discharge inspection',
+    FinishedGoods:'Finished warehousing',
+    
     // 截止
 
     icons: 'Icons',

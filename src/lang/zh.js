@@ -67,6 +67,8 @@ export default {
     Loss: '电容器损耗角正切测量',
     InneFuse: '内熔丝放电试验',
     Device: '放电器件检查',
+    FinishedGoods:'成品入库',
+    
 
     // 截止
 

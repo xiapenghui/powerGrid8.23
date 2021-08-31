@@ -165,6 +165,14 @@ export const constantRoutes = [{
       meta: {
         title: 'SupplyList'
       }
+    },
+    {
+      path: 'FinishedGoods',
+      component: () => import('@/views/BusinessData/FinishedGoods'),
+      name: 'FinishedGoods',
+      meta: {
+        title: 'FinishedGoods'
+      }
     }
   ]
 },

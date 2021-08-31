@@ -103,12 +103,6 @@
         </template>
       </el-table-column>
 
-      <!-- <el-table-column align="center" :label="$t('permission.itemProductAmount')" width="200">
-        <template slot-scope="scope">
-          {{ scope.row.itemProductAmount }}
-        </template>
-      </el-table-column> -->
-
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.saleOrg }}
@@ -163,33 +157,93 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.itemPoNo')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.materialsCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.itemPoNo }}
+          {{ scope.row.materialsCode }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.itemPurchaseName')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.materialsName')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.itemPurchaseName }}
+          {{ scope.row.materialsName }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.dataSource')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.speModels')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dataSource }}
+          {{ scope.row.speModels }}
         </template>
       </el-table-column>
 
-      <!--  <el-table-column align="center" :label="$t('permission.dataSourceCreatetime')" width="150">
+      <el-table-column align="center" :label="$t('permission.matSupplierName')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dataSourceCreatetime }}
+          {{ scope.row.matSupplierName }}
         </template>
-      </el-table-column> -->
+      </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.remark')" width="200" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.matVoltageLevel')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.remark }}
+          {{ scope.row.matVoltageLevel }}
+        </template>
+      </el-table-column>
+
+       <el-table-column align="center" :label="$t('permission.storeCity')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.storeCity }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.poNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.poNo }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.poItemNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.poItemNo }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.poItemId')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.poItemId }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.inventoryCode')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.inventoryCode }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.ioType')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.ioType }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.putStorageTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.putStorageTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.productAmountOther')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productAmount }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.purchaseName')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.purchaseName }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.belongProject')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.belongProject }}
         </template>
       </el-table-column>
 
