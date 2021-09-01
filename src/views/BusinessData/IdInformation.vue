@@ -84,13 +84,13 @@
           {{ scope.row.poNo }}
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.poItemNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.poItemNo }}
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.poItemId')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.poItemId }}

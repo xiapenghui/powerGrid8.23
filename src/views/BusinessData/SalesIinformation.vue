@@ -11,7 +11,7 @@
           <el-col :span="16"><el-input v-model="listQuery.soNo" :placeholder="$t('permission.soNoInfo')" clearable /></el-col>
         </el-col>
 
-     <!--   <el-col :span="8">
+        <!--   <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
           </el-col>
@@ -101,7 +101,6 @@
           {{ scope.row.poItemNo }}
         </template>
       </el-table-column>
-
 
       <el-table-column align="center" :label="$t('permission.productCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
@@ -292,12 +291,12 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
+        size: 50
         // startTime: '',
         // endTime: ''
       },
       listQuery: {
-        soNo: undefined,
+        soNo: undefined
         // importDate: []
       },
       listLoading: true,
@@ -385,7 +384,7 @@ export default {
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.poItemIds')
-    },
+    }
     // 'listQuery.importDate': {
     //   handler(val) {
     //     this.pagination.startTime = val[0] + ' 00:00:00'
@@ -428,7 +427,7 @@ export default {
     // 重置
     handleReset() {
       this.listQuery = {
-        soNo: undefined,
+        soNo: undefined
         // importDate: [
         //   this.$moment(new Date())
         //     .subtract(1, 'months')

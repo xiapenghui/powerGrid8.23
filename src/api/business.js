@@ -1434,3 +1434,69 @@ export function drqAdd(data) {
     data
   })
 }
+
+// 10kV-公共参数
+// 公共参数列表
+export function kvscList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+//  10kV-公共编辑保存接口
+export function kvscEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/update',
+    method: 'post',
+    data
+  })
+}
+
+//  10kV-公共删除接口
+export function kvscDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/delete',
+    method: 'post',
+    data
+  })
+}
+
+//  10kV-公共增加接口
+export function kvscAdd(data) {
+  return request({
+    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/add',
+    method: 'post',
+    data
+  })
+}
+
+// 成品入库信息列表
+// 成品入库信息列表接口
+export function cprkList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/dianrongqi15/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+// 成品入库信息删除接口
+export function cprkDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/dianrongqi15/delete/ids',
+    method: 'post',
+    data
+  })
+}
+
+// 成品入库信息保存接口
+export function cprkEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/dianrongqi15/update',
+    method: 'post',
+    data
+  })
+}

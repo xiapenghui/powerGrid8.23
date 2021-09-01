@@ -138,21 +138,15 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ContactNumDLQ')" width="150">
-        <template slot-scope="scope">
-          {{ scope.row.contactNum }}
-        </template>
-      </el-table-column>
-
       <el-table-column align="center" :label="$t('permission.MaterialSNs')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.materialSN }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.serialNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.serialNo }}
         </template>
       </el-table-column>
 
@@ -393,6 +387,66 @@
       <el-table-column align="center" :label="$t('permission.inspectionReportFile')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.inspectionReportFile }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.rmibNumber')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.rmibNumber }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.rmbNumber')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.rmbNumber }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.borMaterials')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.borMaterials }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.RawmManufacturer')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.RawmManufacturer }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.oorMaterials')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.oorMaterials }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.mrmSpecification')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.mrmSpecification }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.manufactureDate')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.manufactureDate }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.incomDate')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.incomDate }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.incomReport')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.incomReport }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.manuReport')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.manuReport }}
         </template>
       </el-table-column>
 

@@ -162,27 +162,27 @@
         </template>
       </el-table-column>
 
+      <el-table-column align="center" :label="$t('permission.startTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.startTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.stopTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.stopTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.inspectionResults')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.inspectionResults }}
+        </template>
+      </el-table-column>
+
       <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.checkTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ContactNumOther')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.ContactNum }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.MaterialSNs')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.materialSN }}
         </template>
       </el-table-column>
 

@@ -162,37 +162,37 @@
         </template>
       </el-table-column>
 
+      <el-table-column align="center" :label="$t('permission.startTime')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.startTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.stopTime')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.stopTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.inspectionResults')" width="200">
+        <template slot-scope="scope">
+          {{ scope.row.inspectionResults }}
+        </template>
+      </el-table-column>
+
       <el-table-column align="center" :label="$t('permission.checkTime')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.checkTime }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="200" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <!--   <el-table-column align="center" :label="$t('permission.ContactNums')" width="200">
-        <template slot-scope="scope">
-          {{ scope.row.contactNum }}
-        </template>
-      </el-table-column> -->
-
-      <el-table-column align="center" :label="$t('permission.MaterialSNs')" width="200" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.materialSN }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.pressureValueUnOther')" width="200" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.pressureValueUn')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.pressureValueUn }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.pressureValueOther')" width="200" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.pressureValue')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.pressureValue }}
         </template>

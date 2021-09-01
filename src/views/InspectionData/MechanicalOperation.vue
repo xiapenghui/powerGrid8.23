@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierWorkNo') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
+          </el-col>
         </el-col>
         <el-col :span="8">
           <el-col :span="8">
@@ -161,15 +163,33 @@
         </template>
       </el-table-column>
 
+      <el-table-column align="center" :label="$t('permission.startTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.startTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.stopTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.stopTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.inspectionResults')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.inspectionResults }}
+        </template>
+      </el-table-column>
+
       <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.checkTime }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.productModel')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
+          {{ scope.row.productModel }}
         </template>
       </el-table-column>
 
@@ -246,15 +266,27 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
-            <el-form-item label="厂区编号"><el-input v-model="ruleForm.factoryCode" /></el-form-item>
+            <el-form-item label="工厂名称" prop="saleOrg">
+              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" />
+            </el-form-item>
+            <el-form-item label="厂区编号">
+              <el-input v-model="ruleForm.factoryCode" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="供应商产品厂内编号" placement="top-start">
-              <el-form-item label="供应商产品厂内编号" prop="productModel"><el-input v-model="ruleForm.productModel" :disabled="true" /></el-form-item>
+              <el-form-item label="供应商产品厂内编号" prop="productModel">
+                <el-input v-model="ruleForm.productModel" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="生产设备唯一识别号" placement="top-start">
-              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode"><el-input v-model="ruleForm.equipmentUniqueCode" /></el-form-item>
+              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode">
+                <el-input v-model="ruleForm.equipmentUniqueCode" />
+              </el-form-item>
             </el-tooltip>
 
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
@@ -265,12 +297,22 @@
               </el-form-item>
             </el-tooltip>
 
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
+            <el-form-item label="感知过程" prop="processType">
+              <el-input v-model="ruleForm.processType" />
+            </el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="断路器出厂编号(常州)" placement="top-start">
-              <el-form-item label="断路器出厂编号(常州)"><el-input v-model="ruleForm.contactNum" :disabled="true" /></el-form-item>
+              <el-form-item label="断路器出厂编号(常州)">
+                <el-input v-model="ruleForm.contactNum" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
 
             <el-tooltip class="itemrk" content="人力分合操作5次，可靠动作" placement="top-start">
@@ -307,23 +349,42 @@
 
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
-            <el-form-item label="供应商产品编号"><el-input v-model="ruleForm.supplierSupportId" /></el-form-item>
-            <el-form-item label="生产设备名称" prop="equipmentName"><el-input v-model="ruleForm.equipmentName" /></el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" />
+            </el-form-item>
+            <el-form-item label="供应商产品编号">
+              <el-input v-model="ruleForm.supplierSupportId" />
+            </el-form-item>
+            <el-form-item label="生产设备名称" prop="equipmentName">
+              <el-input v-model="ruleForm.equipmentName" />
+            </el-form-item>
 
             <el-form-item label="告警项" prop="alarmItem" :rules="[ { required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" />
             </el-form-item>
 
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
-            <el-form-item label="成品序列号" prop="materialSN"><el-input v-model="ruleForm.materialSN" :disabled="true" /></el-form-item>
+            <el-form-item label="入数采中心时间">
+              <el-date-picker
+                v-model="ruleForm.putCenterTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="成品序列号" prop="materialSN">
+              <el-input v-model="ruleForm.materialSN" :disabled="true" />
+            </el-form-item>
 
             <el-tooltip class="itemrk" content="储能电机85%和110%操作电压，储能可靠动作" placement="top-start">
               <el-form-item label="储能电机85%和110%操作电压，储能可靠动作" prop="eightyFiveOper">
@@ -506,10 +567,22 @@
         <el-table-column property="modelName" label="模块名称" align="center" width="150px" />
         <el-table-column label="消息日志" align="center" prop="message" />
       </el-table>
-      <pagination v-show="logTotal > 0" :total="logTotal" :current.sync="paginationLog.current" :size.sync="paginationLog.size" @pagination="getLogList" />
+      <pagination
+        v-show="logTotal > 0"
+        :total="logTotal"
+        :current.sync="paginationLog.current"
+        :size.sync="paginationLog.size"
+        @pagination="getLogList"
+      />
     </el-dialog>
 
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -517,13 +590,21 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { moList, moDellte, moEdit, allLogs } from '@/api/business'
+import {
+  moList,
+  moDellte,
+  moEdit,
+  allLogs
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
 const fixHeight = 270
 export default {
   name: 'MechanicalOperation',
-  components: { Pagination, ImprotFile },
+  components: {
+    Pagination,
+    ImprotFile
+  },
   data() {
     return {
       productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/mo/import/file',
@@ -558,162 +639,244 @@ export default {
       dialogFormVisible: false, // 编辑弹出框
       content1: this.$t('permission.supplierWorkNo'),
       isAlarmItem: false,
-      eightyFiveOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      eightyFiveOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      eightyRatedSwitchList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      eightyRatedSwitchList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      lowerThirtyRatedList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      lowerThirtyRatedList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      ratedVolOpenCloseList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      ratedVolOpenCloseList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      openCloseFiveManualList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      openCloseFiveManualList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      thirtyRatedSwitchList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      thirtyRatedSwitchList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      sixtyFiveRatedSwitchList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      sixtyFiveRatedSwitchList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      ratedVolAllReliableList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      ratedVolAllReliableList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      isAlarmDataList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
       pickerOptions: {
-        shortcuts: [
-          {
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近六个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
-              picker.$emit('pick', [start, end])
-            }
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
           }
+        },
+        {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近六个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
+            picker.$emit('pick', [start, end])
+          }
+        }
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        productModel: [{ required: true, message: '请输入供应商产品厂内编号', trigger: 'blur' }],
-        equipmentName: [{ required: true, message: '请输入生产设备名称', trigger: 'blur' }],
-        equipmentUniqueCode: [{ required: true, message: '请输入生产设备唯一识别号', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        contactNum: [{ required: true, message: '请输入断路器出厂编号', trigger: 'blur' }],
-        materialSN: [{ required: true, message: '请输入成品序列号', trigger: 'blur' }],
-        openCloseFiveManual: [{ required: true, message: '请输入人力分合操作5次，可靠动作', trigger: 'blur' }],
-        eightyFiveOper: [{ required: true, message: '请输入储能电机85%和110%操作电压，储能可靠动作', trigger: 'change' }],
-        thirtyRatedSwitch: [{ required: true, message: '请输入等于或低于30% 额定合闸电压时，操作5次，可靠不动作', trigger: 'change' }],
-        eightyRatedSwitch: [{ required: true, message: '请输入80%~110%额定合闸电压（交流）范围，操作5次，可靠合闸', trigger: 'change' }],
-        sixtyFiveRatedSwitch: [{ required: true, message: '请输入65%~110%额定合闸电压（直流）范围，操作5次，可靠合闸', trigger: 'change' }],
-        lowerThirtyRated: [{ required: true, message: '请输入分闸电源低于额定30%，操作5次可靠不动作', trigger: 'change' }],
-        ratedVolAllReliable: [{ required: true, message: '请输入额定操作电压下，分合操作5次，均可靠动作', trigger: 'change' }],
-        ratedVolOpenClose: [{ required: true, message: '请输入额定操作电压“分-0.3-合分”，可靠动作', trigger: 'change' }]
+        saleOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        standardVersion: [{
+          required: true,
+          message: '请输入采集规范版本号',
+          trigger: 'blur'
+        }],
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号',
+          trigger: 'blur'
+        }],
+        supplierCode: [{
+          required: true,
+          message: '请输入国网侧供应商编码',
+          trigger: 'blur'
+        }],
+        modelCode: [{
+          required: true,
+          message: '请输入规格型号编码',
+          trigger: 'blur'
+        }],
+        categoryType: [{
+          required: true,
+          message: '请输入物资品类类型',
+          trigger: 'blur'
+        }],
+        productModel: [{
+          required: true,
+          message: '请输入供应商产品厂内编号',
+          trigger: 'blur'
+        }],
+        equipmentName: [{
+          required: true,
+          message: '请输入生产设备名称',
+          trigger: 'blur'
+        }],
+        equipmentUniqueCode: [{
+          required: true,
+          message: '请输入生产设备唯一识别号',
+          trigger: 'blur'
+        }],
+        processType: [{
+          required: true,
+          message: '请输入感知过程',
+          trigger: 'blur'
+        }],
+        pdCode: [{
+          required: true,
+          message: '请输入工序',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        putCenterTime: [{
+          required: true,
+          message: '请输入入数采中心时间',
+          trigger: 'blur'
+        }],
+        contactNum: [{
+          required: true,
+          message: '请输入断路器出厂编号',
+          trigger: 'blur'
+        }],
+        materialSN: [{
+          required: true,
+          message: '请输入成品序列号',
+          trigger: 'blur'
+        }],
+        openCloseFiveManual: [{
+          required: true,
+          message: '请输入人力分合操作5次，可靠动作',
+          trigger: 'blur'
+        }],
+        eightyFiveOper: [{
+          required: true,
+          message: '请输入储能电机85%和110%操作电压，储能可靠动作',
+          trigger: 'change'
+        }],
+        thirtyRatedSwitch: [{
+          required: true,
+          message: '请输入等于或低于30% 额定合闸电压时，操作5次，可靠不动作',
+          trigger: 'change'
+        }],
+        eightyRatedSwitch: [{
+          required: true,
+          message: '请输入80%~110%额定合闸电压（交流）范围，操作5次，可靠合闸',
+          trigger: 'change'
+        }],
+        sixtyFiveRatedSwitch: [{
+          required: true,
+          message: '请输入65%~110%额定合闸电压（直流）范围，操作5次，可靠合闸',
+          trigger: 'change'
+        }],
+        lowerThirtyRated: [{
+          required: true,
+          message: '请输入分闸电源低于额定30%，操作5次可靠不动作',
+          trigger: 'change'
+        }],
+        ratedVolAllReliable: [{
+          required: true,
+          message: '请输入额定操作电压下，分合操作5次，均可靠动作',
+          trigger: 'change'
+        }],
+        ratedVolOpenClose: [{
+          required: true,
+          message: '请输入额定操作电压“分-0.3-合分”，可靠动作',
+          trigger: 'change'
+        }]
       }
     }
   },
@@ -809,7 +972,9 @@ export default {
     // 点击日志
     clickLogs(row) {
       this.logId = row
-      allLogs(this.paginationLog, { dataId: row.id }).then(res => {
+      allLogs(this.paginationLog, {
+        dataId: row.id
+      }).then(res => {
         if (res.data.records.length > 0) {
           this.dialogTableVisible = true
           res.data.records.map(item => {
@@ -833,7 +998,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -958,67 +1124,171 @@ export default {
     },
 
     // 自定义列标题内容
-    openCloseFiveManual(h, { column, $index }, index) {
+    openCloseFiveManual(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '人力分合操作...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '人力分合操作5次，可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '人力分合操作5次，可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    eightyFiveOper(h, { column, $index }, index) {
+    eightyFiveOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '储能电机85%...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '储能电机85%和110%操作电压，储能可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '储能电机85%和110%操作电压，储能可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    thirtyRatedSwitch(h, { column, $index }, index) {
+    thirtyRatedSwitch(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '等于或低于30%...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '等于或低于30% 额定合闸电压时，操作5次，可靠不动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '等于或低于30% 额定合闸电压时，操作5次，可靠不动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    eightyRatedSwitch(h, { column, $index }, index) {
+    eightyRatedSwitch(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '80%~110%额定...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '80%~110%额定合闸电压（交流）范围，操作5次，可靠合闸' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '80%~110%额定合闸电压（交流）范围，操作5次，可靠合闸'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    sixtyFiveRatedSwitch(h, { column, $index }, index) {
+    sixtyFiveRatedSwitch(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '请输入65%~110%...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '请输入65%~110%额定合闸电压（直流）范围，操作5次，可靠合闸' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '请输入65%~110%额定合闸电压（直流）范围，操作5次，可靠合闸'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    lowerThirtyRated(h, { column, $index }, index) {
+    lowerThirtyRated(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '请输入分闸电源...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '请输入分闸电源低于额定30%，操作5次可靠不动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '请输入分闸电源低于额定30%，操作5次可靠不动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    ratedVolAllReliable(h, { column, $index }, index) {
+    ratedVolAllReliable(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '请输入额定操作...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '请输入额定操作电压下，分合操作5次，均可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '请输入额定操作电压下，分合操作5次，均可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    ratedVolOpenClose(h, { column, $index }, index) {
+    ratedVolOpenClose(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '请输入额定操作...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '请输入额定操作电压“分-0.3-合分”，可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '请输入额定操作电压“分-0.3-合分”，可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     }
@@ -1027,9 +1297,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>

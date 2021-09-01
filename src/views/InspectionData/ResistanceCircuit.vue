@@ -165,31 +165,37 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.startTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
+          {{ scope.row.startTime }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.ContactNums')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.stopTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.ContactNum }}
+          {{ scope.row.stopTime }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.FG_FactoryNum')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.inspectionResults')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.FG_FactoryNum }}
+          {{ scope.row.inspectionResults }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.MaterialSNs')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.materialSN }}
+          {{ scope.row.checkTime }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.ratedCurrentOther')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.productModel')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productModel }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.ratedCurrent')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.ratedCurrent }}
         </template>

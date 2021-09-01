@@ -78,15 +78,56 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.standardVersion }}
-        </template>
-      </el-table-column>
-
       <el-table-column align="center" :label="$t('permission.supplierWorkNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.supplierWorkNo }}
+        </template>
+      </el-table-column>
+
+      <el-table-column
+        align="center"
+        :label="$t('permission.supplierSupportIdOther')"
+        width="150"
+        :show-overflow-tooltip="true"
+      >
+        <template slot-scope="scope">
+          {{ scope.row.supplierSupportId }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.equipmentName')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.equipmentName }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.equipmentUniqueCode')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.equipmentUniqueCode }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.checkTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.productModelOther')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productModel }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.silveringThickness')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.silveringThickness }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.standardVersion }}
         </template>
       </el-table-column>
 
@@ -114,31 +155,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierSupportIdOther')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.supplierSupportId }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.productModelOther')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.productModel }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.equipmentName')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.equipmentName }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.equipmentUniqueCode')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.equipmentUniqueCode }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150">
         <template slot-scope="scope">
           {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
         </template>
@@ -159,36 +176,6 @@
       <el-table-column align="center" :label="$t('permission.pdCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.pdCode }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.checkTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.rawMaterialOP')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.materialSN }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.texture')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.texture }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.silveringThickness')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.silveringThickness }}
         </template>
       </el-table-column>
 

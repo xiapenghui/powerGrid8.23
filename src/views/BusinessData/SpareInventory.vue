@@ -101,7 +101,6 @@
           {{ scope.row.ItemProductLot }}
         </template>
       </el-table-column>
- 
 
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
@@ -133,7 +132,6 @@
         </template>
       </el-table-column>
 
- 
       <el-table-column align="center" :label="$t('permission.ownerId')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.ownerId }}
@@ -151,7 +149,7 @@
           {{ scope.row.remark }}
         </template>
       </el-table-column>
- 
+
       <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>

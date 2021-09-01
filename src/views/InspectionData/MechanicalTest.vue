@@ -167,24 +167,6 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.ContactNumOther')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.contactNum }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.MaterialSNs')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.mterialSN }}
-        </template>
-      </el-table-column>
-
       <el-table-column align="center" :label="$t('permission.breakTimeMax')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.breakTimeMax }}
@@ -281,9 +263,15 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.imageFileUrlJixie')" width="200" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.inspectionReportjxx')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.imageFileUrl }}
+          {{ scope.row.inspectionReport }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.routePicturejxx')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.routePicture }}
         </template>
       </el-table-column>
 

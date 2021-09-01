@@ -78,75 +78,51 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.rmbNumber')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.standardVersion }}
+          {{ scope.row.rmbNumber }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierWorkNo')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.borMaterials')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.supplierWorkNo }}
+          {{ scope.row.borMaterials }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierCodeOther')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.RawmManufacturer')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.supplierCode }}
+          {{ scope.row.RawmManufacturer }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.modelCode')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.oorMaterials')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.modelCode }}
+          {{ scope.row.oorMaterials }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.categoryType')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.mrmSpecification')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.categoryType }}
+          {{ scope.row.mrmSpecification }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.manufactureDate')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
+          {{ scope.row.manufactureDate }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.alarmItem')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.incomDate')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.alarmItem }}
+          {{ scope.row.incomDate }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.processTypeThree')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.incomReport')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.processType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.pdCode')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.pdCode }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.checkTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.putCenterTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.rawMaterialOP')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.rawMaterialSN }}
+          {{ scope.row.incomReport }}
         </template>
       </el-table-column>
 
@@ -168,7 +144,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.ratedCurrentED')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.ratedCurrent')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.ratedCurrent }}
         </template>

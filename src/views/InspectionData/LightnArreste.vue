@@ -78,15 +78,51 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.standardVersion }}
-        </template>
-      </el-table-column>
-
       <el-table-column align="center" :label="$t('permission.supplierWorkNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.supplierWorkNo }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.WorkNoStart')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.WorkNoStart }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.pdCode')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.pdCode }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.checkTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.MaterialSN')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.MaterialSN }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.rmLot')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.rmLot }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.serialNo')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.serialNo }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.standardVersion }}
         </template>
       </el-table-column>
 
@@ -108,7 +144,13 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150">
+      <el-table-column align="center" :label="$t('permission.putCenterTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.putCenterTime }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
         </template>
@@ -120,63 +162,9 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.processTypeThree')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.processType')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.processType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.pdCode')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.pdCode }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.checkTime')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.checkTime }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.rawMaterialBLQ')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.rawMaterialSN }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.pressureValue')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.pressureValue }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.voltageType')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.voltageType }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.refDCVoltageUn')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.refDCVoltageUn }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.refDCVoltage')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.refDCVoltage }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.leakageCurrentDC')" width="220" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.leakageCurrentDC }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.inspectionReportFileBLQ')" width="180" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.inspectionReportFile }}
         </template>
       </el-table-column>
 

@@ -67,8 +67,7 @@ export default {
     Loss: '电容器损耗角正切测量',
     InneFuse: '内熔丝放电试验',
     Device: '放电器件检查',
-    FinishedGoods:'成品入库',
-    
+    FinishedGoods: '成品入库',
 
     // 截止
 
@@ -604,6 +603,12 @@ export default {
     checkResultJZJ: '(浸渍剂)检查结果附件',
     parameter: '添加参数',
     tableName: '产品名称',
+
+    // 08-31
+    inspectionReportjxx: '机械特性试验检验报告',
+    routePicturejxx: '机械特性试验报告',
+    WorkNoStart: '工单计划开始时间',
+    rmLot: '互感器批次号',
 
     // 截止
     roles: '你的权限',

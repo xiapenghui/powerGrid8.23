@@ -191,35 +191,35 @@
         </template>
       </el-table-column>
 
-     <el-table-column align="center" :label="$t('permission.matVoltageLevel')" width="150" :show-overflow-tooltip="true">
-       <template slot-scope="scope">
-         {{ scope.row.matVoltageLevel }}
-       </template>
-     </el-table-column>
+      <el-table-column align="center" :label="$t('permission.matVoltageLevel')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.matVoltageLevel }}
+        </template>
+      </el-table-column>
 
-     <el-table-column align="center" :label="$t('permission.storeCity')" width="150" :show-overflow-tooltip="true">
-       <template slot-scope="scope">
-         {{ scope.row.storeCity }}
-       </template>
-     </el-table-column>
+      <el-table-column align="center" :label="$t('permission.storeCity')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.storeCity }}
+        </template>
+      </el-table-column>
 
-     <el-table-column align="center" :label="$t('permission.putStorageTime')" width="150" :show-overflow-tooltip="true">
-       <template slot-scope="scope">
-         {{ scope.row.putStorageTime }}
-       </template>
-     </el-table-column>
+      <el-table-column align="center" :label="$t('permission.putStorageTime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.putStorageTime }}
+        </template>
+      </el-table-column>
 
-     <el-table-column align="center" :label="$t('permission.productAmountOther')" width="200" :show-overflow-tooltip="true">
-       <template slot-scope="scope">
-         {{ scope.row.productAmount }}
-       </template>
-     </el-table-column>
+      <el-table-column align="center" :label="$t('permission.productAmountOther')" width="200" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.productAmount }}
+        </template>
+      </el-table-column>
 
-     <el-table-column align="center" :label="$t('permission.dataSourceCreatetime')" width="150" :show-overflow-tooltip="true">
-       <template slot-scope="scope">
-         {{ scope.row.dataSourceCreatetime }}
-       </template>
-     </el-table-column>
+      <el-table-column align="center" :label="$t('permission.dataSourceCreatetime')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.dataSourceCreatetime }}
+        </template>
+      </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
