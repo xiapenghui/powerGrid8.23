@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierWorkNo') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
+          </el-col>
         </el-col>
 
         <el-col :span="8">
@@ -463,39 +465,65 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
+            <el-form-item label="工厂名称" prop="saleOrg">
+              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" :disabled="true" />
+            </el-form-item>
 
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
-                  <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
+                  <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" :disabled="true" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
+            <el-form-item label="感知过程" prop="processType">
+              <el-input v-model="ruleForm.processType" />
+            </el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" :disabled="true" placeholder="选择日期时间" />
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                :disabled="true"
+                placeholder="选择日期时间"
+              />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="断路器出厂编号(常州/nature)" placement="top-start">
-              <el-form-item label="断路器出厂编号(常州/nature)"><el-input v-model="ruleForm.contactNum" :disabled="true" /></el-form-item>
+              <el-form-item label="断路器出厂编号(常州/nature)">
+                <el-input v-model="ruleForm.contactNum" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="相对地耐压额定值(kV)" placement="top-start">
-              <el-form-item label="相对地耐压额定值(kV)" prop="pressureValueUn"><el-input v-model="ruleForm.pressureValueUn" /></el-form-item>
+              <el-form-item label="相对地耐压额定值(kV)" prop="pressureValueUn">
+                <el-input v-model="ruleForm.pressureValueUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="真空断口耐压额定值(kV)" placement="top-start">
-              <el-form-item label="真空断口耐压额定值(kV)" prop="vacuumVoltageUn"><el-input v-model="ruleForm.vacuumVoltageUn" /></el-form-item>
+              <el-form-item label="真空断口耐压额定值(kV)" prop="vacuumVoltageUn">
+                <el-input v-model="ruleForm.vacuumVoltageUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="相间耐压额定值(kV)" placement="top-start">
-              <el-form-item label="相间耐压额定值(kV)" prop="phaseVoltageUn"><el-input v-model="ruleForm.phaseVoltageUn" /></el-form-item>
+              <el-form-item label="相间耐压额定值(kV)" prop="phaseVoltageUn">
+                <el-input v-model="ruleForm.phaseVoltageUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="耐压持续额定时间(s)" placement="top-start">
-              <el-form-item label="耐压持续额定时间(s)" prop="pressureTimeUn"><el-input v-model="ruleForm.pressureTimeUn" /></el-form-item>
+              <el-form-item label="耐压持续额定时间(s)" prop="pressureTimeUn">
+                <el-input v-model="ruleForm.pressureTimeUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="额定电流(A)" placement="top-start">
-              <el-form-item label="额定电流(A)" prop="ratedCurrent"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
+              <el-form-item label="额定电流(A)" prop="ratedCurrent">
+                <el-input v-model="ruleForm.ratedCurrent" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="A相回路电阻值(μΩ)" placement="top-start">
               <el-form-item label="A相回路电阻值(μΩ)" prop="loopResistanceA">
@@ -538,63 +566,128 @@
             </el-tooltip>
 
             <el-tooltip class="item" effect="dark" content="分闸时间额定上限值(ms)" placement="top-start">
-              <el-form-item label="分闸时间额定上限值(ms)" prop="breakTimeMax"><el-input v-model="ruleForm.breakTimeMax" /></el-form-item>
+              <el-form-item label="分闸时间额定上限值(ms)" prop="breakTimeMax">
+                <el-input v-model="ruleForm.breakTimeMax" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="A相分闸时间(ms)" placement="top-start">
-              <el-form-item label="A相分闸时间(ms)" prop="breakTimeA"><el-input v-model="ruleForm.breakTimeA" /></el-form-item>
+              <el-form-item label="A相分闸时间(ms)" prop="breakTimeA">
+                <el-input v-model="ruleForm.breakTimeA" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="C相分闸时间(ms)" placement="top-start">
-              <el-form-item label="C相分闸时间(ms)" prop="breakTimeC"><el-input v-model="ruleForm.breakTimeC" /></el-form-item>
+              <el-form-item label="C相分闸时间(ms)" prop="breakTimeC">
+                <el-input v-model="ruleForm.breakTimeC" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸时间额定下限值(ms)" placement="top-start">
-              <el-form-item label="合闸时间额定下限值(ms)" prop="closeTimeMin"><el-input v-model="ruleForm.closeTimeMin" /></el-form-item>
+              <el-form-item label="合闸时间额定下限值(ms)" prop="closeTimeMin">
+                <el-input v-model="ruleForm.closeTimeMin" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="B相合闸时间(ms)" placement="top-start">
-              <el-form-item label="B相合闸时间(ms)" prop="closeTimeB"><el-input v-model="ruleForm.closeTimeB" /></el-form-item>
+              <el-form-item label="B相合闸时间(ms)" prop="closeTimeB">
+                <el-input v-model="ruleForm.closeTimeB" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸不同期额定值(ms)" placement="top-start">
-              <el-form-item label="合闸不同期额定值(ms)" prop="closeNotSameTimeUn"><el-input v-model="ruleForm.closeNotSameTimeUn" /></el-form-item>
+              <el-form-item label="合闸不同期额定值(ms)" prop="closeNotSameTimeUn">
+                <el-input v-model="ruleForm.closeNotSameTimeUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分闸不同期额定值(ms)" placement="top-start">
-              <el-form-item label="分闸不同期额定值(ms)" prop="breakNotSameTimeUn"><el-input v-model="ruleForm.breakNotSameTimeUn" /></el-form-item>
+              <el-form-item label="分闸不同期额定值(ms)" prop="breakNotSameTimeUn">
+                <el-input v-model="ruleForm.breakNotSameTimeUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸弹跳（真空断路器）额定值(ms)" placement="top-start">
-              <el-form-item label="合闸弹跳（真空断路器）额定值(ms)" prop="closeBounceTimeUn"><el-input v-model="ruleForm.closeBounceTimeUn" /></el-form-item>
+              <el-form-item label="合闸弹跳（真空断路器）额定值(ms)" prop="closeBounceTimeUn">
+                <el-input v-model="ruleForm.closeBounceTimeUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分闸反弹幅值额定值(mm)" placement="top-start">
-              <el-form-item label="分闸反弹幅值额定值(mm)" prop="breakOffAmplitudeUn"><el-input v-model="ruleForm.breakOffAmplitudeUn" /></el-form-item>
+              <el-form-item label="分闸反弹幅值额定值(mm)" prop="breakOffAmplitudeUn">
+                <el-input v-model="ruleForm.breakOffAmplitudeUn" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分闸反弹幅值(mm)" placement="top-start">
-              <el-form-item label="分闸反弹幅值(mm)" prop="breakOffAmplitude"><el-input v-model="ruleForm.breakOffAmplitude" /></el-form-item>
+              <el-form-item label="分闸反弹幅值(mm)" prop="breakOffAmplitude">
+                <el-input v-model="ruleForm.breakOffAmplitude" />
+              </el-form-item>
             </el-tooltip>
+
+            <el-form-item label="原材料检验批次号" prop="rmibNumber">
+              <el-input v-model="ruleForm.rmibNumber" />
+            </el-form-item>
+            <el-form-item label="原材料品牌" prop="borMaterials">
+              <el-input v-model="ruleForm.borMaterials" />
+            </el-form-item>
+            <el-form-item label="原材料产地" prop="oorMaterials">
+              <el-input v-model="ruleForm.oorMaterials" />
+            </el-form-item>
+            <el-form-item label="原材料出厂日期">
+              <el-date-picker
+                v-model="ruleForm.manufactureDate"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="来料检测报告" prop="incomReport">
+              <el-input v-model="ruleForm.incomReport" />
+            </el-form-item>
+
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" :disabled="true" />
+            </el-form-item>
 
             <el-form-item label="告警项" prop="alarmItem" :rules="[ { required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
+              <el-input v-model="ruleForm.alarmItem" :disabled="true" />
             </el-form-item>
 
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" :disabled="true" />
             </el-form-item>
-            <el-form-item label="成品序列号"><el-input v-model="ruleForm.materialSN" :disabled="true" /></el-form-item>
+            <el-form-item label="入数采中心时间">
+              <el-date-picker
+                v-model="ruleForm.putCenterTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="成品序列号">
+              <el-input v-model="ruleForm.materialSN" :disabled="true" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="相对地耐压值(kV)" placement="top-start">
-              <el-form-item label="相对地耐压值(kV)" prop="pressureValue"><el-input v-model="ruleForm.pressureValue" /></el-form-item>
+              <el-form-item label="相对地耐压值(kV)" prop="pressureValue">
+                <el-input v-model="ruleForm.pressureValue" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="真空断口耐压值(kV)" placement="top-start">
-              <el-form-item label="真空断口耐压值(kV)" prop="vacuumVoltage"><el-input v-model="ruleForm.vacuumVoltage" /></el-form-item>
+              <el-form-item label="真空断口耐压值(kV)" prop="vacuumVoltage">
+                <el-input v-model="ruleForm.vacuumVoltage" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="相间耐压值(kV)" placement="top-start">
-              <el-form-item label="相间耐压值(kV)" prop="phaseVoltage"><el-input v-model="ruleForm.phaseVoltage" /></el-form-item>
+              <el-form-item label="相间耐压值(kV)" prop="phaseVoltage">
+                <el-input v-model="ruleForm.phaseVoltage" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="耐压持续时间(s)" placement="top-start">
-              <el-form-item label="耐压持续时间(s)" prop="pressureTime"><el-input v-model="ruleForm.pressureTime" /></el-form-item>
+              <el-form-item label="耐压持续时间(s)" prop="pressureTime">
+                <el-input v-model="ruleForm.pressureTime" />
+              </el-form-item>
             </el-tooltip>
 
             <el-tooltip class="item" effect="dark" content="额定回路电阻值(μΩ)" placement="top-start">
@@ -654,29 +747,66 @@
             </el-tooltip>
 
             <el-tooltip class="item" effect="dark" content="分闸时间额定下限值(ms)" placement="top-start">
-              <el-form-item label="分闸时间额定下限值(ms)" prop="breakTimeMin"><el-input v-model="ruleForm.breakTimeMin" /></el-form-item>
+              <el-form-item label="分闸时间额定下限值(ms)" prop="breakTimeMin">
+                <el-input v-model="ruleForm.breakTimeMin" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="B相分闸时间(ms)" placement="top-start">
-              <el-form-item label="B相分闸时间(ms)" prop="breakTimeB"><el-input v-model="ruleForm.breakTimeB" /></el-form-item>
+              <el-form-item label="B相分闸时间(ms)" prop="breakTimeB">
+                <el-input v-model="ruleForm.breakTimeB" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸时间额定上限值(ms)" placement="top-start">
-              <el-form-item label="合闸时间额定上限值(ms)" prop="closeTimeMax"><el-input v-model="ruleForm.closeTimeMax" /></el-form-item>
+              <el-form-item label="合闸时间额定上限值(ms)" prop="closeTimeMax">
+                <el-input v-model="ruleForm.closeTimeMax" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="A相合闸时间(ms)" placement="top-start">
-              <el-form-item label="A相合闸时间(ms)" prop="closeTimeA"><el-input v-model="ruleForm.closeTimeA" /></el-form-item>
+              <el-form-item label="A相合闸时间(ms)" prop="closeTimeA">
+                <el-input v-model="ruleForm.closeTimeA" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="C相合闸时间(ms)" placement="top-start">
-              <el-form-item label="C相合闸时间(ms)" prop="closeTimeC"><el-input v-model="ruleForm.closeTimeC" /></el-form-item>
+              <el-form-item label="C相合闸时间(ms)" prop="closeTimeC">
+                <el-input v-model="ruleForm.closeTimeC" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸不同期(ms)" placement="top-start">
-              <el-form-item label="合闸不同期(ms)" prop="closeNotSameTime"><el-input v-model="ruleForm.closeNotSameTime" /></el-form-item>
+              <el-form-item label="合闸不同期(ms)" prop="closeNotSameTime">
+                <el-input v-model="ruleForm.closeNotSameTime" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="分闸不同期(ms)" placement="top-start">
-              <el-form-item label="分闸不同期(ms)" prop="breakNotSameTime"><el-input v-model="ruleForm.breakNotSameTime" /></el-form-item>
+              <el-form-item label="分闸不同期(ms)" prop="breakNotSameTime">
+                <el-input v-model="ruleForm.breakNotSameTime" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="合闸弹跳（真空断路器）(ms)" placement="top-start">
-              <el-form-item label="合闸弹跳（真空断路器）(ms)" prop="closeBounceTime"><el-input v-model="ruleForm.closeBounceTime" /></el-form-item>
+              <el-form-item label="合闸弹跳（真空断路器）(ms)" prop="closeBounceTime">
+                <el-input v-model="ruleForm.closeBounceTime" />
+              </el-form-item>
             </el-tooltip>
+            <el-form-item label="原材料批次号" prop="rmbNumber">
+              <el-input v-model="ruleForm.rmbNumber" />
+            </el-form-item>
+            <el-form-item label="原材料制造商" prop="RawmManufacturer">
+              <el-input v-model="ruleForm.RawmManufacturer" />
+            </el-form-item>
+            <el-form-item label="原材料规格型号" prop="mrmSpecification">
+              <el-input v-model="ruleForm.mrmSpecification" />
+            </el-form-item>
+            <el-form-item label="来料检验日期">
+              <el-date-picker
+                v-model="ruleForm.incomDate"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="生产商检测报告" prop="manuReport">
+              <el-input v-model="ruleForm.manuReport" />
+            </el-form-item>
+
             <el-form-item label="断路器附件">
               <el-upload
                 :class="{ disUoloadSty: noneBtnImg }"
@@ -961,10 +1091,22 @@
         <el-table-column property="modelName" label="模块名称" align="center" width="150px" />
         <el-table-column label="消息日志" align="center" prop="message" />
       </el-table>
-      <pagination v-show="logTotal > 0" :total="logTotal" :current.sync="paginationLog.current" :size.sync="paginationLog.size" @pagination="getLogList" />
+      <pagination
+        v-show="logTotal > 0"
+        :total="logTotal"
+        :current.sync="paginationLog.current"
+        :size.sync="paginationLog.size"
+        @pagination="getLogList"
+      />
     </el-dialog>
 
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -972,17 +1114,27 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { dlqxcList, dlqxcDellte, dlqxcEdit, allLogs } from '@/api/business'
+import {
+  dlqxcList,
+  dlqxcDellte,
+  dlqxcEdit,
+  allLogs
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
 const fixHeight = 270
 export default {
   name: 'CircuitTrolley',
-  components: { Pagination, ImprotFile },
+  components: {
+    Pagination,
+    ImprotFile
+  },
   data() {
     return {
       productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/dlqxc/import/file',
-      myHeaders: { Authorization: this.$store.getters.token }, // 获取token
+      myHeaders: {
+        Authorization: this.$store.getters.token
+      }, // 获取token
       // 日志分页
       paginationLog: {
         current: 1,
@@ -1018,257 +1170,487 @@ export default {
       disabled: false,
       imgList: [], // 批量上传图片数组
       fileList: [],
-      newDataImg: { id: '', imagePath: '', modelName: '断路器小车' }, // 多个图片上传
-      oneDataImg: { id: '', imagePath: '', modelName: '断路器小车' }, // 单个图片上传或替换之前的图片
+      newDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '断路器小车'
+      }, // 多个图片上传
+      oneDataImg: {
+        id: '',
+        imagePath: '',
+        modelName: '断路器小车'
+      }, // 单个图片上传或替换之前的图片
       editRow: {},
       editFileList: [],
       noneBtnImg: false, // 隐藏上传按钮
       limitCountImg: 1, // 上传图片的最大数量
       isAlarmItem: false,
-      loopResistanceUnList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      loopResistanceUnList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      loopResistanceBList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      loopResistanceBList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      perReliableOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      perReliableOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      nomVolReliableOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      nomVolReliableOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      nomDCReliableSwitchList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      nomDCReliableSwitchList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      breakReliableNoOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      breakReliableNoOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      breakVolReliableOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      breakVolReliableOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      loopResistanceAList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      loopResistanceAList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      loopResistanceCList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      loopResistanceCList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      eliableStorageOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      eliableStorageOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
-      reliableStorageOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      reliableStorageOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      nomACReliableSwitchList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      nomACReliableSwitchList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      breakNomVolReliableOperList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      breakNomVolReliableOperList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
-      isAlarmDataList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
 
       content1: this.$t('permission.supplierWorkNo'),
       pickerOptions: {
-        shortcuts: [
-          {
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: '最近六个月',
-            onClick(picker) {
-              const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
-              picker.$emit('pick', [start, end])
-            }
+        shortcuts: [{
+          text: '最近一周',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
           }
+        },
+        {
+          text: '最近一个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近三个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        },
+        {
+          text: '最近六个月',
+          onClick(picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
+            picker.$emit('pick', [start, end])
+          }
+        }
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
+        saleOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号',
+          trigger: 'blur'
+        }],
+
+        modelCode: [{
+          required: true,
+          message: '请输入规格型号编码',
+          trigger: 'blur'
+        }],
+        categoryType: [{
+          required: true,
+          message: '请输入物资品类类型',
+          trigger: 'blur'
+        }],
+        processType: [{
+          required: true,
+          message: '请输入感知过程',
+          trigger: 'blur'
+        }],
+        pdCode: [{
+          required: true,
+          message: '请输入工序',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        putCenterTime: [{
+          required: true,
+          message: '请输入入数采中心时间',
+          trigger: 'blur'
+        }],
         // contactNum: [{ required: true, message: '请输入断路器出厂编号(常州/nature)', trigger: 'blur' }],
         // materialSN: [{ required: true, message: '请输入成品序列号(PDSE)', trigger: 'blur' }],
-        pressureValueUn: [{ required: true, message: '请输入相对地耐压额定值(kV)', trigger: 'blur' }],
-        pressureValue: [{ required: true, message: '请输入相对地耐压值(kV)', trigger: 'blur' }],
-        vacuumVoltageUn: [{ required: true, message: '请输入真空断口耐压额定值(kV)', trigger: 'blur' }],
-        vacuumVoltage: [{ required: true, message: '请输入真空断口耐压值(kV)', trigger: 'blur' }],
-        phaseVoltageUn: [{ required: true, message: '请输入相间耐压额定值(kV)', trigger: 'blur' }],
-        phaseVoltage: [{ required: true, message: '请输入相间耐压值(kV)', trigger: 'blur' }],
-        pressureTimeUn: [{ required: true, message: '请输入耐压持续额定时间(s)', trigger: 'blur' }],
-        pressureTime: [{ required: true, message: '请输入耐压持续时间(s)', trigger: 'blur' }],
-        ratedCurrent: [{ required: true, message: '请输入额定电流(A)', trigger: 'blur' }],
-        loopResistanceUn: [{ required: true, message: '请输入额定回路电阻值(μΩ)', trigger: 'blur' }],
-        loopResistanceA: [{ required: true, message: '请输入A相回路电阻值(μΩ)', trigger: 'blur' }],
-        loopResistanceB: [{ required: true, message: '请输入B相回路电阻值(μΩ)', trigger: 'blur' }],
-        loopResistanceC: [{ required: true, message: '请输入C相回路电阻值(μΩ)', trigger: 'blur' }],
-        perReliableOper: [{ required: true, message: '请输入人力分合操作5次，可靠动作', trigger: 'blur' }],
-        reliableStorageOper: [{ required: true, message: '请输入储能电机85%和110%操作电压，储能可靠动作', trigger: 'change' }],
-        nomVolReliableOper: [{ required: true, message: '请输入等于或低于30% 额定合闸电压时，操作5次，可靠不动作', trigger: 'change' }],
-        nomACReliableSwitch: [{ required: true, message: '请输入85%~110%额定合闸电压（直流）范围，操作5次，可靠合闸', trigger: 'change' }],
-        nomDCReliableSwitch: [{ required: true, message: '请输入65%~110%额定分闸电压（直流）范围，操作5次，可靠分闸', trigger: 'change' }],
-        breakReliableNoOper: [{ required: true, message: '请输入分闸电源低于额定30%，操作5次可靠不动作', trigger: 'change' }],
-        breakNomVolReliableOper: [{ required: true, message: '请输入额定操作电压下，分合操作5次，均可靠动作', trigger: 'change' }],
-        breakVolReliableOper: [{ required: true, message: '请输入额定操作电压“分-0.3-合分”，可靠动作', trigger: 'change' }],
-        breakTimeMax: [{ required: true, message: '请输入分闸时间额定上限值(ms)', trigger: 'blur' }],
-        breakTimeMin: [{ required: true, message: '请输入分闸时间额定下限值(ms)', trigger: 'blur' }],
-        breakTimeA: [{ required: true, message: '请输入A相分闸时间(ms)', trigger: 'blur' }],
-        breakTimeB: [{ required: true, message: '请输入B相分闸时间(ms)', trigger: 'blur' }],
-        breakTimeC: [{ required: true, message: '请输入C相分闸时间(ms)', trigger: 'blur' }],
-        closeTimeMax: [{ required: true, message: '请输入合闸时间额定上限值(ms)', trigger: 'blur' }],
-        closeTimeMin: [{ required: true, message: '请输入合闸时间额定下限值(ms)', trigger: 'blur' }],
-        closeTimeA: [{ required: true, message: '请输入A相合闸时间(ms)', trigger: 'blur' }],
-        closeTimeB: [{ required: true, message: '请输入B相合闸时间(ms)', trigger: 'blur' }],
-        closeTimeC: [{ required: true, message: '请输入C相合闸时间(ms)', trigger: 'blur' }],
-        closeNotSameTimeUn: [{ required: true, message: '请输入合闸不同期额定值(ms)', trigger: 'blur' }],
-        closeNotSameTime: [{ required: true, message: '请输入合闸不同期(ms)', trigger: 'blur' }],
-        breakNotSameTimeUn: [{ required: true, message: '请输入分闸不同期额定值(ms)', trigger: 'blur' }],
-        breakNotSameTime: [{ required: true, message: '请输入分闸不同期(ms)', trigger: 'blur' }],
-        closeBounceTimeUn: [{ required: true, message: '请输入合闸弹跳（真空断路器）额定值(ms)', trigger: 'blur' }],
-        closeBounceTime: [{ required: true, message: '请输入合闸弹跳（真空断路器）(ms)', trigger: 'blur' }],
-        breakOffAmplitudeUn: [{ required: true, message: '请输入分闸反弹幅值额定值(mm)', trigger: 'blur' }],
-        breakOffAmplitude: [{ required: true, message: '请输入分闸反弹幅值(mm)', trigger: 'blur' }]
-        // alarmItem: [ { required: true, message: '请输入告警项', trigger: 'blur' }]
+        pressureValueUn: [{
+          required: true,
+          message: '请输入相对地耐压额定值(kV)',
+          trigger: 'blur'
+        }],
+        pressureValue: [{
+          required: true,
+          message: '请输入相对地耐压值(kV)',
+          trigger: 'blur'
+        }],
+        vacuumVoltageUn: [{
+          required: true,
+          message: '请输入真空断口耐压额定值(kV)',
+          trigger: 'blur'
+        }],
+        vacuumVoltage: [{
+          required: true,
+          message: '请输入真空断口耐压值(kV)',
+          trigger: 'blur'
+        }],
+        phaseVoltageUn: [{
+          required: true,
+          message: '请输入相间耐压额定值(kV)',
+          trigger: 'blur'
+        }],
+        phaseVoltage: [{
+          required: true,
+          message: '请输入相间耐压值(kV)',
+          trigger: 'blur'
+        }],
+        pressureTimeUn: [{
+          required: true,
+          message: '请输入耐压持续额定时间(s)',
+          trigger: 'blur'
+        }],
+        pressureTime: [{
+          required: true,
+          message: '请输入耐压持续时间(s)',
+          trigger: 'blur'
+        }],
+        ratedCurrent: [{
+          required: true,
+          message: '请输入额定电流(A)',
+          trigger: 'blur'
+        }],
+        loopResistanceUn: [{
+          required: true,
+          message: '请输入额定回路电阻值(μΩ)',
+          trigger: 'blur'
+        }],
+        loopResistanceA: [{
+          required: true,
+          message: '请输入A相回路电阻值(μΩ)',
+          trigger: 'blur'
+        }],
+        loopResistanceB: [{
+          required: true,
+          message: '请输入B相回路电阻值(μΩ)',
+          trigger: 'blur'
+        }],
+        loopResistanceC: [{
+          required: true,
+          message: '请输入C相回路电阻值(μΩ)',
+          trigger: 'blur'
+        }],
+        perReliableOper: [{
+          required: true,
+          message: '请输入人力分合操作5次，可靠动作',
+          trigger: 'blur'
+        }],
+        reliableStorageOper: [{
+          required: true,
+          message: '请输入储能电机85%和110%操作电压，储能可靠动作',
+          trigger: 'change'
+        }],
+        nomVolReliableOper: [{
+          required: true,
+          message: '请输入等于或低于30% 额定合闸电压时，操作5次，可靠不动作',
+          trigger: 'change'
+        }],
+        nomACReliableSwitch: [{
+          required: true,
+          message: '请输入85%~110%额定合闸电压（直流）范围，操作5次，可靠合闸',
+          trigger: 'change'
+        }],
+        nomDCReliableSwitch: [{
+          required: true,
+          message: '请输入65%~110%额定分闸电压（直流）范围，操作5次，可靠分闸',
+          trigger: 'change'
+        }],
+        breakReliableNoOper: [{
+          required: true,
+          message: '请输入分闸电源低于额定30%，操作5次可靠不动作',
+          trigger: 'change'
+        }],
+        breakNomVolReliableOper: [{
+          required: true,
+          message: '请输入额定操作电压下，分合操作5次，均可靠动作',
+          trigger: 'change'
+        }],
+        breakVolReliableOper: [{
+          required: true,
+          message: '请输入额定操作电压“分-0.3-合分”，可靠动作',
+          trigger: 'change'
+        }],
+        breakTimeMax: [{
+          required: true,
+          message: '请输入分闸时间额定上限值(ms)',
+          trigger: 'blur'
+        }],
+        breakTimeMin: [{
+          required: true,
+          message: '请输入分闸时间额定下限值(ms)',
+          trigger: 'blur'
+        }],
+        breakTimeA: [{
+          required: true,
+          message: '请输入A相分闸时间(ms)',
+          trigger: 'blur'
+        }],
+        breakTimeB: [{
+          required: true,
+          message: '请输入B相分闸时间(ms)',
+          trigger: 'blur'
+        }],
+        breakTimeC: [{
+          required: true,
+          message: '请输入C相分闸时间(ms)',
+          trigger: 'blur'
+        }],
+        closeTimeMax: [{
+          required: true,
+          message: '请输入合闸时间额定上限值(ms)',
+          trigger: 'blur'
+        }],
+        closeTimeMin: [{
+          required: true,
+          message: '请输入合闸时间额定下限值(ms)',
+          trigger: 'blur'
+        }],
+        closeTimeA: [{
+          required: true,
+          message: '请输入A相合闸时间(ms)',
+          trigger: 'blur'
+        }],
+        closeTimeB: [{
+          required: true,
+          message: '请输入B相合闸时间(ms)',
+          trigger: 'blur'
+        }],
+        closeTimeC: [{
+          required: true,
+          message: '请输入C相合闸时间(ms)',
+          trigger: 'blur'
+        }],
+        closeNotSameTimeUn: [{
+          required: true,
+          message: '请输入合闸不同期额定值(ms)',
+          trigger: 'blur'
+        }],
+        closeNotSameTime: [{
+          required: true,
+          message: '请输入合闸不同期(ms)',
+          trigger: 'blur'
+        }],
+        breakNotSameTimeUn: [{
+          required: true,
+          message: '请输入分闸不同期额定值(ms)',
+          trigger: 'blur'
+        }],
+        breakNotSameTime: [{
+          required: true,
+          message: '请输入分闸不同期(ms)',
+          trigger: 'blur'
+        }],
+        closeBounceTimeUn: [{
+          required: true,
+          message: '请输入合闸弹跳（真空断路器）额定值(ms)',
+          trigger: 'blur'
+        }],
+        closeBounceTime: [{
+          required: true,
+          message: '请输入合闸弹跳（真空断路器）(ms)',
+          trigger: 'blur'
+        }],
+        breakOffAmplitudeUn: [{
+          required: true,
+          message: '请输入分闸反弹幅值额定值(mm)',
+          trigger: 'blur'
+        }],
+        breakOffAmplitude: [{
+          required: true,
+          message: '请输入分闸反弹幅值(mm)',
+          trigger: 'blur'
+        }],
+        rmibNumber: [{
+          required: true,
+          message: '请输入原材料检验批次号',
+          trigger: 'blur'
+        }],
+        rmbNumber: [{
+          required: true,
+          message: '请输入原材料批次号',
+          trigger: 'blur'
+        }],
+        borMaterials: [{
+          required: true,
+          message: '请输入原材料品牌',
+          trigger: 'blur'
+        }],
+        RawmManufacturer: [{
+          required: true,
+          message: '请输入原材料制造商',
+          trigger: 'blur'
+        }],
+        oorMaterials: [{
+          required: true,
+          message: '请输入原材料产地',
+          trigger: 'blur'
+        }],
+        mrmSpecification: [{
+          required: true,
+          message: '请输入原材料规格型号',
+          trigger: 'blur'
+        }],
+        manufactureDate: [{
+          required: true,
+          message: '请输入原材料出厂日期',
+          trigger: 'blur'
+        }],
+        incomDate: [{
+          required: true,
+          message: '请输入来料检验日期',
+          trigger: 'blur'
+        }],
+        incomReport: [{
+          required: true,
+          message: '请输入来料检测报告',
+          trigger: 'blur'
+        }],
+        manuReport: [{
+          required: true,
+          message: '请输入生产商检测报告',
+          trigger: 'blur'
+        }]
+
       }
     }
   },
@@ -1364,7 +1746,9 @@ export default {
     // 点击日志
     clickLogs(row) {
       this.logId = row
-      allLogs(this.paginationLog, { dataId: row.id }).then(res => {
+      allLogs(this.paginationLog, {
+        dataId: row.id
+      }).then(res => {
         if (res.data.records.length > 0) {
           this.dialogTableVisible = true
           res.data.records.map(item => {
@@ -1388,7 +1772,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -1604,67 +1989,171 @@ export default {
     },
 
     // 自定义列标题内容
-    perReliableOper(h, { column, $index }, index) {
+    perReliableOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '人力分合操作...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '人力分合操作5次，可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '人力分合操作5次，可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    reliableStorageOper(h, { column, $index }, index) {
+    reliableStorageOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '储能电机85%...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '储能电机85%和110%操作电压，储能可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '储能电机85%和110%操作电压，储能可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    nomVolReliableOper(h, { column, $index }, index) {
+    nomVolReliableOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '等于或低于30%...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '等于或低于30% 额定合闸电压时，操作5次，可靠不动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '等于或低于30% 额定合闸电压时，操作5次，可靠不动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    nomACReliableSwitch(h, { column, $index }, index) {
+    nomACReliableSwitch(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '85%~110%额定...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '85%~110%额定合闸电压（直流）范围，操作5次，可靠合闸' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '85%~110%额定合闸电压（直流）范围，操作5次，可靠合闸'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    nomDCReliableSwitch(h, { column, $index }, index) {
+    nomDCReliableSwitch(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '65%~110%额定...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '65%~110%额定分闸电压（直流）范围，操作5次，可靠分闸' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '65%~110%额定分闸电压（直流）范围，操作5次，可靠分闸'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    breakReliableNoOper(h, { column, $index }, index) {
+    breakReliableNoOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '分闸电源低于...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '分闸电源低于额定30%，操作5次可靠不动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '分闸电源低于额定30%，操作5次可靠不动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    breakNomVolReliableOper(h, { column, $index }, index) {
+    breakNomVolReliableOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '额定操作电压下...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '额定操作电压下，分合操作5次，均可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '额定操作电压下，分合操作5次，均可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     },
-    breakVolReliableOper(h, { column, $index }, index) {
+    breakVolReliableOper(h, {
+      column,
+      $index
+    }, index) {
       return h('span', {}, [
         h('span', {}, '额定操作电压...'),
-        h('el-popover', { props: { placement: 'top-start', width: '250', trigger: 'hover', content: '额定操作电压“分-0.3-合分”，可靠动作' }}, [
-          h('i', { slot: 'reference', class: 'el-icon-question' }, '')
+        h('el-popover', {
+          props: {
+            placement: 'top-start',
+            width: '250',
+            trigger: 'hover',
+            content: '额定操作电压“分-0.3-合分”，可靠动作'
+          }
+        }, [
+          h('i', {
+            slot: 'reference',
+            class: 'el-icon-question'
+          }, '')
         ])
       ])
     }
@@ -1673,12 +2162,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.disUoloadSty ::v-deep .el-upload--picture-card {
-  display: none !important;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .disUoloadSty ::v-deep .el-upload--picture-card {
+    display: none !important;
+  }
 </style>

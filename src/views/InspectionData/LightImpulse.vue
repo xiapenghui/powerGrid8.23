@@ -208,15 +208,23 @@
             <el-form-item label="感知过程" prop="processType">
               <el-input v-model="ruleForm.processType" />
             </el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
+            <el-form-item label="试验开始时间" prop="startTime">
               <el-date-picker
-                v-model="ruleForm.checkTime"
+                v-model="ruleForm.startTime"
                 type="datetime"
                 value-format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
                 :disabled="true"
               />
             </el-form-item>
+
+            <el-form-item label="试验结果" prop="inspectionResults">
+              <el-input v-model="ruleForm.inspectionResults" />
+            </el-form-item>
+            <el-form-item label="供应商数据唯一标识" prop="productModel">
+              <el-input v-model="ruleForm.productModel" />
+            </el-form-item>
+
             <el-form-item label="额定值(kV)">
               <el-input v-model="ruleForm.pressureValueUn" />
             </el-form-item>
@@ -245,9 +253,25 @@
             <el-form-item label="工序" prop="pdCode">
               <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
-            <el-form-item label="柜体序列号" prop="materialSN">
-              <el-input v-model="ruleForm.mterialSN" :disabled="true" />
+            <el-form-item label="试验结束时间" prop="stopTime">
+              <el-date-picker
+                v-model="ruleForm.stopTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
             </el-form-item>
+            <el-form-item label="采集时间" prop="checkTime">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
+
             <el-form-item label="雷电冲击值(kV)">
               <el-input v-model="ruleForm.pressureValue" />
             </el-form-item>
@@ -479,49 +503,31 @@ export default {
           message: '请输入工厂',
           trigger: 'blur'
         }],
-        standardVersion: [{
-          required: true,
-          message: '请输入采集规范版本号',
-          trigger: 'blur'
-        }],
+
         supplierWorkNo: [{
           required: true,
           message: '请输入供应商工单编号',
           trigger: 'blur'
         }],
-        supplierCode: [{
-          required: true,
-          message: '请输入国网侧供应商编码',
-          trigger: 'blur'
-        }],
-        modelCode: [{
-          required: true,
-          message: '请输入规格型号编码',
-          trigger: 'blur'
-        }],
-        categoryType: [{
-          required: true,
-          message: '请输入物资品类类型',
-          trigger: 'blur'
-        }],
+
         equipmentName: [{
           required: true,
           message: '请输入生产设备名称',
           trigger: 'blur'
         }],
-        equipmentUniqueCode: [{
+        startTime: [{
           required: true,
-          message: '请输入生产设备唯一识别号',
+          message: '请输入试验开始时间',
           trigger: 'blur'
         }],
-        processType: [{
+        stopTime: [{
           required: true,
-          message: '请输入感知过程',
+          message: '请输入试验结束时间',
           trigger: 'blur'
         }],
-        pdCode: [{
+        inspectionResults: [{
           required: true,
-          message: '请输入工序',
+          message: '请输入试验结果',
           trigger: 'blur'
         }],
         checkTime: [{
@@ -529,9 +535,9 @@ export default {
           message: '请输入采集时间',
           trigger: 'blur'
         }],
-        materialSN: [{
+        productModel: [{
           required: true,
-          message: '请输入柜体序列号',
+          message: '请输入供应商数据唯一标识',
           trigger: 'blur'
         }]
       }

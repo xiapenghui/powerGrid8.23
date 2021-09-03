@@ -398,7 +398,6 @@
             </el-tooltip>
 
             <el-form-item label="(浸渍剂)检查结果附件">
-              <!-- action="http://39.101.166.244/api/image/upload" -->
               <el-upload
                 :class="{ disUoloadSty: noneBtnImg }"
                 :action="this.GLOBAL.BASE_URL + '/api/image/upload'"

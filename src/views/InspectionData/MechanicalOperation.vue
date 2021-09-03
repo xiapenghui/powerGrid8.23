@@ -300,49 +300,50 @@
             <el-form-item label="感知过程" prop="processType">
               <el-input v-model="ruleForm.processType" />
             </el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
+            <el-form-item label="试验开始时间" prop="startTime">
               <el-date-picker
-                v-model="ruleForm.checkTime"
+                v-model="ruleForm.startTime"
                 type="datetime"
                 value-format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
                 :disabled="true"
               />
             </el-form-item>
-            <el-tooltip class="item" effect="dark" content="断路器出厂编号(常州)" placement="top-start">
-              <el-form-item label="断路器出厂编号(常州)">
-                <el-input v-model="ruleForm.contactNum" :disabled="true" />
-              </el-form-item>
-            </el-tooltip>
+            <el-form-item label="试验结果" prop="inspectionResults">
+              <el-input v-model="ruleForm.inspectionResults" />
+            </el-form-item>
+            <el-form-item label="供应商数据唯一标识（序列号）" prop="productModel">
+              <el-input v-model="ruleForm.productModel" />
+            </el-form-item>
 
-            <el-tooltip class="itemrk" content="人力分合操作5次，可靠动作" placement="top-start">
-              <el-form-item label="人力分合操作5次，可靠动作" prop="openCloseFiveManual">
-                <el-select v-model="ruleForm.openCloseFiveManual" placeholder="请选择">
-                  <el-option v-for="item in openCloseFiveManualList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="储能电机85%和110%操作电压，储能可靠动作" placement="top-start">
+              <el-form-item label="储能电机85%和110%操作电压，储能可靠动作" prop="eightyFiveOper">
+                <el-select v-model="ruleForm.eightyFiveOper" placeholder="请选择">
+                  <el-option v-for="item in eightyFiveOperList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="等于或低于30% 额定合闸电压时,可靠不动作" placement="top-start">
-              <el-form-item label="等于或低于30% 额定合闸电压时,可靠不动作" prop="thirtyRatedSwitch">
-                <el-select v-model="ruleForm.thirtyRatedSwitch" placeholder="请选择">
-                  <el-option v-for="item in thirtyRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="80%~110%额定合闸电压（交流）范围，可靠合闸" placement="top-start">
+              <el-form-item label="80%~110%额定合闸电压（交流）范围，可靠合闸" prop="eightyRatedSwitch">
+                <el-select v-model="ruleForm.eightyRatedSwitch" placeholder="请选择">
+                  <el-option v-for="item in eightyRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="65%~110%额定合闸电压（直流）范围，可靠合闸" placement="top-start">
-              <el-form-item label="65%~110%额定合闸电压（直流）范围，可靠合闸" prop="sixtyFiveRatedSwitch">
-                <el-select v-model="ruleForm.sixtyFiveRatedSwitch" placeholder="请选择">
-                  <el-option v-for="item in sixtyFiveRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="分闸电源低于额定30%，操作5次可靠不动作" placement="top-start">
+              <el-form-item label="分闸电源低于额定30%，操作5次可靠不动作" prop="lowerThirtyRated">
+                <el-select v-model="ruleForm.lowerThirtyRated" placeholder="请选择">
+                  <el-option v-for="item in lowerThirtyRatedList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="额定操作电压下，分合操作5次，均可靠动作" placement="top-start">
-              <el-form-item label="额定操作电压下，分合操作5次，均可靠动作" prop="ratedVolAllReliable">
-                <el-select v-model="ruleForm.ratedVolAllReliable" placeholder="请选择">
-                  <el-option v-for="item in ratedVolAllReliableList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="额定操作电压“分-0.3-合分”，可靠动作" placement="top-start">
+              <el-form-item label="额定操作电压“分-0.3-合分”，可靠动作" prop="ratedVolOpenClose">
+                <el-select v-model="ruleForm.ratedVolOpenClose" placeholder="请选择">
+                  <el-option v-for="item in ratedVolOpenCloseList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
@@ -374,46 +375,52 @@
             <el-form-item label="工序" prop="pdCode">
               <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
-            <el-form-item label="入数采中心时间">
+            <el-form-item label="试验结束时间">
               <el-date-picker
-                v-model="ruleForm.putCenterTime"
+                v-model="ruleForm.stopTime"
                 type="datetime"
                 value-format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>
-            <el-form-item label="成品序列号" prop="materialSN">
-              <el-input v-model="ruleForm.materialSN" :disabled="true" />
+
+            <el-form-item label="采集时间">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
             </el-form-item>
 
-            <el-tooltip class="itemrk" content="储能电机85%和110%操作电压，储能可靠动作" placement="top-start">
-              <el-form-item label="储能电机85%和110%操作电压，储能可靠动作" prop="eightyFiveOper">
-                <el-select v-model="ruleForm.eightyFiveOper" placeholder="请选择">
-                  <el-option v-for="item in eightyFiveOperList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="人力分合操作5次，可靠动作" placement="top-start">
+              <el-form-item label="人力分合操作5次，可靠动作" prop="openCloseFiveManual">
+                <el-select v-model="ruleForm.openCloseFiveManual" placeholder="请选择">
+                  <el-option v-for="item in openCloseFiveManualList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="80%~110%额定合闸电压（交流）范围，可靠合闸" placement="top-start">
-              <el-form-item label="80%~110%额定合闸电压（交流）范围，可靠合闸" prop="eightyRatedSwitch">
-                <el-select v-model="ruleForm.eightyRatedSwitch" placeholder="请选择">
-                  <el-option v-for="item in eightyRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="等于或低于30% 额定合闸电压时,可靠不动作" placement="top-start">
+              <el-form-item label="等于或低于30% 额定合闸电压时,可靠不动作" prop="thirtyRatedSwitch">
+                <el-select v-model="ruleForm.thirtyRatedSwitch" placeholder="请选择">
+                  <el-option v-for="item in thirtyRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="分闸电源低于额定30%，操作5次可靠不动作" placement="top-start">
-              <el-form-item label="分闸电源低于额定30%，操作5次可靠不动作" prop="lowerThirtyRated">
-                <el-select v-model="ruleForm.lowerThirtyRated" placeholder="请选择">
-                  <el-option v-for="item in lowerThirtyRatedList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="65%~110%额定合闸电压（直流）范围，可靠合闸" placement="top-start">
+              <el-form-item label="65%~110%额定合闸电压（直流）范围，可靠合闸" prop="sixtyFiveRatedSwitch">
+                <el-select v-model="ruleForm.sixtyFiveRatedSwitch" placeholder="请选择">
+                  <el-option v-for="item in sixtyFiveRatedSwitchList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="itemrk" content="额定操作电压“分-0.3-合分”，可靠动作" placement="top-start">
-              <el-form-item label="额定操作电压“分-0.3-合分”，可靠动作" prop="ratedVolOpenClose">
-                <el-select v-model="ruleForm.ratedVolOpenClose" placeholder="请选择">
-                  <el-option v-for="item in ratedVolOpenCloseList" :key="item.value" :label="item.label" :value="item.value" />
+            <el-tooltip class="itemrk" content="额定操作电压下，分合操作5次，均可靠动作" placement="top-start">
+              <el-form-item label="额定操作电压下，分合操作5次，均可靠动作" prop="ratedVolAllReliable">
+                <el-select v-model="ruleForm.ratedVolAllReliable" placeholder="请选择">
+                  <el-option v-for="item in ratedVolAllReliableList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
@@ -767,36 +774,13 @@ export default {
           message: '请输入工厂',
           trigger: 'blur'
         }],
-        standardVersion: [{
-          required: true,
-          message: '请输入采集规范版本号',
-          trigger: 'blur'
-        }],
+
         supplierWorkNo: [{
           required: true,
           message: '请输入供应商工单编号',
           trigger: 'blur'
         }],
-        supplierCode: [{
-          required: true,
-          message: '请输入国网侧供应商编码',
-          trigger: 'blur'
-        }],
-        modelCode: [{
-          required: true,
-          message: '请输入规格型号编码',
-          trigger: 'blur'
-        }],
-        categoryType: [{
-          required: true,
-          message: '请输入物资品类类型',
-          trigger: 'blur'
-        }],
-        productModel: [{
-          required: true,
-          message: '请输入供应商产品厂内编号',
-          trigger: 'blur'
-        }],
+
         equipmentName: [{
           required: true,
           message: '请输入生产设备名称',
@@ -807,34 +791,31 @@ export default {
           message: '请输入生产设备唯一识别号',
           trigger: 'blur'
         }],
-        processType: [{
+        startTime: [{
           required: true,
-          message: '请输入感知过程',
+          message: '请输试验开始时间',
           trigger: 'blur'
         }],
-        pdCode: [{
+        stopTime: [{
           required: true,
-          message: '请输入工序',
+          message: '请输试验结束时间',
           trigger: 'blur'
         }],
+        inspectionResults: [{
+          required: true,
+          message: '请输试验结果',
+          trigger: 'blur'
+        }],
+
         checkTime: [{
           required: true,
           message: '请输入采集时间',
           trigger: 'blur'
         }],
-        putCenterTime: [{
+
+        productModel: [{
           required: true,
-          message: '请输入入数采中心时间',
-          trigger: 'blur'
-        }],
-        contactNum: [{
-          required: true,
-          message: '请输入断路器出厂编号',
-          trigger: 'blur'
-        }],
-        materialSN: [{
-          required: true,
-          message: '请输入成品序列号',
+          message: '请输入供应商数据唯一标识',
           trigger: 'blur'
         }],
         openCloseFiveManual: [{

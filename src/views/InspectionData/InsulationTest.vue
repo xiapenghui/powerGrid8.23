@@ -244,9 +244,12 @@
             <el-form-item label="采集时间" prop="checkTime">
               <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
-            <el-tooltip class="item" effect="dark" content="合同出厂编号(常州)" placement="top-start">
-              <el-form-item label="合同出厂编号(常州)" prop="contactNum"><el-input v-model="ruleForm.contactNum" /></el-form-item>
-            </el-tooltip>
+            <el-form-item label="试验开始时间" prop="checkTime">
+              <el-date-picker v-model="ruleForm.checkTime" type="startTime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+            </el-form-item>
+
+            <el-form-item label="试验结果" prop="inspectionResults"><el-input v-model="ruleForm.inspectionResults" /></el-form-item>
+
             <el-form-item label="额定耐压值(kV)" prop="pressureValueUn"><el-input v-model="ruleForm.pressureValueUn" /></el-form-item>
           </div>
           <div class="boxRight">
@@ -263,8 +266,8 @@
             </el-form-item>
 
             <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="试验结束时间" prop="stopTime">
+              <el-date-picker v-model="ruleForm.checkTime" type="startTime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
             <el-form-item label="成品序列号" prop="materialSN"><el-input v-model="ruleForm.materialSN" :disabled="true" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="耐压值（二次耐压值" placement="top-start">
@@ -504,20 +507,14 @@ export default {
       },
       rules: {
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
         supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        productModel: [{ required: true, message: '请输入供应商产品厂内编号', trigger: 'blur' }],
         equipmentName: [{ required: true, message: '请输入生产设备名称', trigger: 'blur' }],
         equipmentUniqueCode: [{ required: true, message: '请输入生产设备唯一识别号', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
+        startTime: [{ required: true, message: '请输入试验开始时间', trigger: 'blur' }],
+        stopTime: [{ required: true, message: '请输入试验结束时间', trigger: 'blur' }],
+        inspectionResults: [{ required: true, message: '请输入试验结果', trigger: 'blur' }],
         checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        contactNum: [{ required: true, message: '请输入断路器出厂编号', trigger: 'blur' }],
-        materialSN: [{ required: true, message: '请输入成品序列号', trigger: 'blur' }],
+        productModel: [{ required: true, message: '请输入供应商数据唯一标识', trigger: 'blur' }],
         pressureValueUn: [{ required: true, message: '请输入额定值', trigger: 'blur' }],
         pressureValue: [{ required: true, message: '请输入耐压值（二次耐压值）', trigger: 'blur' }],
         pressureTime: [{ required: true, message: '请输入耐压持续时间', trigger: 'blur' }]

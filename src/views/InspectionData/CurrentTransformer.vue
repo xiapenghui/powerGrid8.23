@@ -186,11 +186,67 @@
             <el-form-item label="工厂名称" prop="saleOrg">
               <el-input v-model="ruleForm.saleOrg" :disabled="true" />
             </el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
-              <el-input v-model="ruleForm.supplierWorkNo" :disabled="true" />
+
+            <el-form-item label="工单计划开始时间" prop="WorkNoStart">
+              <el-input v-model="ruleForm.WorkNoStart" :disabled="true" />
+            </el-form-item>
+
+            <el-form-item label="采集时间" prop="checkTime">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
+            <el-form-item label="互感器批次号" prop="rmLot">
+              <el-input v-model="ruleForm.rmLot" />
+            </el-form-item>
+            <el-form-item label="采集规范版本号">
+              <el-input v-model="ruleForm.standardVersion" />
             </el-form-item>
             <el-form-item label="规格型号编码" prop="modelCode">
               <el-input v-model="ruleForm.modelCode" />
+            </el-form-item>
+            <el-form-item label="入数采中心时间">
+              <el-date-picker
+                v-model="ruleForm.putCenterTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+                :disabled="true"
+              />
+            </el-form-item>
+
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+              <el-input v-model="ruleForm.alarmItem" />
+            </el-form-item>
+
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" />
+            </el-form-item>
+
+          </div>
+          <div class="boxRight">
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" />
+            </el-form-item>
+
+            <el-form-item label="整装序列号" prop="MaterialSN">
+              <el-input v-model="ruleForm.MaterialSN" />
+            </el-form-item>
+
+            <el-form-item label="互感器序列号" prop="serialNo">
+              <el-input v-model="ruleForm.serialNo" />
+            </el-form-item>
+
+            <el-form-item label="国网侧供应商编码" prop="supplierCode">
+              <el-input v-model="ruleForm.supplierCode" />
+            </el-form-item>
+
+            <el-form-item label="国网侧供应商编码" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" />
             </el-form-item>
 
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
@@ -204,89 +260,18 @@
             <el-form-item label="感知过程" prop="processType">
               <el-input v-model="ruleForm.processType" />
             </el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker
-                v-model="ruleForm.checkTime"
-                type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
-                placeholder="选择日期时间"
-                :disabled="true"
-              />
-            </el-form-item>
-
-            <el-form-item label="一次额定电流(A)">
-              <el-input v-model="ruleForm.ratedCurrent" />
-            </el-form-item>
-            <el-form-item label="一次耐压值(kV)">
-              <el-input v-model="ruleForm.pressureValue" />
-            </el-form-item>
-            <el-form-item label="耐压持续时间(S)">
-              <el-input v-model="ruleForm.pressureTime" />
-            </el-form-item>
-            <el-form-item label="A相局放量(pC)">
-              <el-input v-model="ruleForm.dischargeA" />
-            </el-form-item>
-            <el-form-item label="C相局放量(pC)">
-              <el-input v-model="ruleForm.dischargeC" />
-            </el-form-item>
-
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion">
-              <el-input v-model="ruleForm.standardVersion" />
-            </el-form-item>
-            <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode">
-                <el-input v-model="ruleForm.supplierCode" />
-              </el-form-item>
-            </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType">
-              <el-input v-model="ruleForm.categoryType" />
-            </el-form-item>
-
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
-              <el-input v-model="ruleForm.alarmItem" />
-            </el-form-item>
-            <el-form-item label="工序" prop="pdCode">
-              <el-input v-model="ruleForm.pdCode" />
-            </el-form-item>
-            <el-form-item label="CT出厂编号" prop="rawMaterialSN">
-              <el-input v-model="ruleForm.rawMaterialSN" :disabled="true" />
-            </el-form-item>
-            <el-form-item label="一次耐压额定值(kV)">
-              <el-input v-model="ruleForm.pressureValueUn" />
-            </el-form-item>
-            <el-form-item label="耐压持续额定时间(S)">
-              <el-input v-model="ruleForm.pressureTimeUn" />
-            </el-form-item>
-            <el-form-item label="额定局放量(pC)">
-              <el-input v-model="ruleForm.dischargeUn" />
-            </el-form-item>
-            <el-form-item label="B相局放量(pC)">
-              <el-input v-model="ruleForm.dischargeB" />
-            </el-form-item>
-
+            <!--
             <el-form-item label="电流互感器附件">
-              <el-upload
-                :class="{ disUoloadSty: noneBtnImg }"
-                :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
-                :data="this.oneDataImg"
-                :headers="this.myHeaders"
-                :limit="this.limitCountImg"
-                list-type="picture-card"
-                :file-list="editFileList"
-                :on-remove="onRemoveImg"
-                :on-success="onsucessImg"
-                :on-change="imgChange"
-                :on-preview="handlePictureCardPreview"
-              >
+              <el-upload :class="{ disUoloadSty: noneBtnImg }" :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
+                :data="this.oneDataImg" :headers="this.myHeaders" :limit="this.limitCountImg" list-type="picture-card"
+                :file-list="editFileList" :on-remove="onRemoveImg" :on-success="onsucessImg" :on-change="imgChange"
+                :on-preview="handlePictureCardPreview">
                 <i slot="default" class="el-icon-plus" />
               </el-upload>
               <el-dialog :visible.sync="dialogVisibleImg"><img width="100%" :src="dialogImageUrl" alt=""></el-dialog>
-            </el-form-item>
+            </el-form-item> -->
           </div>
         </div>
-        <!-- <div class="bigDownBox"></div> -->
       </el-form>
 
       <div slot="footer" class="dialog-footer">
@@ -581,39 +566,15 @@ export default {
           message: '请输入工厂',
           trigger: 'blur'
         }],
-        standardVersion: [{
-          required: true,
-          message: '请输入采集规范版本号',
-          trigger: 'blur'
-        }],
+
         supplierWorkNo: [{
           required: true,
           message: '请输入供应商工单编号',
           trigger: 'blur'
         }],
-        supplierCode: [{
+        WorkNoStart: [{
           required: true,
-          message: '请输入国网侧供应商编码',
-          trigger: 'blur'
-        }],
-        modelCode: [{
-          required: true,
-          message: '请输入规格型号编码',
-          trigger: 'blur'
-        }],
-        categoryType: [{
-          required: true,
-          message: '请输入物资品类类型',
-          trigger: 'blur'
-        }],
-        processType: [{
-          required: true,
-          message: '请输入感知过程',
-          trigger: 'blur'
-        }],
-        pdCode: [{
-          required: true,
-          message: '请输入工序',
+          message: '请输入工单计划开始时间',
           trigger: 'blur'
         }],
         checkTime: [{
@@ -621,11 +582,22 @@ export default {
           message: '请输入采集时间',
           trigger: 'blur'
         }],
-        rawMaterialSN: [{
+        MaterialSN: [{
           required: true,
-          message: '请输入PT出厂编号',
+          message: '请输入整装序列号',
+          trigger: 'blur'
+        }],
+        rmLot: [{
+          required: true,
+          message: '请输入互感器批次号',
+          trigger: 'blur'
+        }],
+        serialNo: [{
+          required: true,
+          message: '请输入互感器序列号',
           trigger: 'blur'
         }]
+
       }
     }
   },

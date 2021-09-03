@@ -8,7 +8,9 @@
               <label class="radio-label">{{ $t('permission.supplierWorkNo') }}:</label>
             </el-tooltip>
           </el-col>
-          <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
+          <el-col :span="16">
+            <el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable />
+          </el-col>
         </el-col>
         <el-col :span="8">
           <el-col :span="8">
@@ -234,48 +236,85 @@
     </el-table>
 
     <!-- 编辑弹窗 -->
-    <el-dialog
-      title="编辑信息"
-      :close-on-click-modal="false"
-      :visible.sync="dialogFormVisible"
-    >
+    <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商工单编号" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo" :disabled="true" /></el-form-item>
-            <el-form-item label="规格型号编码" prop="modelCode"><el-input v-model="ruleForm.modelCode" /></el-form-item>
-            <el-form-item label="厂区编号"><el-input v-model="ruleForm.factoryCode" /></el-form-item>
+            <el-form-item label="工厂名称" prop="saleOrg">
+              <el-input v-model="ruleForm.saleOrg" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="供应商工单编号" prop="supplierWorkNo">
+              <el-input v-model="ruleForm.supplierWorkNo" :disabled="true" />
+            </el-form-item>
+            <el-form-item label="规格型号编码" prop="modelCode">
+              <el-input v-model="ruleForm.modelCode" />
+            </el-form-item>
+            <el-form-item label="厂区编号">
+              <el-input v-model="ruleForm.factoryCode" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="供应商产品厂内编号" placement="top-start">
-              <el-form-item label="供应商产品厂内编号" prop="productModel"><el-input v-model="ruleForm.productModel" :disabled="true" /></el-form-item>
+              <el-form-item label="供应商产品厂内编号" prop="productModel">
+                <el-input v-model="ruleForm.productModel" :disabled="true" />
+              </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="生产设备唯一识别号" placement="top-start">
-              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode"><el-input v-model="ruleForm.equipmentUniqueCode" /></el-form-item>
+              <el-form-item label="生产设备唯一识别号" prop="equipmentUniqueCode">
+                <el-input v-model="ruleForm.equipmentUniqueCode" />
+              </el-form-item>
             </el-tooltip>
 
             <el-form-item label="告警项" prop="alarmItem" :rules="[ { required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" />
             </el-form-item>
 
-            <el-form-item label="工序" prop="pdCode"><el-input v-model="ruleForm.pdCode" /></el-form-item>
-            <el-form-item label="入数采中心时间">
-              <el-date-picker v-model="ruleForm.putCenterTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="工序" prop="pdCode">
+              <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
-            <el-tooltip class="item" effect="dark" content="柜体出厂编号(常州/Nature)" placement="top-start">
-              <el-form-item label="柜体出厂编号(常州/Nature)"><el-input v-model="ruleForm.FG_FactoryNum" /></el-form-item>
-            </el-tooltip>
-            <el-form-item label="额定电流(A)"><el-input v-model="ruleForm.ratedCurrent" /></el-form-item>
-            <el-form-item label="A相回路电阻值" prop="loopResistanceA"><el-input v-model="ruleForm.loopResistanceA" /></el-form-item>
-            <el-form-item label="C相回路电阻值" prop="loopResistanceC"><el-input v-model="ruleForm.loopResistanceC" /></el-form-item>
+            <el-form-item label="试验结束时间">
+              <el-date-picker
+                v-model="ruleForm.stopTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="采集时间">
+              <el-date-picker
+                v-model="ruleForm.checkTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="额定电流(A)">
+              <el-input v-model="ruleForm.ratedCurrent" />
+            </el-form-item>
+            <el-form-item label="A相回路电阻值" prop="loopResistanceA">
+              <el-input v-model="ruleForm.loopResistanceA" />
+            </el-form-item>
+            <el-form-item label="C相回路电阻值" prop="loopResistanceC">
+              <el-input v-model="ruleForm.loopResistanceC" />
+            </el-form-item>
+
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion"><el-input v-model="ruleForm.standardVersion" /></el-form-item>
+            <el-form-item label="采集规范版本号" prop="standardVersion">
+              <el-input v-model="ruleForm.standardVersion" />
+            </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+                <el-input v-model="ruleForm.supplierCode" />
+              </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType"><el-input v-model="ruleForm.categoryType" /></el-form-item>
-            <el-form-item label="供应商产品编号"><el-input v-model="ruleForm.supplierSupportId" /></el-form-item>
-            <el-form-item label="生产设备名称" prop="equipmentName"><el-input v-model="ruleForm.equipmentName" /></el-form-item>
+            <el-form-item label="物资品类类型" prop="categoryType">
+              <el-input v-model="ruleForm.categoryType" />
+            </el-form-item>
+            <el-form-item label="供应商产品编号">
+              <el-input v-model="ruleForm.supplierSupportId" />
+            </el-form-item>
+            <el-form-item label="生产设备名称" prop="equipmentName">
+              <el-input v-model="ruleForm.equipmentName" />
+            </el-form-item>
 
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
               <el-form-item label="是否是告警问题数据" prop="isAlarmData">
@@ -285,16 +324,31 @@
               </el-form-item>
             </el-tooltip>
 
-            <el-form-item label="感知过程" prop="processType"><el-input v-model="ruleForm.processType" /></el-form-item>
-            <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+            <el-form-item label="感知过程" prop="processType">
+              <el-input v-model="ruleForm.processType" />
             </el-form-item>
-            <el-form-item label="项目合同号(常州)"><el-input v-model="ruleForm.ContactNum" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="成品序列号(PDSE)" placement="top-start">
-              <el-form-item label="成品序列号(PDSE)" prop="materialSN"><el-input v-model="ruleForm.materialSN" :disabled="true" /></el-form-item>
-            </el-tooltip>
-            <el-form-item label="额定电阻值"><el-input v-model="ruleForm.loopResistanceUn" /></el-form-item>
-            <el-form-item label="B相回路电阻值" prop="loopResistanceB"><el-input v-model="ruleForm.loopResistanceB" /></el-form-item>
+
+            <el-form-item label="试验开始时间">
+              <el-date-picker
+                v-model="ruleForm.startTime"
+                type="datetime"
+                value-format="yyyy-MM-dd hh:mm:ss"
+                placeholder="选择日期时间"
+              />
+            </el-form-item>
+            <el-form-item label="试验结果" prop="inspectionResults">
+              <el-input v-model="ruleForm.inspectionResults" />
+            </el-form-item>
+            <el-form-item label="供应商数据唯一标识" prop="productModel">
+              <el-input v-model="ruleForm.productModel" />
+            </el-form-item>
+            <el-form-item label="额定电阻值">
+              <el-input v-model="ruleForm.loopResistanceUn" />
+            </el-form-item>
+            <el-form-item label="B相回路电阻值" prop="loopResistanceB">
+              <el-input v-model="ruleForm.loopResistanceB" />
+            </el-form-item>
+
           </div>
         </div>
       </el-form>
@@ -417,7 +471,8 @@
               <el-form-item label="C相回路电阻值:">
                 <span>{{ props.row.requestBody.loopResistanceC }}</span>
               </el-form-item>
-            </el-form></template>
+            </el-form>
+          </template>
         </el-table-column>
         <el-table-column label="创建时间" align="center" prop="createTime" width="150px" />
         <el-table-column label="状态" align="center" prop="levelString" width="100px">
@@ -430,10 +485,22 @@
         <el-table-column property="modelName" label="模块名称" align="center" width="150px" />
         <el-table-column label="消息日志" align="center" prop="message" />
       </el-table>
-      <pagination v-show="logTotal > 0" :total="logTotal" :current.sync="paginationLog.current" :size.sync="paginationLog.size" @pagination="getLogList" />
+      <pagination
+        v-show="logTotal > 0"
+        :total="logTotal"
+        :current.sync="paginationLog.current"
+        :size.sync="paginationLog.size"
+        @pagination="getLogList"
+      />
     </el-dialog>
 
-    <pagination v-show="total > 0" :total="total" :current.sync="pagination.current" :size.sync="pagination.size" @pagination="getList" />
+    <pagination
+      v-show="total > 0"
+      :total="total"
+      :current.sync="pagination.current"
+      :size.sync="pagination.size"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -441,13 +508,21 @@
 import '../../styles/scrollbar.css'
 import '../../styles/commentBox.scss'
 import i18n from '@/lang'
-import { mcrList, mcrDellte, mcrEdit, allLogs } from '@/api/business'
+import {
+  mcrList,
+  mcrDellte,
+  mcrEdit,
+  allLogs
+} from '@/api/business'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination4
 import ImprotFile from '@/components/ImprotFile' // 文件上传文件封装
 const fixHeight = 270
 export default {
   name: 'ResistanceCircuit',
-  components: { Pagination, ImprotFile },
+  components: {
+    Pagination,
+    ImprotFile
+  },
   data() {
     return {
       productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/mcr/import/file',
@@ -482,15 +557,14 @@ export default {
       dialogFormVisible: false, // 编辑弹出框
       content1: this.$t('permission.supplierWorkNo'),
       isAlarmItem: false,
-      isAlarmDataList: [
-        {
-          value: 0,
-          label: '否'
-        },
-        {
-          value: 1,
-          label: '是'
-        }
+      isAlarmDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }
       ],
       pickerOptions: {
         shortcuts: [{
@@ -530,23 +604,67 @@ export default {
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
-        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        productModel: [{ required: true, message: '请输入供应商产品厂内编号', trigger: 'blur' }],
-        equipmentName: [{ required: true, message: '请输入生产设备名称', trigger: 'blur' }],
-        equipmentUniqueCode: [{ required: true, message: '请输入生产设备唯一识别号', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
-        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
-        putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
-        materialSN: [{ required: true, message: '请输入成品序列号(PDSE)', trigger: 'blur' }],
-        loopResistanceA: [{ required: true, message: '请输入A相回路电阻值', trigger: 'blur' }],
-        loopResistanceB: [{ required: true, message: '请输入B相回路电阻值', trigger: 'blur' }],
-        loopResistanceC: [{ required: true, message: '请输入C相回路电阻值', trigger: 'blur' }]
+        saleOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        supplierWorkNo: [{
+          required: true,
+          message: '请输入供应商工单编号',
+          trigger: 'blur'
+        }],
+
+        equipmentName: [{
+          required: true,
+          message: '请输入生产设备名称',
+          trigger: 'blur'
+        }],
+        equipmentUniqueCode: [{
+          required: true,
+          message: '请输入生产设备唯一识别号',
+          trigger: 'blur'
+        }],
+        startTime: [{
+          required: true,
+          message: '请输入试验开始时间',
+          trigger: 'blur'
+        }],
+        stopTime: [{
+          required: true,
+          message: '请输入试验结束时间',
+          trigger: 'blur'
+        }],
+        inspectionResults: [{
+          required: true,
+          message: '请输入试验结果',
+          trigger: 'blur'
+        }],
+        checkTime: [{
+          required: true,
+          message: '请输入采集时间',
+          trigger: 'blur'
+        }],
+        productModel: [{
+          required: true,
+          message: '请输入供应商数据唯一标识',
+          trigger: 'blur'
+        }],
+        loopResistanceA: [{
+          required: true,
+          message: '请输入A相回路电阻值',
+          trigger: 'blur'
+        }],
+        loopResistanceB: [{
+          required: true,
+          message: '请输入B相回路电阻值',
+          trigger: 'blur'
+        }],
+        loopResistanceC: [{
+          required: true,
+          message: '请输入C相回路电阻值',
+          trigger: 'blur'
+        }]
       }
     }
   },
@@ -642,7 +760,9 @@ export default {
     // 点击日志
     clickLogs(row) {
       this.logId = row
-      allLogs(this.paginationLog, { dataId: row.id }).then(res => {
+      allLogs(this.paginationLog, {
+        dataId: row.id
+      }).then(res => {
         if (res.data.records.length > 0) {
           this.dialogTableVisible = true
           res.data.records.map(item => {
@@ -666,7 +786,8 @@ export default {
     // 批量删除
     deleteAll() {
       if (this.selectedData.length > 0) {
-        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData.length + this.$t('table.dataInfo'), {
+        this.$confirm(this.$t('table.deleteInfo'), this.$t('table.Tips') + this.$t('table.total') + this.selectedData
+          .length + this.$t('table.dataInfo'), {
           confirmButtonText: this.$t('table.confirm'),
           cancelButtonText: this.$t('table.cancel'),
           type: 'warning'
@@ -795,9 +916,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .el-form-item__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  ::v-deep .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 </style>

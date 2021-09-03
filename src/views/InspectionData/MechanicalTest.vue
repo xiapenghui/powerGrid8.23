@@ -315,9 +315,7 @@
             <el-form-item label="采集时间" prop="checkTime">
               <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
-            <el-tooltip class="item" effect="dark" content="断路器出厂编号(常州)" placement="top-start">
-              <el-form-item label="断路器出厂编号(常州)" prop="contactNum"><el-input v-model="ruleForm.contactNum" :disabled="true" /></el-form-item>
-            </el-tooltip>
+
             <el-tooltip class="item" effect="dark" content="额定分闸时间上限值" placement="top-start">
               <el-form-item label="额定分闸时间上限值" prop="breakTimeMax"><el-input v-model="ruleForm.breakTimeMax" /></el-form-item>
             </el-tooltip>
@@ -722,16 +720,8 @@ export default {
       },
       rules: {
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        standardVersion: [{ required: true, message: '请输入采集规范版本号', trigger: 'blur' }],
         supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],
-        modelCode: [{ required: true, message: '请输入规格型号编码', trigger: 'blur' }],
-        categoryType: [{ required: true, message: '请输入物资品类类型', trigger: 'blur' }],
-        productModel: [{ required: true, message: '请输入供应商产品厂内编号', trigger: 'blur' }],
         equipmentName: [{ required: true, message: '请输入生产设备名称', trigger: 'blur' }],
-        equipmentUniqueCode: [{ required: true, message: '请输入生产设备唯一识别号', trigger: 'blur' }],
-        processType: [{ required: true, message: '请输入感知过程', trigger: 'blur' }],
-        pdCode: [{ required: true, message: '请输入工序', trigger: 'blur' }],
         checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
         putCenterTime: [{ required: true, message: '请输入入数采中心时间', trigger: 'blur' }],
         contactNum: [{ required: true, message: '请输入断路器出厂编号', trigger: 'blur' }],
