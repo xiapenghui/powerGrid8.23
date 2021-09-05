@@ -319,6 +319,24 @@
         </template>
       </el-table-column>
 
+      <el-table-column align="center" :label="$t('permission.confirmDvlDate')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.confirmDvlDate }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.entityCode')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.entityCode }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.modelSpec')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.modelSpec }}
+        </template>
+      </el-table-column>
+
       <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
