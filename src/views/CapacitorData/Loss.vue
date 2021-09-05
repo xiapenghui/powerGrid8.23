@@ -596,7 +596,7 @@ export default {
   },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/drq/dianrongqi_12/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/api/drq/dianrongqi12/import/file',
       myHeaders: {
         Authorization: this.$store.getters.token
       }, // 获取token
