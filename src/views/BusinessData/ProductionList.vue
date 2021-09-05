@@ -360,7 +360,7 @@
             </el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
             <el-form-item label="工序号" prop="processCode"><el-input v-model="ruleForm.processCode" /></el-form-item>
-            <el-form-item label="客户所属省份" prop="processCode"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
+            <el-form-item label="客户所属省份" prop="buyerProvince"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
           </div>
           <div class="boxRight">
             <el-tooltip class="item" effect="dark" content="销售订单行项目号" placement="top-start">
