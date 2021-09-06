@@ -995,7 +995,7 @@ export function zgjbfdsyEdit(data) {
 // 聚丙烯薄膜列表接口
 export function jbxList(query, data) {
   return request({
-    url: global_.BASE_URL + '/api/drq/dianrongqi_1/page',
+    url: global_.BASE_URL + '/api/drq/dianrongqi1/page',
     method: 'post',
     params: query,
     data

@@ -291,66 +291,61 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
             <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" :disabled="true" /></el-form-item>
             <el-form-item label="合同类型" prop="conType"><el-input v-model="ruleForm.conType" /></el-form-item>
+            <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" :disabled="true" /></el-form-item>
             <el-form-item label="合同签订日期">
               <el-date-picker v-model="ruleForm.sellerSignTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
+            <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" :disabled="true" /></el-form-item>
             <el-form-item label="合同名称"><el-input v-model="ruleForm.conName" /></el-form-item>
+            <el-form-item label="合同编号（国网经法）"><el-input v-model="ruleForm.sellerConCode" :disabled="true" /></el-form-item>
             <el-form-item label="物资大类编号"><el-input v-model="ruleForm.matMaxCode" /></el-form-item>
+            <el-form-item label="物资中类编号"><el-input v-model="ruleForm.matMedCode" /></el-form-item>
             <el-form-item label="物资小类编号"><el-input v-model="ruleForm.matMinCode" /></el-form-item>
+            <el-form-item label="物资大类名称"><el-input v-model="ruleForm.matMaxName" /></el-form-item>
             <el-form-item label="物资中类名称"><el-input v-model="ruleForm.matMedName" /></el-form-item>
+            <el-form-item label="物资小类名称"><el-input v-model="ruleForm.matMinName" /></el-form-item>
             <el-form-item label="货物名称" prop="cargoName"><el-input v-model="ruleForm.cargoName" /></el-form-item>
-            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
-            <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.purchaseCode" /></el-form-item>
 
+          </div>
+          <div class="boxRight">
+            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
+            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
+            <el-form-item label="采购方公司名称" prop="purchaseName"><el-input v-model="ruleForm.purchaseName" /></el-form-item>
+            <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.purchaseCode" /></el-form-item>
+            <el-form-item label="供货单项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
             <el-tooltip class="itemrk" content="供货单行项目收货方公司名称" placement="top-start">
               <el-form-item label="供货单行项目收货方公司名称" prop="receivedName"><el-input v-model="ruleForm.receivedName" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="itemrk" content="供货单行项目供应商侧物料编码" placement="top-start">
+              <el-form-item label="供货单行项目供应商侧物料编码" prop="materialCode"><el-input v-model="ruleForm.materialCode" /></el-form-item>
             </el-tooltip>
             <el-tooltip class="itemrk" content="供货单行项目物料描述" placement="top-start">
               <el-form-item label="供货单行项目物料描述" prop="materialDesc"><el-input v-model="ruleForm.materialDesc" /></el-form-item>
             </el-tooltip>
+            <el-tooltip class="itemrk" content="供货单行项目国网侧物料编码" placement="top-start">
+              <el-form-item label="供货单行项目国网侧物料编码"><el-input v-model="ruleForm.eipMaterialCode" /></el-form-item>
+            </el-tooltip>
             <el-tooltip class="itemrk" content="供货单行项目国网侧物料描述" placement="top-start">
               <el-form-item label="供货单行项目国网侧物料描述"><el-input v-model="ruleForm.eipMaterialDesc" /></el-form-item>
+            </el-tooltip>
+            <el-tooltip class="itemrk" content="供货单行项目采购数量" placement="top-start">
+              <el-form-item label="供货单行项目采购数量" prop="amount"><el-input v-model="ruleForm.amount" /></el-form-item>
             </el-tooltip>
             <el-tooltip class="itemrk" content="供货单行项目计量单位" placement="top-start">
               <el-form-item label="供货单行项目计量单位" prop="measUnit"><el-input v-model="ruleForm.measUnit" /></el-form-item>
             </el-tooltip>
+            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
             <el-tooltip class="itemrk" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间 " prop="dataSourceCreateTime">
                 <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip>
-
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
-          </div>
-          <div class="boxRight">
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
-            <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" :disabled="true" /></el-form-item>
-            <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" :disabled="true" /></el-form-item>
-            <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" :disabled="true" /></el-form-item>
-            <el-form-item label="合同编号（国网经法）"><el-input v-model="ruleForm.sellerConCode" :disabled="true" /></el-form-item>
-            <el-form-item label="物资中类编号"><el-input v-model="ruleForm.matMedCode" /></el-form-item>
-            <el-form-item label="物资大类名称"><el-input v-model="ruleForm.matMaxName" /></el-form-item>
-            <el-form-item label="物资小类名称"><el-input v-model="ruleForm.matMinName" /></el-form-item>
-            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
-            <el-form-item label="采购方公司名称" prop="purchaseName"><el-input v-model="ruleForm.purchaseName" /></el-form-item>
-            <el-form-item label="供货单项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
-
-            <el-tooltip class="itemrk" content="供货单行项目供应商侧物料编码" placement="top-start">
-              <el-form-item label="供货单行项目供应商侧物料编码" prop="materialCode"><el-input v-model="ruleForm.materialCode" /></el-form-item>
-            </el-tooltip>
-
-            <el-tooltip class="itemrk" content="供货单行项目国网侧物料编码" placement="top-start">
-              <el-form-item label="供货单行项目国网侧物料编码"><el-input v-model="ruleForm.eipMaterialCode" /></el-form-item>
-            </el-tooltip>
-
-            <el-tooltip class="itemrk" content="供货单行项目采购数量" placement="top-start">
-              <el-form-item label="供货单行项目采购数量" prop="amount"><el-input v-model="ruleForm.amount" /></el-form-item>
-            </el-tooltip>
-
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
             <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
+            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
           </div>
         </div>

@@ -352,65 +352,61 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="销售订单号码" prop="soNo"><el-input v-model="ruleForm.soNo" :disabled="true" /></el-form-item>
-            <el-form-item label="生产订单号" prop="ipoNo"><el-input v-model="ruleForm.ipoNo" :disabled="true" /></el-form-item>
-            <el-form-item label="采购订单编码" prop="poNo"><el-input v-model="ruleForm.poNo" :disabled="true" /></el-form-item>
-
-            <el-form-item label="厂家物料名称" prop="materialsName"><el-input v-model="ruleForm.materialsName" /></el-form-item>
-            <el-form-item label="计量单位" prop="unit"><el-input v-model="ruleForm.unit" /></el-form-item>
-            <el-form-item label="计划完成日期" prop="planFinishDate">
-              <el-date-picker v-model="ruleForm.planFinishDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
-            </el-form-item>
-            <el-form-item label="实际完成日期"><el-date-picker v-model="ruleForm.actualFinishDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" /></el-form-item>
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="订单类型" prop="ipoType"><el-input v-model="ruleForm.ipoType" /></el-form-item>
-            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" /></el-form-item>
-            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="采购订单行项目id" placement="top-start">
-              <!-- <el-form-item label="采购订单行项目id" prop="poItemId"><el-input v-model="ruleForm.poItemId" :disabled="true" /></el-form-item> -->
-            </el-tooltip>
-            <el-form-item label="厂家物资单位" prop="materialsUnit"><el-input v-model="ruleForm.materialsUnit" /></el-form-item>
-            <el-form-item label="物资id分组"><el-input v-model="ruleForm.productIdGrpNo" /></el-form-item>
-            <el-form-item label="产品型号"><el-input v-model="ruleForm.productModel" /></el-form-item>
-            <el-form-item label="生产车间名称"><el-input v-model="ruleForm.workshopName" /></el-form-item>
-            <el-form-item label="生产中心"><el-input v-model="ruleForm.center" /></el-form-item>
-            <el-form-item label="来源数据创建时间">
-              <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
-            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
-            <el-form-item label="工序号" prop="processCode"><el-input v-model="ruleForm.processCode" /></el-form-item>
-            <el-form-item label="客户所属省份" prop="buyerProvince"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
-          </div>
-          <div class="boxRight">
             <el-tooltip class="item" effect="dark" content="销售订单行项目号" placement="top-start">
               <el-form-item label="销售订单行项目号" prop="soItemNo"><el-input v-model="ruleForm.soItemNo" :disabled="true" /></el-form-item>
             </el-tooltip>
+            <el-form-item label="生产订单号" prop="ipoNo"><el-input v-model="ruleForm.ipoNo" :disabled="true" /></el-form-item>
             <el-form-item label="厂家物料编码" prop="materialsCode"><el-input v-model="ruleForm.materialsCode" /></el-form-item>
+            <el-form-item label="厂家物料名称" prop="materialsName"><el-input v-model="ruleForm.materialsName" /></el-form-item>
             <el-form-item label="生产数量" prop="amount"><el-input v-model="ruleForm.amount" /></el-form-item>
+            <el-form-item label="计量单位" prop="unit"><el-input v-model="ruleForm.unit" /></el-form-item>
             <el-form-item label="计划开始日期" prop="planStartDate">
               <el-date-picker v-model="ruleForm.planStartDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
             </el-form-item>
+            <el-form-item label="计划完成日期" prop="planFinishDate">
+              <el-date-picker v-model="ruleForm.planFinishDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" />
+            </el-form-item>
             <el-form-item label="实际开始日期"><el-date-picker v-model="ruleForm.actualStartDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" /></el-form-item>
+            <el-form-item label="实际完成日期"><el-date-picker v-model="ruleForm.actualFinishDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" /></el-form-item>
             <el-form-item label="工单状态" prop="woStatus"><el-input v-model="ruleForm.woStatus" /></el-form-item>
+            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
+            <el-form-item label="订单类型" prop="ipoType"><el-input v-model="ruleForm.ipoType" /></el-form-item>
             <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" /></el-form-item>
             <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
-            <el-form-item label="排产计划编码" prop="scheduleCode"><el-input v-model="ruleForm.scheduleCode" :disabled="true" /></el-form-item>
+            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
+            <el-form-item label="采购订单编码" prop="poNo"><el-input v-model="ruleForm.poNo" :disabled="true" /></el-form-item>
+
+          </div>
+          <div class="boxRight">
+            <el-form-item label="工序号" prop="processCode"><el-input v-model="ruleForm.processCode" /></el-form-item>
+            <el-form-item label="工序名称" prop="processName"><el-input v-model="ruleForm.processName" /></el-form-item>
+            <el-form-item label="客户所属省份" prop="buyerProvince"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
             <el-form-item label="数据关联类型"><el-input v-model="ruleForm.dataType" /></el-form-item>
-            <el-form-item label="厂家物料描述" prop="materialsDesc"><el-input v-model="ruleForm.materialsDesc" /></el-form-item>
-            <el-form-item label="物资id类型"><el-input v-model="ruleForm.productIdType" /></el-form-item>
-            <el-form-item label="生产工厂名称"><el-input v-model="ruleForm.plantName" /></el-form-item>
-            <el-form-item label="生产订单状态"><el-input v-model="ruleForm.ipoStatus" /></el-form-item>
             <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
+            <el-form-item label="来源数据创建时间">
+              <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            </el-form-item>
+            <el-form-item label="物资id分组"><el-input v-model="ruleForm.productIdGrpNo" /></el-form-item>
+            <el-form-item label="物资id类型"><el-input v-model="ruleForm.productIdType" /></el-form-item>
+            <el-form-item label="产品型号"><el-input v-model="ruleForm.productModel" /></el-form-item>
+            <el-form-item label="生产工厂名称"><el-input v-model="ruleForm.plantName" /></el-form-item>
+            <el-form-item label="生产车间名称"><el-input v-model="ruleForm.workshopName" /></el-form-item>
+            <el-form-item label="生产订单状态"><el-input v-model="ruleForm.ipoStatus" /></el-form-item>
+            <el-form-item label="生产中心"><el-input v-model="ruleForm.center" /></el-form-item>
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="交付日期（最后日期，底线）" placement="top-start">
-              <el-form-item label="交付日期（最后日期，底线）" prop="dueDate">
-                <el-date-picker v-model="ruleForm.dueDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
+            <el-form-item label="波形信息" prop="wavyStatus"><el-input v-model="ruleForm.wavyStatus" /></el-form-item>
+            <el-form-item label="电压等级(变压器、组合电器必填)" prop="voltageLevel"><el-input v-model="ruleForm.voltageLevel" :disabled="true" /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="确定交货期(变压器、组合电器必填)" placement="top-start">
+              <el-form-item label="确定交货期(变压器、组合电器必填)" prop="confirmDvlDate">
+                <el-date-picker v-model="ruleForm.confirmDvlDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="工序名称" prop="processName"><el-input v-model="ruleForm.processName" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="计划工期（天数" placement="top-start">
-              <el-form-item label="计划工期（天数）" prop="planPeriod"><el-input v-model="ruleForm.planPeriod" /></el-form-item>
-            </el-tooltip>
+            <el-form-item label="实物ID" prop="entityCode"><el-input v-model="ruleForm.entityCode" :disabled="true" /></el-form-item>
+
+            <el-form-item label="产品型号规格" prop="modelSpec"><el-input v-model="ruleForm.modelSpec" /></el-form-item>
           </div>
         </div>
       </el-form>
@@ -548,6 +544,9 @@ export default {
         processCode: [{ required: true, message: '请输入工序号', trigger: 'blur' }],
         processName: [{ required: true, message: '请输入工序名称', trigger: 'blur' }],
         buyerProvince: [{ required: true, message: '请输入客户所属省份', trigger: 'blur' }],
+        entityCode: [{ required: true, message: '请输入实物ID', trigger: 'blur' }],
+        ipoStatus: [{ required: true, message: '请输入生产订单状态 ', trigger: 'blur' }],
+
         planPeriod: [{ required: true, message: '请输入计划工期（天数）', trigger: 'blur' }]
       }
     }

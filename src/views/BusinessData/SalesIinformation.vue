@@ -211,33 +211,35 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="销售订单号" prop="soNo"><el-input v-model="ruleForm.soNo" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方公司名称" prop="buyerName"><el-input v-model="ruleForm.buyerName" /></el-form-item>
             <el-form-item label="销售订单行项目号" prop="soItemNo"><el-input v-model="ruleForm.soItemNo" :disabled="true" /></el-form-item>
-            <el-form-item label="采购订单行项目号" prop="poItem"><el-input v-model="ruleForm.poItem" /></el-form-item>
+            <el-form-item label="采购订单号" prop="poNo"><el-input v-model="ruleForm.poNo" :disabled="true" /></el-form-item>
+            <el-form-item label="采购订单行项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
+            <el-form-item label="物资编码" prop="productCode"><el-input v-model="ruleForm.productCode" /></el-form-item>
             <el-form-item label="物资名称" prop="productName"><el-input v-model="ruleForm.productName" /></el-form-item>
+            <el-form-item label="物资单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="物资数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.buyerCode" /></el-form-item>
-            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="销售订单状态"><el-input v-model="ruleForm.soStatus" /></el-form-item>
-            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
+            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+
           </div>
           <div class="boxRight">
-            <el-form-item label="采购方公司名称" prop="buyerName"><el-input v-model="ruleForm.buyerName" /></el-form-item>
-            <el-form-item label="采购订单号" prop="poNo"><el-input v-model="ruleForm.poNo" :disabled="true" /></el-form-item>
-            <el-form-item label="采购订单行项目ID" prop="poItemId"><el-input v-model="ruleForm.poItemId" :disabled="true" /></el-form-item>
-            <el-form-item label="物资编码" prop="productCode"><el-input v-model="ruleForm.productCode" /></el-form-item>
-            <el-form-item label="物资单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
             <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
+            <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.buyerCode" /></el-form-item>
             <el-form-item label="采购方公司省份"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
+            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
             <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
-            <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
+            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
+            <el-form-item label="销售订单状态"><el-input v-model="ruleForm.soStatus" /></el-form-item>
+            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
+            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
+
+          <!--  <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间 " prop="dataSourceCreateTime">
                 <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
-            </el-tooltip>
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
+            </el-tooltip> -->
+
           </div>
         </div>
       </el-form>
@@ -352,14 +354,15 @@ export default {
         buyerName: [{ required: true, message: '请输入采购方公司名称', trigger: 'blur' }],
         soItemNo: [{ required: true, message: '请输入销售订单行项目号', trigger: 'blur' }],
         poNo: [{ required: true, message: '请输入采购订单号', trigger: 'blur' }],
-        poItem: [{ required: true, message: '请输入采购订单行项目号', trigger: 'blur' }],
-        poItemId: [{ required: true, message: '请输入采购订单行项目ID', trigger: 'blur' }],
+        poItemNo: [{ required: true, message: '请输入采购订单行项目号', trigger: 'blur' }],
+
         productCode: [{ required: true, message: '请输入物资编码', trigger: 'blur' }],
         productName: [{ required: true, message: '请输入物资名称', trigger: 'blur' }],
         productUnit: [{ required: true, message: '请输入物资单位', trigger: 'blur' }],
         productAmount: [{ required: true, message: '请输入物资数量', trigger: 'blur' }],
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
+
+        soStatus: [{ required: true, message: '请输入销售订单状态', trigger: 'blur' }],
         supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
         categoryCode: [{ required: true, message: '请输入品类编码', trigger: 'blur' }],
         subclassCode: [{ required: true, message: '请输入种类编码', trigger: 'blur' }],

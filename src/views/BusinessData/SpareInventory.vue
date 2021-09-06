@@ -169,14 +169,13 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="备品备件编号" prop="spareProductCode"><el-input v-model="ruleForm.spareProductCode" :disabled="true" /></el-form-item>
+            <el-form-item label="备品备件描述" prop="productDec"><el-input v-model="ruleForm.productDec" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="备品备件库存剩余数量" placement="top-start">
               <el-form-item label="备品备件库存剩余数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
             </el-tooltip>
+            <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="批次号" prop="ItemProductLot"><el-input v-model="ruleForm.ItemProductLot" /></el-form-item>
             <el-form-item label="工厂" prop="SaleOrg"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
 
           <!--  <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间" prop="itemDataSourceCreatetime">
@@ -185,13 +184,15 @@
             </el-tooltip> -->
           </div>
           <div class="boxRight">
-            <el-form-item label="备品备件描述" prop="productDec"><el-input v-model="ruleForm.productDec" /></el-form-item>
-            <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
+
             <!-- <el-tooltip class="item" effect="dark" content="备品备件库存剩余数量" placement="top-start">
               <el-form-item label="备品备件库存剩余数量" prop="ItemProductAmount"><el-input v-model="ruleForm.ItemProductAmount" /></el-form-item>
             </el-tooltip> -->
             <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
+            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
             <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" /></el-form-item>
+            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
+            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
             <!-- <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">
                 <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
@@ -317,11 +318,11 @@ export default {
         productUnit: [{ required: true, message: '请输入计量单位', trigger: 'blur' }],
         ItemProductLot: [{ required: true, message: '请输入批次号', trigger: 'blur' }],
         // ItemProductAmount: [{ required: true, message: '请输入备品备件库存剩余数量', trigger: 'blur' }],
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
-        supplierName: [{ required: true, message: '请输入供应商名称', trigger: 'blur' }],
-        dataSource: [{ required: true, message: '请输入数据来源', trigger: 'blur' }]
+        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }]
+        // purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
+        // supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
+        // supplierName: [{ required: true, message: '请输入供应商名称', trigger: 'blur' }],
+        // dataSource: [{ required: true, message: '请输入数据来源', trigger: 'blur' }]
         // dataSourceCreateTime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }],
         // itemDataSourceCreatetime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
       }

@@ -210,15 +210,15 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.capacitanceUn')" width="180" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.dielecLossUn')" width="180" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.capacitanceUn }}
+          {{ scope.row.dielecLossUn }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.capacitance')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.dielecLoss')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.capacitance }}
+          {{ scope.row.dielecLoss }}
         </template>
       </el-table-column>
 
@@ -298,8 +298,8 @@
             </el-tooltip>
 
             <el-tooltip class="item" effect="dark" content="介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="介损单位是（%），保留七位小数" prop="capacitance">
-                <el-input v-model="ruleForm.capacitance" />
+              <el-form-item label="介损单位是（%），保留七位小数" prop="dielecLoss">
+                <el-input v-model="ruleForm.dielecLoss" />
               </el-form-item>
             </el-tooltip>
 
@@ -361,8 +361,8 @@
               </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="额定介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="capacitanceUn">
-                <el-input v-model="ruleForm.capacitanceUn" />
+              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="dielecLossUn">
+                <el-input v-model="ruleForm.dielecLossUn" />
               </el-form-item>
             </el-tooltip>
 
@@ -523,10 +523,10 @@
                 <span>{{ props.row.requestBody.voltage }}</span>
               </el-form-item>
               <el-form-item label="额定电容量单位是（μF）:">
-                <span>{{ props.row.requestBody.capacitanceUn }}</span>
+                <span>{{ props.row.requestBody.dielecLossUn }}</span>
               </el-form-item>
               <el-form-item label="电容量单位是（μF）:">
-                <span>{{ props.row.requestBody.capacitance }}</span>
+                <span>{{ props.row.requestBody.dielecLoss }}</span>
               </el-form-item>
             </el-form>
           </template>
