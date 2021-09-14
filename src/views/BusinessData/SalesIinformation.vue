@@ -280,7 +280,7 @@ export default {
   components: { Pagination, logDialog, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/eip/so/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/eip/so/import/file',
       // 日志分页
       paginationLog: {
         current: 1,

@@ -416,7 +416,7 @@ export default {
   },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/jct/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/kvsc/jct/import/file',
       // 日志分页
       paginationLog: {
         current: 1,

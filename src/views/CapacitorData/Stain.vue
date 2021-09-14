@@ -400,7 +400,7 @@
             <el-form-item label="(浸渍剂)检查结果附件">
               <el-upload
                 :class="{ disUoloadSty: noneBtnImg }"
-                :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
+                :action="this.GLOBAL.BASE_URL + '/demo/api/image/upload'"
                 :data="this.oneDataImg"
                 :headers="this.myHeaders"
                 :limit="this.limitCountImg"
@@ -452,7 +452,7 @@
           ref="uploadImage"
           style="margin-top: 30px"
           class="upload-demo"
-          :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
+          :action="this.GLOBAL.BASE_URL + '/demo/api/image/upload'"
           :data="this.newDataImg"
           :headers="this.myHeaders"
           :on-preview="handlePreview"
@@ -633,7 +633,7 @@ export default {
   },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/drq/dianrongqi2/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/drq/dianrongqi2/import/file',
       myHeaders: {
         Authorization: this.$store.getters.token
       }, // 获取token
@@ -1015,7 +1015,7 @@ export default {
       if (row.imagePath !== null) {
         this.editFileList.push({
           name: row.imageFileUrl,
-          url: this.GLOBAL.BASE_URL + '/api/image/' + row.imagePath
+          url: this.GLOBAL.BASE_URL + '/demo/api/image/' + row.imagePath
           // url: 'http://192.168.1.192:8888/api/image/' + row.imagePath
         })
       }

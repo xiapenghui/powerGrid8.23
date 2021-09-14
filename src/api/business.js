@@ -1439,7 +1439,7 @@ export function drqAdd(data) {
 // 公共参数列表
 export function kvscList(query, data) {
   return request({
-    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/page',
+    url: global_.BASE_URL + '/api/kvsc/kvsccs/page',
     method: 'post',
     params: query,
     data
@@ -1449,7 +1449,7 @@ export function kvscList(query, data) {
 //  10kV-公共编辑保存接口
 export function kvscEdit(data) {
   return request({
-    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/update',
+    url: global_.BASE_URL + '/api/kvsc/kvsccs/update',
     method: 'post',
     data
   })
@@ -1458,7 +1458,7 @@ export function kvscEdit(data) {
 //  10kV-公共删除接口
 export function kvscDellte(data) {
   return request({
-    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/delete',
+    url: global_.BASE_URL + '/api/kvsc/kvsccs/delete',
     method: 'post',
     data
   })
@@ -1467,7 +1467,45 @@ export function kvscDellte(data) {
 //  10kV-公共增加接口
 export function kvscAdd(data) {
   return request({
-    url: global_.BASE_URL + '/api/drq/dianrongqi_cs/add',
+    url: global_.BASE_URL + '/api/kvsc/kvsccs/add',
+    method: 'post',
+    data
+  })
+}
+
+// 检验试验数据公共参数
+// 检验试验数据公共参数列表
+export function eipList(query, data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/eipcs/page',
+    method: 'post',
+    params: query,
+    data
+  })
+}
+
+// 检验试验数据编辑保存接口
+export function eipEdit(data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/eipcs/update',
+    method: 'post',
+    data
+  })
+}
+
+//  检验试验数据删除接口
+export function eipDellte(data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/eipcs/delete',
+    method: 'post',
+    data
+  })
+}
+
+//  检验试验数据增加接口
+export function eipAdd(data) {
+  return request({
+    url: global_.BASE_URL + '/api/eip/eipcs/add',
     method: 'post',
     data
   })
@@ -1483,6 +1521,7 @@ export function cprkList(query, data) {
     data
   })
 }
+
 // 成品入库信息删除接口
 export function cprkDellte(data) {
   return request({

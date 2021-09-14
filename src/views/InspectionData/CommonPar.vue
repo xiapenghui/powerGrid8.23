@@ -58,6 +58,18 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
+      <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.salesOrg }}
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" :label="$t('permission.tableName')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.tableName }}
+        </template>
+      </el-table-column>
+
       <el-table-column align="center" :label="$t('permission.standardVersion')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.standardVersion }}
@@ -149,7 +161,7 @@
             </el-form-item>
 
             <el-form-item label="采集规范版本号" prop="standardVersion">
-              <el-input v-model="ruleForm.standardVersion" :disabled="true" />
+              <el-input v-model="ruleForm.standardVersion" />
             </el-form-item>
             <el-form-item label="国网侧供应商编码" prop="supplierCode">
               <el-input v-model="ruleForm.supplierCode" />
@@ -158,12 +170,14 @@
               <el-input v-model="ruleForm.modelCode" />
             </el-form-item>
             <el-form-item label="物资品类类型90001" prop="categoryType">
-              <el-input v-model="ruleForm.categoryType" :disabled="true" />
+              <el-input v-model="ruleForm.categoryType" />
             </el-form-item>
             <el-form-item label="是否是告警问题数据" prop="isAlarmData">
-              <el-input v-model="ruleForm.isAlarmData" />
+              <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
+                <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
+              </el-select>
             </el-form-item>
-            <el-form-item label="告警项" prop="alarmItem">
+            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" />
             </el-form-item>
 
@@ -178,10 +192,6 @@
             <el-form-item label="工序" prop="pdCode">
               <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
-
-            <!-- <el-tooltip class="item" effect="dark" content="数据来源（产成品库存信息,实物Id信息维护）" placement="top-start">
-              <el-form-item label="数据来源（产成品库存信息,实物Id信息维护）" prop="itemDataSource"><el-input v-model="ruleForm.itemDataSource" /></el-form-item>
-            </el-tooltip> -->
 
             <el-form-item label="厂区编号" prop="factoryCode">
               <el-input v-model="ruleForm.factoryCode" />
@@ -271,6 +281,16 @@ export default {
       }
       ],
       rules: {
+        salesOrg: [{
+          required: true,
+          message: '请输入工厂',
+          trigger: 'blur'
+        }],
+        tableName: [{
+          required: true,
+          message: '请输入产品名称',
+          trigger: 'blur'
+        }],
         standardVersion: [{
           required: true,
           message: '请输入采集规范版本号默认',
@@ -321,6 +341,18 @@ export default {
   },
   computed: {},
   watch: {
+    // 监听警告0或1
+    'ruleForm.isAlarmData': {
+      handler(val) {
+        val = this.ruleForm.isAlarmData
+        if (val === 0) {
+          this.isAlarmItem = false
+        } else {
+          this.isAlarmItem = true
+        }
+      }
+    },
+
     // 监听表格高度
     tableHeight(val) {
       if (!this.timer) {

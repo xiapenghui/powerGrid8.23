@@ -332,7 +332,7 @@
           ref="uploadImage"
           style="margin-top: 30px"
           class="upload-demo"
-          :action="this.GLOBAL.BASE_URL + '/api/image/upload'"
+          :action="this.GLOBAL.BASE_URL + '/demo/api/image/upload'"
           :data="this.newDataImg"
           :headers="this.myHeaders"
           :on-preview="handlePreview"
@@ -466,7 +466,7 @@ export default {
   components: { Pagination, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/drq/dianrongqi8/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/drq/dianrongqi8/import/file',
       myHeaders: { Authorization: this.$store.getters.token }, // 获取token
       // 日志分页
       paginationLog: {
@@ -753,7 +753,7 @@ export default {
       if (row.imagePath !== null) {
         this.editFileList.push({
           name: row.imageFileUrl,
-          url: this.GLOBAL.BASE_URL + '/api/image/' + row.imagePath
+          url: this.GLOBAL.BASE_URL + '/demo/api/image/' + row.imagePath
           // url: 'http://192.168.1.192:8888/api/image/' + row.imagePath
         })
       }

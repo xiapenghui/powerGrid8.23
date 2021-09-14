@@ -322,7 +322,7 @@ export default {
   components: { Pagination, logDialog, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/eip/mi/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/eip/mi/import/file',
       // 日志分页
       paginationLog: {
         current: 1,
