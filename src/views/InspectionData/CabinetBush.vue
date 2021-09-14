@@ -11,7 +11,7 @@
           <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
         </el-col>
 
-        <el-col :span="8">
+        <!--  <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
           </el-col>
@@ -30,7 +30,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col>
+        </el-col> -->
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -388,13 +388,13 @@ export default {
       ruleForm: {}, // 编辑弹窗
       pagination: {
         current: 1,
-        size: 50,
-        startTime: '',
-        endTime: ''
+        size: 50
+        // startTime: '',
+        // endTime: ''
       },
       listQuery: {
-        supplierWorkNo: undefined,
-        importDate: []
+        supplierWorkNo: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -507,13 +507,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -521,12 +521,12 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
-    this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
-    this.pagination.startTime = this.listQuery.importDate[0]
-    this.pagination.endTime = this.listQuery.importDate[1]
+    // this.listQuery.importDate[0] = this.$moment(new Date())
+    //   .subtract(1, 'months')
+    //   .format('YYYY-MM-DD 00:00:00')
+    // this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
+    // this.pagination.startTime = this.listQuery.importDate[0]
+    // this.pagination.endTime = this.listQuery.importDate[1]
     // 监听表格高度
     const that = this
     window.onresize = () => {
@@ -538,10 +538,10 @@ export default {
   },
   methods: {
     // 改变搜索框开始结束时间触发
-    importChange(val) {
-      this.listQuery.importDate[0] = val[0]
-      this.listQuery.importDate[1] = val[1]
-    },
+    // importChange(val) {
+    //   this.listQuery.importDate[0] = val[0]
+    //   this.listQuery.importDate[1] = val[1]
+    // },
     // 查询
     handleSearch() {
       this.pagination.current = 1
@@ -553,13 +553,13 @@ export default {
     // 重置
     handleReset() {
       this.listQuery = {
-        supplierWorkNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
+        supplierWorkNo: undefined
+        // importDate: [
+        //   this.$moment(new Date())
+        //     .subtract(1, 'months')
+        //     .format('YYYY-MM-DD'),
+        //   this.$moment(new Date()).format('YYYY-MM-DD')
+        // ]
       }
       this.pagination = {
         current: 1,

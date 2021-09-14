@@ -60,7 +60,7 @@
 
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.salesOrg }}
+          {{ scope.row.saleOrg }}
         </template>
       </el-table-column>
 
@@ -154,8 +154,8 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂" prop="salesOrg">
-              <el-select v-model="ruleForm.salesOrg" placeholder="请选择">
+            <el-form-item label="工厂" prop="saleOrg">
+              <el-select v-model="ruleForm.saleOrg" placeholder="请选择">
                 <el-option v-for="item in salesOrgList" :key="item.id" :label="item.saleOrg" :value="item.id" />
               </el-select>
             </el-form-item>
@@ -281,7 +281,7 @@ export default {
       }
       ],
       rules: {
-        salesOrg: [{
+        saleOrg: [{
           required: true,
           message: '请输入工厂',
           trigger: 'blur'

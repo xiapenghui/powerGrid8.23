@@ -10,7 +10,7 @@
           </el-col>
           <el-col :span="16"><el-input v-model="listQuery.supplierWorkNo" :placeholder="$t('permission.supplierWorkNo')" clearable /></el-col>
         </el-col>
-
+        <!--
         <el-col :span="8">
           <el-col :span="8">
             <el-tooltip class="item" effect="dark" content="创建时间" placement="top-start"><label class="radio-label">创建时间:</label></el-tooltip>
@@ -30,7 +30,7 @@
               @change="importChange"
             />
           </el-col>
-        </el-col>
+        </el-col> -->
 
         <el-col :span="4">
           <el-button type="primary" icon="el-icon-search" @click="handleSearch">{{ $t('permission.search') }}</el-button>
@@ -425,8 +425,8 @@ export default {
         endTime: ''
       },
       listQuery: {
-        supplierWorkNo: undefined,
-        importDate: []
+        supplierWorkNo: undefined
+        // importDate: []
       },
       listLoading: true,
       editLoading: false, // 编辑loading
@@ -539,13 +539,13 @@ export default {
         }, 400)
       }
     },
-    'listQuery.importDate': {
-      handler(val) {
-        this.pagination.startTime = val[0] + ' 00:00:00'
-        this.pagination.endTime = val[1] + ' 23:59:59'
-      },
-      deep: true
-    },
+    // 'listQuery.importDate': {
+    //   handler(val) {
+    //     this.pagination.startTime = val[0] + ' 00:00:00'
+    //     this.pagination.endTime = val[1] + ' 23:59:59'
+    //   },
+    //   deep: true
+    // },
     // 监听data属性中英文切换问题
     '$i18n.locale'() {
       this.content1 = this.$t('permission.supplierWorkNo')
@@ -585,13 +585,13 @@ export default {
     // 重置
     handleReset() {
       this.listQuery = {
-        supplierWorkNo: undefined,
-        importDate: [
-          this.$moment(new Date())
-            .subtract(1, 'months')
-            .format('YYYY-MM-DD'),
-          this.$moment(new Date()).format('YYYY-MM-DD')
-        ]
+        supplierWorkNo: undefined
+        // importDate: [
+        //   this.$moment(new Date())
+        //     .subtract(1, 'months')
+        //     .format('YYYY-MM-DD'),
+        //   this.$moment(new Date()).format('YYYY-MM-DD')
+        // ]
       }
       this.pagination = {
         current: 1,
