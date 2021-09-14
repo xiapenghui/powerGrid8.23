@@ -297,7 +297,7 @@
       <el-upload
         ref="upload"
         class="upload-demo"
-        :action="this.GLOBAL.BASE_URL + '/demo/api/kvsc/fcpfwvt/import/file'"
+        :action="this.GLOBAL.BASE_URL + '/api/kvsc/fcpfwvt/import/file'"
         :headers="this.myHeaders"
         :limit="1"
         :before-upload="beforeAvatarUpload"
@@ -432,7 +432,7 @@ export default {
   components: { Pagination, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/kvsc/fcpfwvt/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/api/kvsc/fcpfwvt/import/file',
       // 日志分页
       paginationLog: {
         current: 1,

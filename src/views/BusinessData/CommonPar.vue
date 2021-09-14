@@ -267,10 +267,9 @@
             </el-form-item>
 
             <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
             <el-form-item label="采购方公司编码" prop="buyerCode"><el-input v-model="ruleForm.buyerCode" /></el-form-item>
             <el-form-item label="采购方公司省份" prop="buyerProvince"><el-input v-model="ruleForm.buyerProvince" /></el-form-item>
-            <el-form-item label="品类编码" prop="supplierCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
+            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
             <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
             <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
             <el-form-item label="数据拥有方" prop="ownerId"><el-input v-model="ruleForm.ownerId" /></el-form-item>
@@ -373,6 +372,7 @@ export default {
       }],
       rules: {
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
+        purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
         tableName: [{ required: true, message: '请输入产品名称', trigger: 'blur' }],
         standardVersion: [{ required: true, message: '请输入采集规范版本号默认', trigger: 'blur' }],
         supplierCode: [{ required: true, message: '请输入国网侧供应商编码', trigger: 'blur' }],

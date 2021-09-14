@@ -447,7 +447,7 @@ export default {
   components: { Pagination, logDialog, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/demo/api/eip/prod/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/api/eip/prod/import/file',
       // 日志分页
       paginationLog: {
         current: 1,
