@@ -278,12 +278,12 @@
             <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" /></el-form-item>
             <el-form-item label="数据关联类型" prop="dataType"><el-input v-model="ruleForm.dataType" /></el-form-item>
 
-            <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">
+            <!-- <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">
               <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
+            </el-form-item> -->
 
             <el-form-item label="波形信息" prop="wavyStatus"><el-input v-model="ruleForm.wavyStatus" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.itemRemark" /></el-form-item>
+            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
           </div>
           <div class="boxRight">
 

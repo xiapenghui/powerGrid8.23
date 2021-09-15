@@ -610,6 +610,14 @@ export default {
     WorkNoStart: '工单计划开始时间',
     rmLot: '互感器批次号',
 
+    // 9-15
+    swId: '实物ID',
+    inventoryQuantity: '入库数量',
+    measuringUnit: '计量单位',
+    deliveryStatus: '发货状态',
+    deliveryTime: '发货日期',
+    storageTime: '入库日期',
+
     // 截止
     roles: '你的权限',
     switchRoles: '切换权限',

@@ -314,7 +314,7 @@ export default {
   components: { Pagination, logDialog, ImprotFile },
   data() {
     return {
-      productionUrl: this.GLOBAL.BASE_URL + '/api/eip/sa/import/file',
+      productionUrl: this.GLOBAL.BASE_URL + '/api/eipStorage/import/file',
       // 日志分页
       paginationLog: {
         current: 1,

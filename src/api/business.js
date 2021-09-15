@@ -1515,7 +1515,7 @@ export function eipAdd(data) {
 // 成品入库信息列表接口
 export function cprkList(query, data) {
   return request({
-    url: global_.BASE_URL + '/api/eip/dianrongqi15/page',
+    url: global_.BASE_URL + '/api/eipStorage/page',
     method: 'post',
     params: query,
     data
@@ -1525,7 +1525,7 @@ export function cprkList(query, data) {
 // 成品入库信息删除接口
 export function cprkDellte(data) {
   return request({
-    url: global_.BASE_URL + '/api/eip/dianrongqi15/delete/ids',
+    url: global_.BASE_URL + '/api/eipStorage/delete/ids',
     method: 'post',
     data
   })
@@ -1534,7 +1534,7 @@ export function cprkDellte(data) {
 // 成品入库信息保存接口
 export function cprkEdit(data) {
   return request({
-    url: global_.BASE_URL + '/api/eip/dianrongqi15/update',
+    url: global_.BASE_URL + '/api/eipStorage/update',
     method: 'post',
     data
   })
