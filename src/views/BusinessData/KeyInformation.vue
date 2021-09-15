@@ -217,7 +217,7 @@
 
       <el-table-column align="center" :label="$t('permission.dataSourceCreatetime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dataSourceCreatetime }}
+          {{ scope.row.dataSourceCreateTime }}
         </template>
       </el-table-column>
 
@@ -243,20 +243,14 @@
             <el-form-item label="入库批次号" prop="itemBatchCode"><el-input v-model="ruleForm.itemBatchCode" /></el-form-item>
             <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
-            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" /></el-form-item>
-
-            <!-- <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
-              <el-form-item label="来源数据创建时间" prop="itemDataSourceCreatetime">
-                <el-date-picker v-model="ruleForm.itemDataSourceCreatetime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-              </el-form-item>
-            </el-tooltip> -->
+            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
             <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
             <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
-            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
+            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
+            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
             <el-form-item label="物资名称"><el-input v-model="ruleForm.productName" /></el-form-item>
             <el-form-item label="规格型号描述"><el-input v-model="ruleForm.speModels" /></el-form-item>
             <el-form-item label="原材料的供应商名称"><el-input v-model="ruleForm.matSupplierName" /></el-form-item>
@@ -268,19 +262,7 @@
                 <el-date-picker v-model="ruleForm.productAmount" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="来源数据创建时间" prop="dataSourceCreatetime"><el-input v-model="ruleForm.dataSourceCreatetime" /></el-form-item>
-
-            <!-- <el-tooltip class="item" effect="dark" content="当前入库批次库存剩余数量" placement="top-start">
-              <el-form-item label="当前入库批次库存剩余数量" prop="itemProductAmount"><el-input v-model="ruleForm.itemProductAmount" /></el-form-item>
-            </el-tooltip> -->
-
-            <!-- <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
-              <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">
-                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-              </el-form-item>
-            </el-tooltip> -->
-
-            <!-- <el-form-item label="备注"><el-input v-model="ruleForm.itemRemark" /></el-form-item> -->
+            <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime"><el-input v-model="ruleForm.dataSourceCreateTime" /></el-form-item>
           </div>
         </div>
       </el-form>
@@ -406,7 +388,7 @@ export default {
         supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
         supplierName: [{ required: true, message: '请输入供应商名称', trigger: 'blur' }],
         dataSource: [{ required: true, message: '请输入数据来源', trigger: 'blur' }],
-        dataSourceCreatetime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
+        dataSourceCreateTime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
         // itemDataSourceCreatetime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
       }
     }

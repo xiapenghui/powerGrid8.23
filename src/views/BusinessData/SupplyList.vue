@@ -293,15 +293,15 @@
             <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
             <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" /></el-form-item>
-            <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" :disabled="true" /></el-form-item>
+            <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" /></el-form-item>
             <el-form-item label="合同类型" prop="conType"><el-input v-model="ruleForm.conType" /></el-form-item>
-            <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" :disabled="true" /></el-form-item>
+            <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" /></el-form-item>
             <el-form-item label="合同签订日期">
               <el-date-picker v-model="ruleForm.sellerSignTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
-            <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" :disabled="true" /></el-form-item>
+            <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" /></el-form-item>
             <el-form-item label="合同名称"><el-input v-model="ruleForm.conName" /></el-form-item>
-            <el-form-item label="合同编号（国网经法）"><el-input v-model="ruleForm.sellerConCode" :disabled="true" /></el-form-item>
+            <el-form-item label="合同编号（国网经法）"><el-input v-model="ruleForm.sellerConCode" /></el-form-item>
             <el-form-item label="物资大类编号"><el-input v-model="ruleForm.matMaxCode" /></el-form-item>
             <el-form-item label="物资中类编号"><el-input v-model="ruleForm.matMedCode" /></el-form-item>
             <el-form-item label="物资小类编号"><el-input v-model="ruleForm.matMinCode" /></el-form-item>
@@ -345,8 +345,8 @@
               </el-form-item>
             </el-tooltip>
             <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" /></el-form-item>
-            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" /></el-form-item>
+            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
+            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
           </div>
         </div>
       </el-form>

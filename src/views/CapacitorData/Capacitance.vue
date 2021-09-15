@@ -210,15 +210,15 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.dielecLossUn')" width="180" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.capacitanceUn')" width="180" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dielecLossUn }}
+          {{ scope.row.capacitanceUn }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.dielecLoss')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.capacitance')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dielecLoss }}
+          {{ scope.row.capacitance }}
         </template>
       </el-table-column>
 
@@ -297,9 +297,9 @@
               </el-form-item>
             </el-tooltip>
 
-            <el-tooltip class="item" effect="dark" content="介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="介损单位是（%），保留七位小数" prop="dielecLoss">
-                <el-input v-model="ruleForm.dielecLoss" />
+            <el-tooltip class="item" effect="dark" content="额定电容量单位是（μF），保留三位小数" placement="top-start">
+              <el-form-item label="额定电容量单位是（μF），保留三位小数" prop="capacitanceUn">
+                <el-input v-model="ruleForm.capacitanceUn" />
               </el-form-item>
             </el-tooltip>
 
@@ -360,9 +360,10 @@
                 <el-input v-model="ruleForm.voltageUn" />
               </el-form-item>
             </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="额定介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="dielecLossUn">
-                <el-input v-model="ruleForm.dielecLossUn" />
+
+            <el-tooltip class="item" effect="dark" content="电容量单位是（μF），保留三位小数" placement="top-start">
+              <el-form-item label="电容量单位是（μF），保留三位小数" prop="capacitance">
+                <el-input v-model="ruleForm.capacitance" />
               </el-form-item>
             </el-tooltip>
 

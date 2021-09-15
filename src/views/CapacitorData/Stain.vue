@@ -244,7 +244,7 @@
 
       <el-table-column align="center" :label="$t('permission.isQualify')" width="180" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.isQualify }}
+          {{ scope.row.isQualify === 1 ? '是' : '否' }}
         </template>
       </el-table-column>
 
@@ -264,7 +264,7 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称" prop="salesOrg">
@@ -324,9 +324,12 @@
                 <el-input v-model="ruleForm.dielectricLossUn" />
               </el-form-item>
             </el-tooltip>
-            <el-tooltip class="item" effect="dark" content="(浸渍剂)检验结果是否合格" placement="top-start">
-              <el-form-item label="(浸渍剂)检验结果是否合格" prop="isQualify">
-                <el-input v-model="ruleForm.isQualify" />
+
+            <el-tooltip class="item" effect="dark" content="浸渍剂)检验结果是否合格" placement="top-start">
+              <el-form-item label="浸渍剂)检验结果是否合格" prop="isQualify">
+                <el-select v-model="ruleForm.isQualify" placeholder="请选择">
+                  <el-option v-for="item in isQualifyDataList" :key="item.value" :label="item.label" :value="item.value" />
+                </el-select>
               </el-form-item>
             </el-tooltip>
 
@@ -695,8 +698,16 @@ export default {
       {
         value: 1,
         label: '是'
-      }
-      ],
+      }],
+      isQualifyDataList: [{
+        value: 0,
+        label: '否'
+      },
+      {
+        value: 1,
+        label: '是'
+      }],
+
       pickerOptions: {
         shortcuts: [{
           text: '最近一周',

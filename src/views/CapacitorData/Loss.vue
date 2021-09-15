@@ -207,7 +207,7 @@
 
       <el-table-column align="center" :label="$t('permission.voltageUn')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.voltageUn }}W
+          {{ scope.row.voltageUn }}
         </template>
       </el-table-column>
 
@@ -219,13 +219,13 @@
 
       <el-table-column align="center" :label="$t('permission.capacitanceUnB')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.capacitanceUn }}
+          {{ scope.row.dielecLossUn }}
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.capacitanceB')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.capacitance }}
+          {{ scope.row.dielecLoss }}
         </template>
       </el-table-column>
 
@@ -305,8 +305,8 @@
             </el-tooltip>
 
             <el-tooltip class="item" effect="dark" content="介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="介损单位是（%），保留七位小数" prop="capacitance">
-                <el-input v-model="ruleForm.capacitance" />
+              <el-form-item label="介损单位是（%），保留七位小数" prop="dielecLossUn">
+                <el-input v-model="ruleForm.dielecLossUn" />
               </el-form-item>
             </el-tooltip>
 
@@ -362,20 +362,14 @@
               <el-input v-model="ruleForm.equipmentUniqueCode" />
             </el-form-item>
 
-            <el-tooltip class="item" effect="dark" content="额定放电电阻值单位是MΩ,保留三位小数" placement="top-start">
-              <el-form-item label="额定放电电阻值单位是MΩ,保留三位小数" prop="parDischangeRn">
-                <el-input v-model="ruleForm.parDischangeRn" />
-              </el-form-item>
-            </el-tooltip>
-
             <el-tooltip class="item" effect="dark" content="额定工频电压单位是kV，保留两位小数" placement="top-start">
               <el-form-item label="额定工频电压单位是kV，保留两位小数" prop="voltageUn">
                 <el-input v-model="ruleForm.voltageUn" />
               </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="额定介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="capacitanceUn">
-                <el-input v-model="ruleForm.capacitanceUn" />
+              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="dielecLoss">
+                <el-input v-model="ruleForm.dielecLoss" />
               </el-form-item>
             </el-tooltip>
 

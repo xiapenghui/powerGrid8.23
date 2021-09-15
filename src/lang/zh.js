@@ -608,7 +608,7 @@ export default {
     inspectionReportjxx: '机械特性试验检验报告',
     routePicturejxx: '机械特性试验报告',
     WorkNoStart: '工单计划开始时间',
-    rmLot: '互感器批次号',
+    rmLot: '批次号',
 
     // 9-15
     swId: '实物ID',
