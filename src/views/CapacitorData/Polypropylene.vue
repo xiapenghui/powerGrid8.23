@@ -60,11 +60,11 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
-      <el-table-column align="center" label="创建时间" width="150" :show-overflow-tooltip="true">
+      <!-- <el-table-column align="center" label="创建时间" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.createTime }}
         </template>
-      </el-table-column>
+      </el-table-column> -->
 
       <el-table-column align="center" :label="$t('permission.upload')" width="100">
         <template slot-scope="scope">
@@ -1079,17 +1079,17 @@ export default {
       }
     },
     beforeAvatarUpload(file) {
-      const isXLS = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      // const isXLS = file.type === 'application/vnd.ms-excel'
+      // const isXLSX = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       const isLt50M = file.size / 1024 / 1024 < 50
-
-      if (!isXLS) {
-        this.$message.error(this.$t('table.errorOne'))
-      }
+      // if (!isXLS || isXLSX) {
+      //   this.$message.error(this.$t('table.errorOne'))
+      // }
       if (!isLt50M) {
         this.$message.error(this.$t('table.errorTwo'))
       }
       this.improtLoading = true
-      return isXLS && isLt50M
+      return  isLt50M
     },
 
     // 上传

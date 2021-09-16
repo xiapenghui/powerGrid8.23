@@ -58,12 +58,12 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
-      <el-table-column align="center" label="创建时间" width="150">
+      <!-- <el-table-column align="center" label="创建时间" width="150">
         <template slot-scope="scope">
           {{ scope.row.createTime }}
         </template>
       </el-table-column>
-
+ -->
       <el-table-column align="center" :label="$t('permission.upload')" width="100">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.isUpload === 0" class="classBlack">未上传</el-tag>
@@ -631,19 +631,21 @@ export default {
         this.improtLoading = false
       }
     },
-    beforeAvatarUpload(file) {
-      const isXLS = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-      const isLt50M = file.size / 1024 / 1024 < 50
+   // 文件上传前验证
+   beforeAvatarUpload(file) {
+     // const isXLS = file.type === 'application/vnd.ms-excel'
+     // const isXLSX = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+     const isLt50M = file.size / 1024 / 1024 < 50
 
-      if (!isXLS) {
-        this.$message.error(this.$t('table.errorOne'))
-      }
-      if (!isLt50M) {
-        this.$message.error(this.$t('table.errorTwo'))
-      }
-      this.improtLoading = true
-      return isXLS && isLt50M
-    }
+     // if (!isXLS || !isXLSX) {
+     //   this.$message.error(this.$t('table.errorOne'))
+     // }
+     if (!isLt50M) {
+       this.$message.error(this.$t('table.errorTwo'))
+     }
+     this.improtLoading = true
+     return  isLt50M
+   }
   }
 }
 </script>
