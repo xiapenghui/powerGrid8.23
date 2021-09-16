@@ -215,21 +215,20 @@
             <el-form-item label="销售订单行项目号" prop="soItemNo"><el-input v-model="ruleForm.soItemNo" /></el-form-item>
             <el-form-item label="采购订单号" prop="poNo"><el-input v-model="ruleForm.poNo" /></el-form-item>
             <el-form-item label="采购订单行项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
-            <el-form-item label="物资编码" prop="productCode"><el-input v-model="ruleForm.productCode" :disabled="true" /></el-form-item>
-            <el-form-item label="物资名称" prop="productName"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
+            <el-form-item label="物资编码"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
             <el-form-item label="物资单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="物资数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
 
           </div>
           <div class="boxRight">
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
             <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.buyerCode" :disabled="true" /></el-form-item>
             <el-form-item label="采购方公司省份"><el-input v-model="ruleForm.buyerProvince" :disabled="true" /></el-form-item>
-            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" :disabled="true" /></el-form-item>
-            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" :disabled="true" /></el-form-item>
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
+            <el-form-item label="品类编码"><el-input v-model="ruleForm.categoryCode" :disabled="true" /></el-form-item>
+            <el-form-item label="种类编码"><el-input v-model="ruleForm.subclassCode" :disabled="true" /></el-form-item>
+            <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" /></el-form-item>
             <el-form-item label="销售订单状态"><el-input v-model="ruleForm.soStatus" /></el-form-item>
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>

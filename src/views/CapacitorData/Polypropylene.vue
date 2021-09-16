@@ -249,21 +249,21 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂名称" prop="salesOrg">
+            <el-form-item label="工厂名称">
               <el-input v-model="ruleForm.salesOrg" :disabled="true" />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="国网侧供应商编码" placement="top-start">
-              <el-form-item label="国网侧供应商编码" prop="supplierCode">
+              <el-form-item label="国网侧供应商编码">
                 <el-input v-model="ruleForm.supplierCode" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="物资品类类型" prop="categoryType">
+            <el-form-item label="物资品类类型">
               <el-input v-model="ruleForm.categoryType" />
             </el-form-item>
-            <el-form-item label="告警项" prop="alarmItem" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
+            <el-form-item label="告警项" :rules="[{ required: isAlarmItem, message: '请输入告警项', trigger: 'blur' }]">
               <el-input v-model="ruleForm.alarmItem" />
             </el-form-item>
-            <el-form-item label="工序" prop="pdCode">
+            <el-form-item label="工序">
               <el-input v-model="ruleForm.pdCode" />
             </el-form-item>
             <el-form-item label="序列号" prop="serialNo">
@@ -321,20 +321,20 @@
 
           </div>
           <div class="boxRight">
-            <el-form-item label="采集规范版本号" prop="standardVersion">
+            <el-form-item label="采集规范版本号">
               <el-input v-model="ruleForm.standardVersion" />
             </el-form-item>
-            <el-form-item label="规格型号编码默认" prop="modelCode">
+            <el-form-item label="规格型号编码默认">
               <el-input v-model="ruleForm.modelCode" />
             </el-form-item>
             <el-tooltip class="item" content="是否是告警问题数据" placement="top-start">
-              <el-form-item label="是否是告警问题数据" prop="isAlarmData">
+              <el-form-item label="是否是告警问题数据">
                 <el-select v-model="ruleForm.isAlarmData" placeholder="请选择">
                   <el-option v-for="item in isAlarmDataList" :key="item.value" :label="item.label" :value="item.value" />
                 </el-select>
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="感知过程" prop="processType">
+            <el-form-item label="感知过程">
               <el-input v-model="ruleForm.processType" />
             </el-form-item>
             <el-form-item label="供应商工单编号" prop="supplierWorkNo">

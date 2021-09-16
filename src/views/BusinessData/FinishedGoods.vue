@@ -212,8 +212,8 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
             <el-form-item label="合同类型" prop="conType"><el-input v-model="ruleForm.conType" /></el-form-item>
             <el-form-item label="合同签订日期">
               <el-date-picker v-model="ruleForm.sellerSignTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
@@ -223,7 +223,7 @@
             <el-form-item label="物资小类编号"><el-input v-model="ruleForm.matMinCode" /></el-form-item>
             <el-form-item label="物资中类名称"><el-input v-model="ruleForm.matMedName" /></el-form-item>
             <el-form-item label="货物名称" prop="cargoName"><el-input v-model="ruleForm.cargoName" /></el-form-item>
-            <el-form-item label="种类编码" prop="subclassCode"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
+            <el-form-item label="种类编码"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
             <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.purchaseCode" /></el-form-item>
 
             <el-tooltip class="itemrk" content="供货单行项目收货方公司名称" placement="top-start">
@@ -239,15 +239,15 @@
               <el-form-item label="供货单行项目计量单位" prop="measUnit"><el-input v-model="ruleForm.measUnit" /></el-form-item>
             </el-tooltip>
             <el-tooltip class="itemrk" content="来源数据创建时间" placement="top-start">
-              <el-form-item label="来源数据创建时间 " prop="dataSourceCreateTime">
-                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-form-item label="来源数据创建时间 ">
+                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
               </el-form-item>
             </el-tooltip>
 
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
             <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" /></el-form-item>
             <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" /></el-form-item>
             <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" /></el-form-item>
@@ -272,7 +272,7 @@
             </el-tooltip>
 
             <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
+            <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
           </div>
         </div>

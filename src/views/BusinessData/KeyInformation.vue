@@ -235,26 +235,26 @@
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="原材料名称" prop="matName"><el-input v-model="ruleForm.matName" /></el-form-item>
-            <el-form-item label="原材料编码" prop="matCode"><el-input v-model="ruleForm.matCode" :disabled="true" /></el-form-item>
+            <el-form-item label="原材料编码" prop="matCode"><el-input v-model="ruleForm.matCode" /></el-form-item>
             <el-form-item label="原材料库存数量" prop="matNum"><el-input v-model="ruleForm.matNum" /></el-form-item>
             <el-form-item label="原材料单位" prop="matUnit"><el-input v-model="ruleForm.matUnit" /></el-form-item>
             <el-form-item label="原材料描述" prop="matDescription"><el-input v-model="ruleForm.matDescription" /></el-form-item>
             <el-form-item label="原材料产地"><el-input v-model="ruleForm.matProdAddr" /></el-form-item>
             <el-form-item label="入库批次号" prop="itemBatchCode"><el-input v-model="ruleForm.itemBatchCode" /></el-form-item>
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商名称"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
+            <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" :disabled="true" /></el-form-item>
+            <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true" /></el-form-item>
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
-            <el-form-item label="物资名称"><el-input v-model="ruleForm.productName" /></el-form-item>
+            <el-form-item label="物资名称"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
             <el-form-item label="规格型号描述"><el-input v-model="ruleForm.speModels" /></el-form-item>
             <el-form-item label="原材料的供应商名称"><el-input v-model="ruleForm.matSupplierName" /></el-form-item>
-            <el-form-item label="原材料电压等级"><el-input v-model="ruleForm.matVoltageLevel" /></el-form-item>
+            <el-form-item label="原材料电压等级"><el-input v-model="ruleForm.matVoltageLevel" :disabled="true" /></el-form-item>
             <el-form-item label="存放地点所在市"><el-input v-model="ruleForm.storeCity" /></el-form-item>
             <el-form-item label="入库时间"><el-input v-model="ruleForm.putStorageTime" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="当前入库批次库存剩余数量" placement="top-start">
@@ -262,7 +262,7 @@
                 <el-date-picker v-model="ruleForm.productAmount" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip>
-            <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime"><el-input v-model="ruleForm.dataSourceCreateTime" /></el-form-item>
+            <el-form-item label="来源数据创建时间"><el-input v-model="ruleForm.dataSourceCreateTime" :disabled="true" /></el-form-item>
           </div>
         </div>
       </el-form>

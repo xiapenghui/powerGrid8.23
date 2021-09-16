@@ -261,8 +261,8 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="产成品编码" prop="productCode"><el-input v-model="ruleForm.productCode" :disabled="true" /></el-form-item>
-            <el-form-item label="产成品名称" prop="productName"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
+            <el-form-item label="产成品编码" prop="productCode"><el-input v-model="ruleForm.productCode" /></el-form-item>
+            <el-form-item label="产成品名称" prop="productName"><el-input v-model="ruleForm.productName" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="产成品库存剩余数量" placement="top-start">
               <el-form-item label="产成品库存剩余数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
             </el-tooltip>

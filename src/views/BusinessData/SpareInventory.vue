@@ -175,14 +175,14 @@
             </el-tooltip>
             <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="批次号" prop="ItemProductLot"><el-input v-model="ruleForm.ItemProductLot" /></el-form-item>
-            <el-form-item label="工厂" prop="SaleOrg"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="工厂"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
+            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商名称"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
+            <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" :disabled="true" /></el-form-item>
+            <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true" /></el-form-item>
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
           </div>
