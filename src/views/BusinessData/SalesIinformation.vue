@@ -40,7 +40,7 @@
     </div>
     <div class="rightBtn">
       <el-button type="danger" icon="el-icon-delete" @click="deleteAll">{{ $t('permission.deleteAll') }}</el-button>
-      <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button>
+      <!-- <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button> -->
       <el-button type="primary" icon="el-icon-download" @click="okImprot">导入文件</el-button>
     </div>
 
@@ -210,15 +210,16 @@
       <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
+             <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="销售订单号" prop="soNo"><el-input v-model="ruleForm.soNo" /></el-form-item>
             <el-form-item label="采购方公司名称" prop="buyerName"><el-input v-model="ruleForm.buyerName" /></el-form-item>
             <el-form-item label="销售订单行项目号" prop="soItemNo"><el-input v-model="ruleForm.soItemNo" /></el-form-item>
             <el-form-item label="采购订单号" prop="poNo"><el-input v-model="ruleForm.poNo" /></el-form-item>
             <el-form-item label="采购订单行项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
-            <el-form-item label="物资编码"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
+            <el-form-item label="物资编码"><el-input v-model="ruleForm.productCode" :disabled="true" /></el-form-item>
+            <el-form-item label="物资名称"><el-input v-model="ruleForm.productName" :disabled="true" /></el-form-item>
             <el-form-item label="物资单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="物资数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
-            <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
 
           </div>
           <div class="boxRight">
@@ -354,13 +355,11 @@ export default {
         soItemNo: [{ required: true, message: '请输入销售订单行项目号', trigger: 'blur' }],
         poNo: [{ required: true, message: '请输入采购订单号', trigger: 'blur' }],
         poItemNo: [{ required: true, message: '请输入采购订单行项目号', trigger: 'blur' }],
-
         productCode: [{ required: true, message: '请输入物资编码', trigger: 'blur' }],
         productName: [{ required: true, message: '请输入物资名称', trigger: 'blur' }],
         productUnit: [{ required: true, message: '请输入物资单位', trigger: 'blur' }],
         productAmount: [{ required: true, message: '请输入物资数量', trigger: 'blur' }],
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-
         soStatus: [{ required: true, message: '请输入销售订单状态', trigger: 'blur' }],
         supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
         categoryCode: [{ required: true, message: '请输入品类编码', trigger: 'blur' }],

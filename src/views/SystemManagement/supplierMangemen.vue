@@ -190,9 +190,7 @@ export default {
   },
   created() {
     // 搜索框初始化开始结束时间
-    this.listQuery.importDate[0] = this.$moment(new Date())
-      .subtract(1, 'months')
-      .format('YYYY-MM-DD 00:00:00')
+    this.listQuery.importDate[0] = this.$moment(new Date()).subtract(1, 'years').format('YYYY-MM-DD 00:00:00')
     this.listQuery.importDate[1] = this.$moment(new Date()).format('YYYY-MM-DD 23:59:59')
     this.pagination.startTime = this.listQuery.importDate[0]
     this.pagination.endTime = this.listQuery.importDate[1]

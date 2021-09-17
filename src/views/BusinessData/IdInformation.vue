@@ -43,7 +43,7 @@
 
     <div class="rightBtn">
       <el-button type="danger" icon="el-icon-delete" @click="deleteAll">{{ $t('permission.deleteAll') }}</el-button>
-      <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button>
+      <!-- <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button> -->
       <el-button type="primary" icon="el-icon-download" @click="okImprot">导入文件</el-button>
     </div>
 
@@ -177,7 +177,7 @@
               <el-input v-model="ruleForm.entityStatus" />
             </el-form-item>
             <el-form-item label="备注">
-              <el-input v-model="ruleForm.entityStatus" :disabled="true" />
+              <el-input v-model="ruleForm.remark" :disabled="true" />
             </el-form-item>
             <!-- <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">

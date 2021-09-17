@@ -40,7 +40,7 @@
     </div>
     <div class="rightBtn">
       <el-button type="danger" icon="el-icon-delete" @click="deleteAll">{{ $t('permission.deleteAll') }}</el-button>
-      <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button>
+      <!-- <el-button type="primary" icon="el-icon-upload2" @click="okUpload">上传国网</el-button> -->
       <el-button type="primary" icon="el-icon-download" @click="okImprot">导入文件</el-button>
     </div>
 
