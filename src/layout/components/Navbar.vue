@@ -195,6 +195,7 @@ export default {
         this.dialogVisible = false
         this.loading = false
         this.$refs.upload.clearFiles()
+        location.reload();
       } else {
         this.$message({
           message: res.message,
@@ -213,17 +214,16 @@ export default {
       }
     },
     beforeAvatarUpload(file) {
-      const isXLS = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      // const isXLS = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       const isLt50M = file.size / 1024 / 1024 < 50
-
-      if (!isXLS) {
-        this.$message.error(this.$t('table.errorOne'))
-      }
+      // if (!isXLS) {
+      //   this.$message.error(this.$t('table.errorOne'))
+      // }
       if (!isLt50M) {
         this.$message.error(this.$t('table.errorTwo'))
       }
       this.loading = true
-      return isXLS && isLt50M
+      return   isLt50M
     }
   }
 }

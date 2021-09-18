@@ -98,7 +98,7 @@
 
       <el-table-column align="center" :label="$t('permission.ItemProductLot')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.ItemProductLot }}
+          {{ scope.row.itemProductLot }}
         </template>
       </el-table-column>
 
@@ -150,13 +150,13 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150" :show-overflow-tooltip="true">
+     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <!-- <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">{{ $t('table.delete') }}</el-button> -->
+          <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">{{ $t('table.delete') }}</el-button>
           <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
 
     <!-- 编辑弹窗 -->
@@ -174,7 +174,7 @@
               <el-form-item label="备品备件库存剩余数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
             </el-tooltip>
             <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
-            <el-form-item label="批次号" prop="ItemProductLot"><el-input v-model="ruleForm.ItemProductLot" /></el-form-item>
+            <el-form-item label="批次号" prop="itemProductLot"><el-input v-model="ruleForm.itemProductLot" /></el-form-item>
             <el-form-item label="工厂"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
@@ -300,7 +300,7 @@ export default {
         productDec: [{ required: true, message: '请输入备品备件描述', trigger: 'blur' }],
         productAmount: [{ required: true, message: '请输入备品备件库存剩余数量', trigger: 'blur' }],
         productUnit: [{ required: true, message: '请输入计量单位', trigger: 'blur' }],
-        ItemProductLot: [{ required: true, message: '请输入批次号', trigger: 'blur' }],
+        itemProductLot: [{ required: true, message: '请输入批次号', trigger: 'blur' }],
         // ItemProductAmount: [{ required: true, message: '请输入备品备件库存剩余数量', trigger: 'blur' }],
         saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }]
         // purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
