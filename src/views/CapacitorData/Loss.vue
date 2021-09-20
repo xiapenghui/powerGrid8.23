@@ -219,13 +219,13 @@
 
       <el-table-column align="center" :label="$t('permission.capacitanceUnB')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dielecLossUn }}
+          {{ scope.row.capacitanceUn }}
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.capacitanceB')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.dielecLoss }}
+          {{ scope.row.capacitance }}
         </template>
       </el-table-column>
 
@@ -368,8 +368,8 @@
               </el-form-item>
             </el-tooltip>
             <el-tooltip class="item" effect="dark" content="额定介损单位是（%），保留七位小数" placement="top-start">
-              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="dielecLoss">
-                <el-input v-model="ruleForm.dielecLoss" />
+              <el-form-item label="额定介损单位是（%），保留七位小数数" prop="capacitance">
+                <el-input v-model="ruleForm.capacitance" />
               </el-form-item>
             </el-tooltip>
 
