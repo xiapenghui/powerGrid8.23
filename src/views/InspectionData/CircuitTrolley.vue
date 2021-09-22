@@ -388,7 +388,7 @@
 
       <el-table-column align="center" :label="$t('permission.inspectionReportFile')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.inspectionReportFile }}
+            <a target="_blank" :href="scope.row.inspectionReportFile " style="color: blue;">{{ scope.row.inspectionReportFile }}</a>
         </template>
       </el-table-column>
 
@@ -442,15 +442,17 @@
 
       <el-table-column align="center" :label="$t('permission.incomReport')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.incomReport }}
+           <a target="_blank" :href="scope.row.incomReport " style="color: blue;">{{ scope.row.incomReport }}</a>
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.manuReport')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.manuReport }}
+            <a target="_blank" :href="scope.row.manuReport" style="color: blue;">{{ scope.row.manuReport }}</a>
         </template>
       </el-table-column>
+
+   
 
      <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">

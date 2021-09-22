@@ -265,13 +265,13 @@
 
       <el-table-column align="center" :label="$t('permission.inspectionReportjxx')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.inspectionReport }}
+           <a target="_blank" :href="scope.row.inspectionReport " style="color: blue;">{{ scope.row.inspectionReport }}</a>
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.routePicturejxx')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.routePicture }}
+          <a target="_blank" :href="scope.row.routePicture " style="color: blue;">{{ scope.row.routePicture }}</a>
         </template>
       </el-table-column>
 

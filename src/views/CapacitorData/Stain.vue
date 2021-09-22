@@ -196,7 +196,7 @@
 
       <el-table-column align="center" :label="$t('permission.manuReport')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.manuReport }}
+		       <a target="_blank" :href="scope.row.manuReport " style="color: blue;">{{ scope.row.manuReport }}</a>
         </template>
       </el-table-column>
 
@@ -250,7 +250,7 @@
 
       <el-table-column align="center" :label="$t('permission.checkResultJZJ')" width="180" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.checkResult }}
+            <a target="_blank" :href="scope.row.checkResult " style="color: blue;">{{ scope.row.checkResult }}</a>
         </template>
       </el-table-column>
 

@@ -160,13 +160,13 @@
 
       <el-table-column align="center" :label="$t('permission.incomReport')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.incomReport }}
+           <a target="_blank" :href="scope.row.incomReport " style="color: blue;">{{ scope.row.incomReport }}</a>
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.manuReport')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.manuReport }}
+           <a target="_blank" :href="scope.row.manuReport " style="color: blue;">{{ scope.row.manuReport }}</a>
         </template>
       </el-table-column>
 
@@ -218,9 +218,9 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.inspectionReportFile')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.inspectionReportFileCGTG')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.inspectionReportFile }}
+          <a target="_blank" :href="scope.row.inspectionReportFile " style="color: blue;">{{ scope.row.inspectionReportFile }}</a>
         </template>
       </el-table-column>
 
@@ -938,6 +938,7 @@ export default {
     },
     // 成功
     handleAvatarSuccess(res, file) {
+      debugger
       if (res.code === 200) {
         if (res.data != null && res.data.length > 0) {
           this.$message.success(this.$t('table.upSuccess'))

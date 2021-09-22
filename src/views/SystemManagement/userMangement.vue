@@ -399,7 +399,6 @@ export default {
             })
           } else {
             userAdd(this.ruleForm).then(res => {
-              debugger
               if (res.code === 200) {
                 this.$message({
                   type: 'success',

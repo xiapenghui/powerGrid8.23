@@ -96,13 +96,13 @@
 
       <el-table-column align="center" :label="$t('permission.isAlarmData')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.isAlarmData }}
+          {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
         </template>
       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.alarmItem')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.alarmItem }}
+          {{ scope.row.alarmItem   }}
         </template>
       </el-table-column>
 

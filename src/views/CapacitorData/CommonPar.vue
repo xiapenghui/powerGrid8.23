@@ -102,7 +102,7 @@
 
       <el-table-column align="center" :label="$t('permission.alarmItem')">
         <template slot-scope="scope">
-          {{ scope.row.alarmItem }}
+          {{ scope.row.alarmItem  }}
         </template>
       </el-table-column>
 
