@@ -73,6 +73,12 @@
         </template>
       </el-table-column>
 
+     <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
+        <template slot-scope="scope">
+          {{ scope.row.saleOrg }}
+        </template>
+      </el-table-column>
+      
       <el-table-column align="center" :label="$t('permission.matName')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.matName }}
@@ -120,12 +126,6 @@
           {{ scope.row.itemProductAmount }}
         </template>
       </el-table-column> -->
-
-      <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.saleOrg }}
-        </template>
-      </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.purchaserHqCode')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">

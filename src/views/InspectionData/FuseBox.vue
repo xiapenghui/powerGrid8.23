@@ -74,7 +74,6 @@
         </template>
       </el-table-column>
 
-
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.saleOrg }}

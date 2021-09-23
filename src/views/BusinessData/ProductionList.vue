@@ -96,6 +96,12 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
+      
+      <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
+         <template slot-scope="scope">
+           {{ scope.row.saleOrg }}
+         </template>
+       </el-table-column>
 
       <el-table-column align="center" :label="$t('permission.soNo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
@@ -172,12 +178,6 @@
       <el-table-column align="center" :label="$t('permission.woStatus')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.woStatus }}
-        </template>
-      </el-table-column>
-
-      <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
-        <template slot-scope="scope">
-          {{ scope.row.saleOrg }}
         </template>
       </el-table-column>
 
