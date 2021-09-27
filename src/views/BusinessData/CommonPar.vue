@@ -152,11 +152,11 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.dataSourceCreateTime')" width="150" :show-overflow-tooltip="true">
+     <!-- <el-table-column align="center" :label="$t('permission.dataSourceCreateTime')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.dataSourceCreateTime }}
         </template>
-      </el-table-column>
+      </el-table-column> -->
 
       <el-table-column align="center" :label="$t('permission.wavyStatus')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
@@ -289,7 +289,7 @@
             </el-form-item> -->
 
             <el-form-item label="波形信息" prop="wavyStatus"><el-input v-model="ruleForm.wavyStatus" /></el-form-item>
-            
+
             <el-form-item label="是否合格" prop="isQualified">
               <el-select v-model="ruleForm.isQualified" placeholder="请选择">
                 <el-option v-for="item in isQualifiedList" :key="item.value" :label="item.label" :value="item.value" />
