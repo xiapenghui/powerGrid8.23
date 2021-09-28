@@ -412,7 +412,7 @@
 
       <el-table-column align="center" :label="$t('permission.RawmManufacturer')" width="200" :show-overflow-tooltip="true">
         <template slot-scope="scope">
-          {{ scope.row.RawmManufacturer }}
+          {{ scope.row.rawmManufacturer }}
         </template>
       </el-table-column>
 
@@ -452,19 +452,17 @@
         </template>
       </el-table-column>
 
-   
-
-     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
           <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称">
@@ -492,7 +490,7 @@
               <el-date-picker
                 v-model="ruleForm.checkTime"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 :disabled="true"
                 placeholder="选择日期时间"
               />
@@ -631,7 +629,7 @@
               <el-date-picker
                 v-model="ruleForm.manufactureDate"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>
@@ -664,7 +662,7 @@
               <el-date-picker
                 v-model="ruleForm.putCenterTime"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>
@@ -801,7 +799,7 @@
               <el-date-picker
                 v-model="ruleForm.incomDate"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>

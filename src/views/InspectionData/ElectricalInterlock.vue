@@ -244,7 +244,7 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
@@ -264,15 +264,15 @@
 
             <el-form-item label="感知过程"><el-input v-model="ruleForm.processType" :disabled="true" /></el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
 
             <el-form-item label="试验开始时间" prop="startTime">
-              <el-date-picker v-model="ruleForm.startTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.startTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
 
             <el-form-item label="试验结果" prop="inspectionResults">
-              <el-date-picker v-model="ruleForm.inspectionResults" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.inspectionResults" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
 
             <el-tooltip class="item" content="断路器处于合闸位置时，断路器小车无法推进或拉出" placement="top-start">
@@ -327,7 +327,7 @@
 
             <el-form-item label="工序"><el-input v-model="ruleForm.pdCode" :disabled="true" /></el-form-item>
             <el-form-item label="试验结束时间">
-              <el-date-picker v-model="ruleForm.stopTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.stopTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="成品序列号" prop="materialSN"><el-input v-model="ruleForm.materialSN" :disabled="true" /></el-form-item>
 

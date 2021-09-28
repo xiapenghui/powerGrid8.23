@@ -63,7 +63,7 @@
           {{ scope.row.createTime }}
         </template>
       </el-table-column>
- -->
+    -->
       <el-table-column align="center" :label="$t('permission.upload')" width="100">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.isUpload === 0" class="classBlack">未上传</el-tag>
@@ -71,7 +71,7 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
          <template slot-scope="scope">
            {{ scope.row.saleOrg }}
@@ -150,13 +150,12 @@
         </template>
       </el-table-column>
 
-     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150" :show-overflow-tooltip="true">
+     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">{{ $t('table.delete') }}</el-button>
           <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
@@ -165,9 +164,10 @@
       :close-on-click-modal="false"
       :visible.sync="dialogFormVisible"
     >
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
+            <el-form-item label="工厂"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="备品备件编号" prop="spareProductCode"><el-input v-model="ruleForm.spareProductCode" /></el-form-item>
             <el-form-item label="备品备件描述" prop="productDec"><el-input v-model="ruleForm.productDec" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="备品备件库存剩余数量" placement="top-start">
@@ -175,7 +175,7 @@
             </el-tooltip>
             <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="批次号" prop="itemProductLot"><el-input v-model="ruleForm.itemProductLot" /></el-form-item>
-            <el-form-item label="工厂"><el-input v-model="ruleForm.SaleOrg" :disabled="true" /></el-form-item>
+           <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
             <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
@@ -183,7 +183,6 @@
             <el-form-item label="供应商名称"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
             <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" :disabled="true" /></el-form-item>
             <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true" /></el-form-item>
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
           </div>
         </div>
@@ -540,7 +539,7 @@ export default {
       // const isXLS = file.type === 'application/vnd.ms-excel'
       // const isXLSX = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       const isLt50M = file.size / 1024 / 1024 < 50
-    
+
       // if (!isXLS || isXLSX) {
       //   this.$message.error(this.$t('table.errorOne'))
       // }

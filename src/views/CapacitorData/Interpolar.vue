@@ -233,7 +233,7 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称"><el-input v-model="ruleForm.salesOrg" :disabled="true" /></el-form-item>
@@ -253,11 +253,11 @@
               <el-form-item label="供应商数据唯一标识(电容器序列号)" prop="cabSN"><el-input v-model="ruleForm.cabSN" /></el-form-item>
             </el-tooltip>
             <el-form-item label="试验结束时间" prop="stopTime">
-              <el-date-picker v-model="ruleForm.stopTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.stopTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="生产设备名称" prop="equipmentName"><el-input v-model="ruleForm.equipmentName" /></el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-tooltip class="item" effect="dark" content="电压值单位是kV，保留三位小数" placement="top-start">
               <el-form-item label="电压值单位是kV，保留三位小数" prop="voltage"><el-input v-model="ruleForm.voltage" /></el-form-item>
@@ -284,7 +284,7 @@
             </el-tooltip>
 
             <el-form-item label="试验开始时间" prop="startTime">
-              <el-date-picker v-model="ruleForm.startTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.startTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="试验结果" prop="inspectionResults"><el-input v-model="ruleForm.inspectionResults" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="生产设备唯一识别号" placement="top-start">

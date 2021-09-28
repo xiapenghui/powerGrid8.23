@@ -237,7 +237,7 @@
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称">
@@ -274,7 +274,7 @@
               <el-date-picker
                 v-model="ruleForm.stopTime"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>
@@ -282,7 +282,7 @@
               <el-date-picker
                 v-model="ruleForm.checkTime"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>
@@ -332,7 +332,7 @@
               <el-date-picker
                 v-model="ruleForm.startTime"
                 type="datetime"
-                value-format="yyyy-MM-dd hh:mm:ss"
+                format="yyyy-MM-dd hh:mm:ss"
                 placeholder="选择日期时间"
               />
             </el-form-item>

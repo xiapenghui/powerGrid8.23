@@ -96,7 +96,7 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
          <template slot-scope="scope">
            {{ scope.row.saleOrg }}
@@ -337,20 +337,20 @@
         </template>
       </el-table-column>
 
- <!--     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
-          <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">{{ $t('table.delete') }}</el-button>
+           <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
           <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
+             <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="销售订单号码" prop="soNo"><el-input v-model="ruleForm.soNo" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="销售订单行项目号" placement="top-start">
               <el-form-item label="销售订单行项目号" prop="soItemNo"><el-input v-model="ruleForm.soItemNo" /></el-form-item>
@@ -369,7 +369,6 @@
             <el-form-item label="实际开始日期"><el-date-picker v-model="ruleForm.actualStartDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" /></el-form-item>
             <el-form-item label="实际完成日期"><el-date-picker v-model="ruleForm.actualFinishDate" type="date" placeholder="选择日期" value-format="yyyy-MM-dd" /></el-form-item>
             <el-form-item label="工单状态" prop="woStatus"><el-input v-model="ruleForm.woStatus" /></el-form-item>
-            <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
             <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" disabled="true" /></el-form-item>
             <el-form-item label="订单类型"><el-input v-model="ruleForm.ipoType" disabled="true" /></el-form-item>
             <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
@@ -386,7 +385,7 @@
             <el-form-item label="数据关联类型"><el-input v-model="ruleForm.dataType" :disabled="true" /></el-form-item>
             <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" :disabled="true" /></el-form-item>
             <el-form-item label="来源数据创建时间">
-              <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
+              <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
             </el-form-item>
             <el-form-item label="物资id分组"><el-input v-model="ruleForm.productIdGrpNo" /></el-form-item>
             <el-form-item label="物资id类型"><el-input v-model="ruleForm.productIdType" /></el-form-item>
@@ -401,7 +400,7 @@
             <el-form-item label="电压等级(变压器、组合电器必填)"><el-input v-model="ruleForm.voltageLevel" :disabled="true" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="确定交货期(变压器、组合电器必填)" placement="top-start">
               <el-form-item label="确定交货期(变压器、组合电器必填)" prop="confirmDvlDate">
-                <el-date-picker v-model="ruleForm.confirmDvlDate" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+                <el-date-picker v-model="ruleForm.confirmDvlDate" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip>
             <el-form-item label="实物ID" prop="entityCode"><el-input v-model="ruleForm.entityCode" /></el-form-item>
@@ -785,7 +784,7 @@ export default {
      // const isXLS = file.type === 'application/vnd.ms-excel'
      // const isXLSX = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
      const isLt50M = file.size / 1024 / 1024 < 50
-   
+
      // if (!isXLS || isXLSX) {
      //   debugger
      //   this.$message.error(this.$t('table.errorOne'))

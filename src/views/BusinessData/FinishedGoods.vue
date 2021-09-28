@@ -156,7 +156,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierSupportId')" width="150" :show-overflow-tooltip="true">
+      <el-table-column align="center" :label="$t('permission.supplierSupportIdTwo')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.supplierSupportId }}
         </template>
@@ -198,82 +198,50 @@
         </template>
       </el-table-column>
 
-     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
-          <el-button v-if="!scope.row.isEgdit" type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button v-else type="success" size="small" @click="editSuccess(scope.$index, scope.row)">{{ $t('table.editSuccess') }}</el-button>
+          <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
           <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
-            <el-form-item label="合同类型" prop="conType"><el-input v-model="ruleForm.conType" /></el-form-item>
-            <el-form-item label="合同签订日期">
-              <el-date-picker v-model="ruleForm.sellerSignTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-            </el-form-item>
-            <el-form-item label="合同名称"><el-input v-model="ruleForm.conName" /></el-form-item>
-            <el-form-item label="物资大类编号"><el-input v-model="ruleForm.matMaxCode" /></el-form-item>
-            <el-form-item label="物资小类编号"><el-input v-model="ruleForm.matMinCode" /></el-form-item>
-            <el-form-item label="物资中类名称"><el-input v-model="ruleForm.matMedName" /></el-form-item>
-            <el-form-item label="货物名称" prop="cargoName"><el-input v-model="ruleForm.cargoName" /></el-form-item>
-            <el-form-item label="种类编码"><el-input v-model="ruleForm.subclassCode" /></el-form-item>
-            <el-form-item label="采购方公司编码"><el-input v-model="ruleForm.purchaseCode" /></el-form-item>
-
-            <el-tooltip class="itemrk" content="供货单行项目收货方公司名称" placement="top-start">
-              <el-form-item label="供货单行项目收货方公司名称" prop="receivedName"><el-input v-model="ruleForm.receivedName" /></el-form-item>
-            </el-tooltip>
-            <el-tooltip class="itemrk" content="供货单行项目物料描述" placement="top-start">
-              <el-form-item label="供货单行项目物料描述" prop="materialDesc"><el-input v-model="ruleForm.materialDesc" /></el-form-item>
-            </el-tooltip>
-            <el-tooltip class="itemrk" content="供货单行项目国网侧物料描述" placement="top-start">
-              <el-form-item label="供货单行项目国网侧物料描述"><el-input v-model="ruleForm.eipMaterialDesc" /></el-form-item>
-            </el-tooltip>
-            <el-tooltip class="itemrk" content="供货单行项目计量单位" placement="top-start">
-              <el-form-item label="供货单行项目计量单位" prop="measUnit"><el-input v-model="ruleForm.measUnit" /></el-form-item>
-            </el-tooltip>
-            <el-tooltip class="itemrk" content="来源数据创建时间" placement="top-start">
-              <el-form-item label="来源数据创建时间 ">
-                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" :disabled="true" />
-              </el-form-item>
-            </el-tooltip>
-
-            <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
+            <el-form-item label="采集规范版本号"><el-input v-model="ruleForm.standardVersion" :disabled="true" /></el-form-item>
+            <el-form-item label="国网侧供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="规格型号编码"><el-input v-model="ruleForm.modelCode" :disabled="true" /></el-form-item>
+            <el-form-item label="物资种类编码"><el-input v-model="ruleForm.categoryType" :disabled="true" /></el-form-item>
+            <el-form-item label="厂区编号"><el-input v-model="ruleForm.factoryCode" :disabled="true" /></el-form-item>
+            <el-form-item label="工序"><el-input v-model="ruleForm.pdCode" :disabled="true" /></el-form-item>
+            <el-form-item label="电压等级"><el-input v-model="ruleForm.voltageGrade" :disabled="true" /></el-form-item>
+            <el-form-item label="感知过程"><el-input v-model="ruleForm.processType" :disabled="true" /></el-form-item>
+            <el-form-item label="规格型号"><el-input v-model="ruleForm.specifNumber" :disabled="true" /></el-form-item>
+            <el-form-item label="是否合格"><el-input v-model="ruleForm.isQualified" :disabled="true" /></el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" :disabled="true" /></el-form-item>
-            <el-form-item label="采购供货单编号" prop="supplyNo"><el-input v-model="ruleForm.supplyNo" /></el-form-item>
-            <el-form-item label="合同编号" prop="conCode"><el-input v-model="ruleForm.conCode" /></el-form-item>
-            <el-form-item label="工程项目名称"><el-input v-model="ruleForm.prjName" /></el-form-item>
-            <el-form-item label="合同编号（国网经法）"><el-input v-model="ruleForm.sellerConCode" /></el-form-item>
-            <el-form-item label="物资中类编号"><el-input v-model="ruleForm.matMedCode" /></el-form-item>
-            <el-form-item label="物资大类名称"><el-input v-model="ruleForm.matMaxName" /></el-form-item>
-            <el-form-item label="物资小类名称"><el-input v-model="ruleForm.matMinName" /></el-form-item>
-            <el-form-item label="品类编码" prop="categoryCode"><el-input v-model="ruleForm.categoryCode" /></el-form-item>
-            <el-form-item label="采购方公司名称" prop="purchaseName"><el-input v-model="ruleForm.purchaseName" /></el-form-item>
-            <el-form-item label="供货单项目号" prop="poItemNo"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
-
-            <el-tooltip class="itemrk" content="供货单行项目供应商侧物料编码" placement="top-start">
-              <el-form-item label="供货单行项目供应商侧物料编码" prop="materialCode"><el-input v-model="ruleForm.materialCode" /></el-form-item>
+            <el-form-item label="采购方总部编码" prop="supplierWorkNo"><el-input v-model="ruleForm.supplierWorkNo"  /></el-form-item>
+            <el-tooltip class="item" effect="dark" content="供应商数据唯一标识(序列号)" placement="top-start">
+               <el-form-item label="供应商数据唯一标识(序列号)" prop="productModel"><el-input v-model="ruleForm.productModel"  /></el-form-item>
             </el-tooltip>
-
-            <el-tooltip class="itemrk" content="供货单行项目国网侧物料编码" placement="top-start">
-              <el-form-item label="供货单行项目国网侧物料编码"><el-input v-model="ruleForm.eipMaterialCode" /></el-form-item>
-            </el-tooltip>
-
-            <el-tooltip class="itemrk" content="供货单行项目采购数量" placement="top-start">
-              <el-form-item label="供货单行项目采购数量" prop="amount"><el-input v-model="ruleForm.amount" /></el-form-item>
-            </el-tooltip>
-
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true" /></el-form-item>
-            <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
+            <el-form-item label="实物ID" prop="swId"><el-input v-model="ruleForm.swId"  /></el-form-item>
+            <el-form-item label="产品编号(物料号)" prop="supplierSupportId"><el-input v-model="ruleForm.supplierSupportId"  /></el-form-item>
+            <el-form-item label="入库数量" prop="inventoryQuantity"><el-input v-model="ruleForm.inventoryQuantity"  /></el-form-item>
+            <el-form-item label="计量单位" prop="measuringUnit"><el-input v-model="ruleForm.measuringUnit"  /></el-form-item>
+            <el-form-item label="入库日期" prop="storageTime">
+              <el-date-picker v-model="ruleForm.storageTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间"   />
+            </el-form-item>
+            <el-form-item label="发货状态" prop="deliveryStatus"><el-input v-model="ruleForm.deliveryStatus"  /></el-form-item>
+            <el-form-item label="发货日期" prop="deliveryTime">
+              <el-date-picker v-model="ruleForm.deliveryTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间"  />
+            </el-form-item>
+            <el-form-item label="采集时间" prop="checkTime">
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+            </el-form-item>
           </div>
         </div>
       </el-form>
@@ -387,24 +355,16 @@ export default {
         ]
       },
       rules: {
-        saleOrg: [{ required: true, message: '请输入工厂', trigger: 'blur' }],
-        purchaserHqCode: [{ required: true, message: '请输入采购方总部编码', trigger: 'blur' }],
-        supplierCode: [{ required: true, message: '请输入供应商编码', trigger: 'blur' }],
-        supplyNo: [{ required: true, message: '请输入采购供货单编号', trigger: 'blur' }],
-        conType: [{ required: true, message: '请输入合同类型', trigger: 'blur' }],
-        conCode: [{ required: true, message: '请输入合同编号', trigger: 'blur' }],
-        cargoName: [{ required: true, message: '请输入货物名称', trigger: 'blur' }],
-        categoryCode: [{ required: true, message: '请输入品类编码', trigger: 'blur' }],
-        subclassCode: [{ required: true, message: '请输入种类编码', trigger: 'blur' }],
-        purchaseName: [{ required: true, message: '请输入采购方公司名称', trigger: 'blur' }],
-        poItemNo: [{ required: true, message: '请输入供货单项目号', trigger: 'blur' }],
-        receivedName: [{ required: true, message: '请输入供货单行项目收货方公司名称', trigger: 'blur' }],
-        materialCode: [{ required: true, message: '请输入供货单行项目供应商侧物料编码', trigger: 'blur' }],
-        materialDesc: [{ required: true, message: '请输入供货单行项目物料描述', trigger: 'blur' }],
-        amount: [{ required: true, message: '请输入供货单行项目采购数量', trigger: 'blur' }],
-        measUnit: [{ required: true, message: '请输入供货单行项目计量单位', trigger: 'blur' }],
-        dataSource: [{ required: true, message: '请输入数据来源', trigger: 'blur' }],
-        dataSourceCreateTime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
+        supplierWorkNo: [{ required: true, message: '请输入供应商工单编号', trigger: 'blur' }],
+        productModel: [{ required: true, message: '请输入供应商数据唯一标识(序列号)', trigger: 'blur' }],
+        swId: [{ required: true, message: '请输入实物ID', trigger: 'blur' }],
+        supplierSupportId: [{ required: true, message: '请输入产品编号(物料号)', trigger: 'blur' }],
+        inventoryQuantity: [{ required: true, message: '请输入入库数量', trigger: 'blur' }],
+        measuringUnit: [{ required: true, message: '请输入计量单位', trigger: 'blur' }],
+        storageTime: [{ required: true, message: '请输入入库日期', trigger: 'blur' }],
+        deliveryStatus: [{ required: true, message: '请输入发货状态', trigger: 'blur' }],
+        deliveryTime: [{ required: true, message: '请输入发货日期', trigger: 'blur' }],
+        checkTime: [{ required: true, message: '请输入采集时间', trigger: 'blur' }],
       }
     }
   },

@@ -52,7 +52,7 @@
       @selection-change="handleSelectionChange">
       <el-table-column type="selection" align="center" width="55" fixed />
 
-     <!-- <el-table-column align="center" label="创建时间" width="150" :show-overflow-tooltip="true">
+      <!-- <el-table-column align="center" label="创建时间" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.createTime }}
         </template>
@@ -65,7 +65,7 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.saleOrg }}
@@ -142,13 +142,12 @@
         </template>
       </el-table-column>
 
-     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+      <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
-          <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button> -->
-          <!-- <el-button type="danger" size="small" @click="handleDelete(scope.$index, scope.row)">{{ $t('table.delete') }}</el-button> -->
-        <!--  <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
+          <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
+          <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
@@ -176,13 +175,13 @@
             <el-form-item label="实物生产状态" prop="entityStatus">
               <el-input v-model="ruleForm.entityStatus" />
             </el-form-item>
-            <el-form-item label="备注">
-              <el-input v-model="ruleForm.remark" :disabled="true" />
-            </el-form-item>
-            <!-- <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
+        
+            <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间" prop="dataSourceCreateTime">
-                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
-              </el-form-item> -->
+                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" format="yyyy-MM-dd hh:mm:ss"
+                  placeholder="选择日期时间" :disabled="true"/>
+              </el-form-item>
+            </el-tooltip>
           </div>
           <div class="boxRight">
             <el-form-item label="采购方总部编码">
@@ -203,6 +202,10 @@
             <el-form-item label="数据拥有方">
               <el-input v-model="ruleForm.ownerId" :disabled="true" />
             </el-form-item>
+            
+            <el-form-item label="备注">
+              <el-input v-model="ruleForm.remark" :disabled="true" />
+            </el-form-item>
           </div>
         </div>
       </el-form>
@@ -213,7 +216,7 @@
       </div>
     </el-dialog>
 
-    <!-- 日志弹出框 -->
+    <!-- 日志弹出框  -->
     <log-dialog :is-show="dialogTableVisible" :log-total="logTotal" :pagination-log="paginationLog" :data="gridData"
       @pageChange="getLogList" @closeLog="closeLog" />
 
@@ -591,7 +594,7 @@
           this.$message.error(this.$t('table.errorTwo'))
         }
         this.improtLoading = true
-        return  isLt50M
+        return isLt50M
       }
     }
   }

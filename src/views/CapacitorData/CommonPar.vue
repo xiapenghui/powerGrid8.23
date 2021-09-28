@@ -58,61 +58,61 @@
     >
       <el-table-column type="selection" align="center" width="55" fixed />
 
-      <el-table-column align="center" :label="$t('permission.SaleOrg')">
+      <el-table-column align="center" :label="$t('permission.SaleOrg')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.salesOrg }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.tableName')">
+      <el-table-column align="center" :label="$t('permission.tableName')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.tableName }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.standardVersion')">
+      <el-table-column align="center" :label="$t('permission.standardVersion')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.standardVersion }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.supplierCode')">
+      <el-table-column align="center" :label="$t('permission.supplierCode')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.supplierCode }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.modelCode')">
+      <el-table-column align="center" :label="$t('permission.modelCode')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.modelCode }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.categoryType')">
+      <el-table-column align="center" :label="$t('permission.categoryType')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.categoryType }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.isAlarmData')">
+      <el-table-column align="center" :label="$t('permission.isAlarmData')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.isAlarmData === 1 ? '是' : '否' }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.alarmItem')">
+      <el-table-column align="center" :label="$t('permission.alarmItem')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.alarmItem  }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.processType')">
+      <el-table-column align="center" :label="$t('permission.processType')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.processType }}
         </template>
       </el-table-column>
 
-      <el-table-column align="center" :label="$t('permission.pdCode')">
+      <el-table-column align="center" :label="$t('permission.pdCode')"  width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.pdCode }}
         </template>

@@ -218,7 +218,7 @@
       :close-on-click-modal="false"
       :visible.sync="dialogFormVisible"
     >
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
             <el-form-item label="工厂名称"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
@@ -242,10 +242,10 @@
 
             <el-form-item label="感知过程"><el-input v-model="ruleForm.processType" :disabled="true" /></el-form-item>
             <el-form-item label="采集时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.checkTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="试验开始时间" prop="checkTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="startTime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.checkTime" type="startTime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
 
             <el-form-item label="试验结果" prop="inspectionResults"><el-input v-model="ruleForm.inspectionResults" /></el-form-item>
@@ -267,7 +267,7 @@
 
             <el-form-item label="工序"><el-input v-model="ruleForm.pdCode" :disabled="true" /></el-form-item>
             <el-form-item label="试验结束时间" prop="stopTime">
-              <el-date-picker v-model="ruleForm.checkTime" type="startTime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+              <el-date-picker v-model="ruleForm.checkTime" type="startTime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
             </el-form-item>
             <el-form-item label="成品序列号" prop="materialSN"><el-input v-model="ruleForm.materialSN" /></el-form-item>
             <el-tooltip class="item" effect="dark" content="耐压值（二次耐压值" placement="top-start">

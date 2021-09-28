@@ -192,13 +192,12 @@
         </template>
       </el-table-column>
 
-     <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+     <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
         <template slot-scope="scope">
-          <el-button v-if="!scope.row.isEgdit" type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button v-else type="success" size="small" @click="editSuccess(scope.$index, scope.row)">{{ $t('table.editSuccess') }}</el-button>
-          <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
+         <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
+         <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
         </template>
-      </el-table-column> -->
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
@@ -207,7 +206,7 @@
       :close-on-click-modal="false"
       :visible.sync="dialogFormVisible"
     >
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
              <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
@@ -236,7 +235,7 @@
 
           <!--  <el-tooltip class="item" effect="dark" content="来源数据创建时间" placement="top-start">
               <el-form-item label="来源数据创建时间 " prop="dataSourceCreateTime">
-                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" value-format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
+                <el-date-picker v-model="ruleForm.dataSourceCreateTime" type="datetime" format="yyyy-MM-dd hh:mm:ss" placeholder="选择日期时间" />
               </el-form-item>
             </el-tooltip> -->
 

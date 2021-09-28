@@ -72,7 +72,7 @@
           <el-tag v-else class="classRed">上传失败</el-tag>
         </template>
       </el-table-column>
-      
+
       <el-table-column align="center" :label="$t('permission.SaleOrg')" width="150" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           {{ scope.row.saleOrg }}
@@ -247,55 +247,57 @@
         </template>
       </el-table-column>
 
-      <!-- <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150"> -->
-       <!-- <template slot-scope="scope">
-          <el-button v-if="!scope.row.isEgdit" type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
-          <el-button v-else type="success" size="small" @click="editSuccess(scope.$index, scope.row)">{{ $t('table.editSuccess') }}</el-button>
-          <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
-        </template> -->
-      <!-- </el-table-column> -->
+      <el-table-column align="center" :label="$t('permission.operations')" fixed="right" width="150">
+       <template slot-scope="scope">
+        <el-button type="primary" size="small" @click="handleEdit(scope.$index, scope.row)">{{ $t('table.edit') }}</el-button>
+        <el-button type="warning" size="small" @click="clickLogs(scope.row)">日志</el-button>
+        </template>
+      </el-table-column>
     </el-table>
 
     <!-- 编辑弹窗 -->
     <el-dialog title="编辑信息" :close-on-click-modal="false" :visible.sync="dialogFormVisible">
-      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="130px" class="demo-ruleForm">
+      <el-form ref="ruleForm" v-loading="editLoading" :model="ruleForm" :rules="rules" label-width="150px" class="demo-ruleForm">
         <div class="bigUpBox">
           <div class="boxLeft">
-            <el-form-item label="产成品编码" prop="productCode"><el-input v-model="ruleForm.productCode" /></el-form-item>
-            <el-form-item label="产成品名称" prop="productName"><el-input v-model="ruleForm.productName" /></el-form-item>
+			       <el-form-item label="工厂"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
+            <el-form-item label="产成品编码"><el-input v-model="ruleForm.productCode" :disabled="true"/></el-form-item>
+            <el-form-item label="产成品名称"><el-input v-model="ruleForm.productName" :disabled="true"/></el-form-item>
             <el-tooltip class="item" effect="dark" content="产成品库存剩余数量" placement="top-start">
               <el-form-item label="产成品库存剩余数量" prop="productAmount"><el-input v-model="ruleForm.productAmount" /></el-form-item>
             </el-tooltip>
             <el-form-item label="计量单位" prop="productUnit"><el-input v-model="ruleForm.productUnit" /></el-form-item>
             <el-form-item label="入库批次号" prop="itemBatchCode"><el-input v-model="ruleForm.itemBatchCode" /></el-form-item>
-            <el-form-item label="工厂" prop="saleOrg"><el-input v-model="ruleForm.saleOrg" :disabled="true" /></el-form-item>
-            <el-form-item label="采购方总部编码" prop="purchaserHqCode"><el-input v-model="ruleForm.purchaserHqCode" /></el-form-item>
-            <el-form-item label="供应商编码" prop="supplierCode"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
-            <el-form-item label="供应商名称" prop="supplierName"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
-            <el-form-item label="数据来源" prop="dataSource"><el-input v-model="ruleForm.dataSource" /></el-form-item>
-            <el-form-item label="数据来源" prop="itemDataSource"><el-input v-model="ruleForm.itemDataSource" /></el-form-item>
-            <el-form-item label="备注"><el-input v-model="ruleForm.remark" /></el-form-item>
+            <el-form-item label="采购方总部编码"><el-input v-model="ruleForm.purchaserHqCode" disabled="true"/></el-form-item>
+            <el-form-item label="供应商编码"><el-input v-model="ruleForm.supplierCode" :disabled="true" /></el-form-item>
+            <el-form-item label="供应商名称"><el-input v-model="ruleForm.supplierName" :disabled="true" /></el-form-item>
+            <el-form-item label="数据来源"><el-input v-model="ruleForm.dataSource" :disabled="true"/></el-form-item>
+            <el-form-item label="数据来源"><el-input v-model="ruleForm.itemDataSource" :disabled="true"/></el-form-item>
             <el-form-item label="数据拥有方"><el-input v-model="ruleForm.ownerId" :disabled="true" /></el-form-item>
             <el-form-item label="数据可见方"><el-input v-model="ruleForm.openId" :disabled="true" /></el-form-item>
+            <el-form-item label="国网采购订单号"><el-input v-model="ruleForm.poNo" /></el-form-item>
+             <el-form-item label="所属项目"><el-input v-model="ruleForm.belongProject" /></el-form-item>
           </div>
           <div class="boxRight">
-            <el-form-item label="物料编码" prop="materialsCode"><el-input v-model="ruleForm.materialsCode" /></el-form-item>
-            <el-form-item label="物资名称" prop="materialsName"><el-input v-model="ruleForm.materialsName" /></el-form-item>
+            <el-form-item label="物料编码"><el-input v-model="ruleForm.materialsCode" :disabled="true"/></el-form-item>
+            <el-form-item label="物资名称"><el-input v-model="ruleForm.materialsName" :disabled="true"/></el-form-item>
             <el-form-item label="规格型号描述"><el-input v-model="ruleForm.speModels" /></el-form-item>
             <el-form-item label="原材料的供应商名称"><el-input v-model="ruleForm.matSupplierName" /></el-form-item>
             <el-form-item label="原材料电压等级"><el-input v-model="ruleForm.matVoltageLevel" /></el-form-item>
             <el-form-item label="存放地点所在市"><el-input v-model="ruleForm.storeCity" /></el-form-item>
             <el-form-item label="国网采购订单号"><el-input v-model="ruleForm.poNo" /></el-form-item>
             <el-form-item label="采购订单行项目号"><el-input v-model="ruleForm.poItemNo" /></el-form-item>
-            <el-form-item label="国网采购订单行项目ID"><el-input v-model="ruleForm.poItemId" /></el-form-item>
+             <el-tooltip class="item" effect="dark" content="国网采购订单行项目ID" placement="top-start">
+               <el-form-item label="国网采购订单行项目ID"><el-input v-model="ruleForm.poItemId" /></el-form-item>
+             </el-tooltip>
             <el-form-item label="库存批次号"><el-input v-model="ruleForm.inventoryCode" /></el-form-item>
             <el-form-item label="出入库类型"><el-input v-model="ruleForm.ioType" /></el-form-item>
             <el-form-item label="入库时间"><el-input v-model="ruleForm.putStorageTime" /></el-form-item>
-            <el-form-item label="当前入库批次库存剩余数量"><el-input v-model="ruleForm.productAmount" /></el-form-item>
+             <el-tooltip class="item" effect="dark" content="产成品库存剩余数量" placement="top-start">
+                 <el-form-item label="产成品库存剩余数量"><el-input v-model="ruleForm.productAmount" /></el-form-item>
+             </el-tooltip>
             <el-form-item label="采购方公司名称"><el-input v-model="ruleForm.purchaseName" /></el-form-item>
-            <el-form-item label="所属项目"><el-input v-model="ruleForm.belongProject" /></el-form-item>
-            <el-form-item label="采购方公司名称" prop="itemPurchaseName"><el-input v-model="ruleForm.itemPurchaseName" /></el-form-item>
-            <el-form-item label="国网采购订单号"><el-input v-model="ruleForm.poNo" /></el-form-item>
+             <el-form-item label="备注"><el-input v-model="ruleForm.remark" :disabled="true"/></el-form-item>
           </div>
         </div>
       </el-form>
@@ -305,7 +307,7 @@
       </div>
     </el-dialog>
 
-    <!-- 日志弹窗 -->
+    <!-- 日志弹窗
     <log-dialog :is-show="dialogTableVisible" :log-total="logTotal" :pagination-log="paginationLog" :data="gridData" @pageChange="getLogList" @closeLog="closeLog" />
 
     <!-- 上传文件弹窗 -->
@@ -415,7 +417,6 @@ export default {
         productAmount: [{ required: true, message: '请输入当前入库批次库存剩余数量', trigger: 'blur' }],
         // itemProductAmount: [{ required: true, message: '请输入产成品库存剩余数量', trigger: 'blur' }],
         productUnit: [{ required: true, message: '请输入计量单位', trigger: 'blur' }],
-
         dataSource: [{ required: true, message: '请输入数据来源', trigger: 'blur' }]
         // dataSourceCreateTime: [{ required: true, message: '请输入来源数据创建时间', trigger: 'blur' }]
       }
@@ -650,7 +651,7 @@ export default {
     // const isXLS = file.type === 'application/vnd.ms-excel'
     // const isXLSX = file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     const isLt50M = file.size / 1024 / 1024 < 50
-  
+
     // if (!isXLS || isXLSX) {
     //   debugger
     //   this.$message.error(this.$t('table.errorOne'))
